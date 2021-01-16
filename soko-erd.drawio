@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2021-01-16T17:00:32.308Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="oQbq4f7pBmNsJpyIcEVU" version="14.1.9" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-16T17:31:54.138Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="taLnAZ0k7o-eT6rcOAkk" version="14.1.9" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
     <mxGraphModel dx="946" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="49kWa-taQujCRStD-I59-1" value="Product::Variant" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
-          <mxGeometry x="750" y="-810" width="410" height="388" as="geometry" />
+          <mxGeometry x="750" y="-810" width="410" height="414" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-2" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-1">
           <mxGeometry y="26" width="410" height="26" as="geometry" />
@@ -42,6 +42,33 @@
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-13" value="images " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-1">
           <mxGeometry y="362" width="410" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="49kWa-taQujCRStD-I59-28" value="data (jsonb)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-1">
+          <mxGeometry y="388" width="410" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="49kWa-taQujCRStD-I59-14" value="Product" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="750" y="-180" width="410" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="49kWa-taQujCRStD-I59-15" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-14">
+          <mxGeometry y="26" width="410" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="49kWa-taQujCRStD-I59-20" value="status (enum): Options include &quot;drafted&quot;, &quot;&quot;created&quot;, &quot;approved&quot;, &#xa;&quot;published&quot;, &quot;archived&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" vertex="1" parent="49kWa-taQujCRStD-I59-14">
+          <mxGeometry y="52" width="410" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="49kWa-taQujCRStD-I59-27" value="data (jsonb)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-14">
+          <mxGeometry y="90" width="410" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="49kWa-taQujCRStD-I59-29" value="Product::OptionType" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="1280" y="-310" width="280" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="49kWa-taQujCRStD-I59-30" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-29">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="49kWa-taQujCRStD-I59-33" value="product_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-29">
+          <mxGeometry y="52" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="49kWa-taQujCRStD-I59-31" value="name (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" vertex="1" parent="49kWa-taQujCRStD-I59-29">
+          <mxGeometry y="78" width="280" height="28" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

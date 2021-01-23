@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-23T13:25:36.593Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="mhWilKl4sZJWBVOzPEmC" version="14.2.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-23T15:59:34.738Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36" etag="prdWfwdGS6cOKxZHfIqE" version="14.2.4" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
     <mxGraphModel dx="1186" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -59,7 +59,7 @@
           <mxGeometry y="90" width="410" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-29" value="Product::OptionType" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="1280" y="-600" width="280" height="106" as="geometry" />
+          <mxGeometry x="1280" y="-600" width="280" height="150" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-30" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-29" vertex="1">
           <mxGeometry y="26" width="280" height="26" as="geometry" />
@@ -70,6 +70,9 @@
         <mxCell id="49kWa-taQujCRStD-I59-31" value="name (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="49kWa-taQujCRStD-I59-29" vertex="1">
           <mxGeometry y="78" width="280" height="28" as="geometry" />
         </mxCell>
+        <mxCell id="A97aOiuL6e9JtIXtelht-19" value="description (text) : This acts as a help text for the &#xa;customer" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" vertex="1" parent="49kWa-taQujCRStD-I59-29">
+          <mxGeometry y="106" width="280" height="44" as="geometry" />
+        </mxCell>
         <mxCell id="-MTvJyrtgdokTE8N0LGK-1" value="InventoryLocation" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
           <mxGeometry x="280" y="-480" width="300" height="172" as="geometry" />
         </mxCell>
@@ -79,7 +82,7 @@
         <mxCell id="-MTvJyrtgdokTE8N0LGK-9" value="name (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="-MTvJyrtgdokTE8N0LGK-1" vertex="1">
           <mxGeometry y="52" width="300" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="-MTvJyrtgdokTE8N0LGK-10" value="active (boolean) : when location is active then one can &#xa;stock inventory and fulfill orders" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="-MTvJyrtgdokTE8N0LGK-1" vertex="1">
+        <mxCell id="-MTvJyrtgdokTE8N0LGK-10" value="active (boolean) : when location is active then &#xa;the store staff can stock inventory and fulfil orders" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="-MTvJyrtgdokTE8N0LGK-1" vertex="1">
           <mxGeometry y="78" width="300" height="42" as="geometry" />
         </mxCell>
         <mxCell id="-MTvJyrtgdokTE8N0LGK-11" value="default (boolean) :  " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="-MTvJyrtgdokTE8N0LGK-1" vertex="1">
@@ -135,6 +138,18 @@
         </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-12" value="path (string) : uses path enumeration on the ids e.g 1/2/3 &#xa;would mean the current collection is a child&#xa;of collection with id 2 and collection 2 is a child of collection &#xa;with id 1. " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="A97aOiuL6e9JtIXtelht-7">
           <mxGeometry y="130" width="330" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="A97aOiuL6e9JtIXtelht-15" value="Product::OptionValueVariant" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="-990" width="280" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="A97aOiuL6e9JtIXtelht-16" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="A97aOiuL6e9JtIXtelht-15">
+          <mxGeometry y="26" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="A97aOiuL6e9JtIXtelht-17" value="product_variant (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="A97aOiuL6e9JtIXtelht-15">
+          <mxGeometry y="52" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="A97aOiuL6e9JtIXtelht-18" value="product_option_value_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" vertex="1" parent="A97aOiuL6e9JtIXtelht-15">
+          <mxGeometry y="78" width="280" height="28" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

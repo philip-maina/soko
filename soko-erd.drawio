@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-01-27T18:17:55.327Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36" etag="He-xpjN8cWo27858hO0A" version="14.2.7" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-28T19:45:25.670Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36" etag="pNqONxEN9gw6wLMsVBbD" version="14.2.7" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
-    <mxGraphModel dx="1186" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2036" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -28,7 +28,7 @@
         <mxCell id="49kWa-taQujCRStD-I59-8" value="master (boolean): A master variant serves a template that other &#xa;variants are based on." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
           <mxGeometry y="220" width="410" height="38" as="geometry" />
         </mxCell>
-        <mxCell id="49kWa-taQujCRStD-I59-6" value="search_tags (text:array)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
+        <mxCell id="49kWa-taQujCRStD-I59-6" value="search_tags (text:array) : searchable keywords associated with the variant." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
           <mxGeometry y="258" width="410" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-9" value="care_tags (text:array)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
@@ -186,6 +186,45 @@
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-11" value="customer_groups (text - array) : Element values should be retrieved from the&#xa;customer_groups enum " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
           <mxGeometry y="252" width="420" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-4" value="Product::Variant::CustomField" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="140" y="-160" width="420" height="216" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-5" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="26" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-11" value="product_variant_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="52" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-6" value="label (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="78" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-7" value="help_text (text)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="104" width="420" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-9" value="placeholder (text)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="126" width="420" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-8" value="required (boolean)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="150" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-10" value="field_type (enum) : Options include &quot;text_field&quot;, &quot;text_area&quot;, &quot;number_field&quot;, &#xa;&quot;date_field&quot;, &quot;file_field&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="176" width="420" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-12" value="Product::Variant::CustomFieldValue" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="-420" y="-160" width="420" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-13" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-12">
+          <mxGeometry y="26" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-14" value="product_variant_custom_field_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-12">
+          <mxGeometry y="52" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-15" value="sales_order_line_item_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-12">
+          <mxGeometry y="78" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-16" value="value (jsonb)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-12">
+          <mxGeometry y="104" width="420" height="22" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-01-28T19:45:25.670Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36" etag="pNqONxEN9gw6wLMsVBbD" version="14.2.7" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-29T15:59:55.415Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36" etag="GFO3xEVJKM2TeOi3XapS" version="14.2.7" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
-    <mxGraphModel dx="2036" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1796" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -77,7 +77,7 @@
           <mxGeometry y="150" width="280" height="28" as="geometry" />
         </mxCell>
         <mxCell id="-MTvJyrtgdokTE8N0LGK-1" value="InventoryLocation" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="140" y="-480" width="420" height="200" as="geometry" />
+          <mxGeometry x="120" y="-120" width="420" height="200" as="geometry" />
         </mxCell>
         <mxCell id="-MTvJyrtgdokTE8N0LGK-2" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="-MTvJyrtgdokTE8N0LGK-1" vertex="1">
           <mxGeometry y="26" width="420" height="26" as="geometry" />
@@ -158,7 +158,7 @@
           <mxGeometry y="78" width="280" height="28" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-2" value="Customer::PriceList (polymorphic)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="140" y="-840" width="420" height="290" as="geometry" />
+          <mxGeometry x="120" y="-1040" width="420" height="290" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-3" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
           <mxGeometry y="26" width="420" height="26" as="geometry" />
@@ -187,8 +187,8 @@
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-11" value="customer_groups (text - array) : Element values should be retrieved from the&#xa;customer_groups enum " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
           <mxGeometry y="252" width="420" height="38" as="geometry" />
         </mxCell>
-        <mxCell id="IhNO1zzbE4TS1bx1REmc-4" value="Product::Variant::CustomField" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
-          <mxGeometry x="140" y="-160" width="420" height="216" as="geometry" />
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-4" value="Product::Variant::InputField" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="120" y="-680" width="420" height="272" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-5" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
           <mxGeometry y="26" width="420" height="26" as="geometry" />
@@ -199,25 +199,28 @@
         <mxCell id="IhNO1zzbE4TS1bx1REmc-6" value="label (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
           <mxGeometry y="78" width="420" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="IhNO1zzbE4TS1bx1REmc-7" value="help_text (text)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
-          <mxGeometry y="104" width="420" height="22" as="geometry" />
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-7" value="help_text (text) : Text that appears as a sub-heading to the field label or &#xa;as a tooltip, but doesn’t appear in the field entry area. " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="104" width="420" height="36" as="geometry" />
         </mxCell>
-        <mxCell id="IhNO1zzbE4TS1bx1REmc-9" value="placeholder (text)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
-          <mxGeometry y="126" width="420" height="24" as="geometry" />
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-9" value="placeholder (text) :  Text in the field entry area that isn’t submitted if the field &#xa;is left untouched by the user." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="140" width="420" height="40" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-8" value="required (boolean)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
-          <mxGeometry y="150" width="420" height="26" as="geometry" />
+          <mxGeometry y="180" width="420" height="26" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-10" value="field_type (enum) : Options include &quot;text_field&quot;, &quot;text_area&quot;, &quot;number_field&quot;, &#xa;&quot;date_field&quot;, &quot;file_field&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
-          <mxGeometry y="176" width="420" height="40" as="geometry" />
+          <mxGeometry y="206" width="420" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="IhNO1zzbE4TS1bx1REmc-12" value="Product::Variant::CustomFieldValue" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
-          <mxGeometry x="-420" y="-160" width="420" height="126" as="geometry" />
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-35" value="position (integer)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="246" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-12" value="Product::Variant::InputFieldValue" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="-420" y="-680" width="420" height="126" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-13" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-12">
           <mxGeometry y="26" width="420" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="IhNO1zzbE4TS1bx1REmc-14" value="product_variant_custom_field_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-12">
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-14" value="product_variant_input_field_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-12">
           <mxGeometry y="52" width="420" height="26" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-15" value="sales_order_line_item_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-12">
@@ -225,6 +228,24 @@
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-16" value="value (jsonb)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-12">
           <mxGeometry y="104" width="420" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-26" value="Product::Variant::Inventory" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="120" y="-360" width="420" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-27" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-26">
+          <mxGeometry y="26" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-34" value="product_variant_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-26">
+          <mxGeometry y="52" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-28" value="inventory_location_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-26">
+          <mxGeometry y="78" width="420" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-29" value="quantity_on_hand (integer) :number of units in inventory location &#xa;(UPDATED IN LOCK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-26">
+          <mxGeometry y="104" width="420" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-30" value="quantity_reserved (integer) : number of units committed to order that are not &#xa;fulfilled (UPDATED IN LOCK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-26">
+          <mxGeometry y="140" width="420" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

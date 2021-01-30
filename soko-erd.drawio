@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-29T15:59:55.415Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36" etag="GFO3xEVJKM2TeOi3XapS" version="14.2.7" type="github">
+<mxfile host="app.diagrams.net" modified="2021-01-30T14:57:46.005Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36" etag="cBfsb2RArx9vpHkGbX8P" version="14.2.7" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
     <mxGraphModel dx="1796" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -246,6 +246,21 @@
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-30" value="quantity_reserved (integer) : number of units committed to order that are not &#xa;fulfilled (UPDATED IN LOCK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-26">
           <mxGeometry y="140" width="420" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-36" value="Collection::Item" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="120" width="300" height="146" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-37" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-36">
+          <mxGeometry y="26" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-38" value="collectionable_itemable_id (integer)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-36">
+          <mxGeometry y="52" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-39" value="collectionable_itemable_type (string) : &quot;Product&quot; or &#xa;&quot;ProductBundle&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-36">
+          <mxGeometry y="78" width="300" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-40" value="collection_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-36">
+          <mxGeometry y="120" width="300" height="26" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

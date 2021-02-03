@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-01-30T14:57:46.005Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36" etag="cBfsb2RArx9vpHkGbX8P" version="14.2.7" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-03T15:38:09.479Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36" etag="_IbNGkVf5PGIb2OfmIJf" version="14.2.7" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
     <mxGraphModel dx="1796" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -121,29 +121,35 @@
         <mxCell id="A97aOiuL6e9JtIXtelht-4" value="description (text): " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-1" vertex="1">
           <mxGeometry y="78" width="300" height="32" as="geometry" />
         </mxCell>
-        <mxCell id="A97aOiuL6e9JtIXtelht-5" value="image (activestorage) " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-1" vertex="1">
+        <mxCell id="A97aOiuL6e9JtIXtelht-5" value="background_image (activestorage) : optional" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-1" vertex="1">
           <mxGeometry y="110" width="300" height="26" as="geometry" />
         </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-6" value="collection_type (enum) : Options include &quot;manual&quot;,  &#xa;&quot;automated&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-1" vertex="1">
           <mxGeometry y="136" width="300" height="44" as="geometry" />
         </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-7" value="Navigation::MenuItem (polymorphic)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="1720" y="-200" width="330" height="200" as="geometry" />
+          <mxGeometry x="1720" y="-200" width="420" height="286" as="geometry" />
         </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-8" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-7" vertex="1">
-          <mxGeometry y="26" width="330" height="26" as="geometry" />
+          <mxGeometry y="26" width="420" height="26" as="geometry" />
         </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-13" value="navigation_menu_itemable_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-7" vertex="1">
-          <mxGeometry y="52" width="330" height="26" as="geometry" />
+          <mxGeometry y="52" width="420" height="26" as="geometry" />
         </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-14" value="navigation_menu_itemable_type (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-7" vertex="1">
-          <mxGeometry y="78" width="330" height="26" as="geometry" />
+          <mxGeometry y="78" width="420" height="26" as="geometry" />
         </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-9" value="name (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-7" vertex="1">
-          <mxGeometry y="104" width="330" height="26" as="geometry" />
+          <mxGeometry y="104" width="420" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="A97aOiuL6e9JtIXtelht-12" value="path (string) : uses path enumeration on the ids e.g 1/2/3 &#xa;would mean the current collection is a child&#xa;of collection with id 2 and collection 2 is a child of collection &#xa;with id 1. " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-7" vertex="1">
-          <mxGeometry y="130" width="330" height="70" as="geometry" />
+        <mxCell id="A97aOiuL6e9JtIXtelht-12" value="path (string) : uses path enumeration/materialized paths on the ids e.g 1/2/3 &#xa;would mean the current menu item is a child of menu item with id 2 and &#xa;menu item 2 is a child of menu item with id 1. Basically this stores its entire &#xa;ancestral path, from the root node, down to the node itself " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-7" vertex="1">
+          <mxGeometry y="130" width="420" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-42" value="url (text) : The URL of the page that the navigation item links to. This&#xa;is optional and when not provided, the url is constructed based on&#xa;the navigation_menu_itemable_type." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="A97aOiuL6e9JtIXtelht-7">
+          <mxGeometry y="200" width="420" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-43" value="sibling_position (integer)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="A97aOiuL6e9JtIXtelht-7">
+          <mxGeometry y="260" width="420" height="26" as="geometry" />
         </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-15" value="Product::OptionValueVariant" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
           <mxGeometry x="1080" y="-990" width="280" height="106" as="geometry" />

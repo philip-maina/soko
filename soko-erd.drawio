@@ -1,11 +1,11 @@
-<mxfile host="app.diagrams.net" modified="2021-02-24T20:37:59.403Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" etag="hqJIvgNnbCEZDRMT4s0_" version="14.4.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-26T16:21:27.732Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" etag="IB88l24aeS9PBstYbWnK" version="14.4.2" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
     <mxGraphModel dx="1796" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="49kWa-taQujCRStD-I59-1" value="Product::Variant" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="750" y="-800" width="410" height="440" as="geometry" />
+          <mxGeometry x="750" y="-800" width="410" height="502" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-2" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
           <mxGeometry y="26" width="410" height="26" as="geometry" />
@@ -43,11 +43,14 @@
         <mxCell id="49kWa-taQujCRStD-I59-13" value="images (activestorage) " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
           <mxGeometry y="362" width="410" height="26" as="geometry" />
         </mxCell>
+        <mxCell id="xNZ4ATSNOMt5Z4T5nZos-4" value="digital_downloads (activestorage) : Variants of digital variant_type should &#xa;have downloads. Physical products may also have digital attachments i.e&#xa;Michelle Obama Autobiography (with audio file)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-1">
+          <mxGeometry y="388" width="410" height="62" as="geometry" />
+        </mxCell>
         <mxCell id="xNZ4ATSNOMt5Z4T5nZos-3" value="eligible_for_gifting (boolean)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-1">
-          <mxGeometry y="388" width="410" height="26" as="geometry" />
+          <mxGeometry y="450" width="410" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-28" value="data (jsonb)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="414" width="410" height="26" as="geometry" />
+          <mxGeometry y="476" width="410" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-14" value="Product" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
           <mxGeometry x="750" y="-200" width="410" height="142" as="geometry" />

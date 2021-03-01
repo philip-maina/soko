@@ -1,65 +1,80 @@
-<mxfile host="app.diagrams.net" modified="2021-02-09T08:27:45.968Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36" etag="Qo2lhzM1XDh0QEewXodR" version="14.3.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-27T21:06:20.734Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" etag="8SE__4jHZ1p78qGy-wPV" version="14.4.2" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
-    <mxGraphModel dx="1796" dy="1746" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1796" dy="1689" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="49kWa-taQujCRStD-I59-1" value="Product::Variant" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="750" y="-800" width="410" height="414" as="geometry" />
+          <mxGeometry x="730" y="-800" width="460" height="554" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-2" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="26" width="410" height="26" as="geometry" />
+          <mxGeometry y="26" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-3" value="product_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="52" width="410" height="26" as="geometry" />
+          <mxGeometry y="52" width="460" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="49kWa-taQujCRStD-I59-4" value="name (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="78" width="410" height="26" as="geometry" />
+        <mxCell id="49kWa-taQujCRStD-I59-4" value="title (string) e.g &quot;A Promised Land&quot;, &quot;Gordon the Giant Sloth&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
+          <mxGeometry y="78" width="460" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="xNZ4ATSNOMt5Z4T5nZos-5" value="subtitle (string) e.g &quot;by Barack Obama&quot;, &quot;This sleepy sloth is anything but a yawn.&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-1">
+          <mxGeometry y="104" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-5" value="description (rich text powered by Action Text)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="104" width="410" height="26" as="geometry" />
+          <mxGeometry y="130" width="460" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="xNZ4ATSNOMt5Z4T5nZos-7" value="details (rich text powered by Action Text)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-1">
+          <mxGeometry y="156" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-7" value="sku (string) : stock keeping unit" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="130" width="410" height="26" as="geometry" />
+          <mxGeometry y="182" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-10" value="variant_type (enum): A variant can either be physical or digital e.g A &#xa;book may have an format option type with values as &#xa;HardCover, PaperBack and Audio Book. The Audio Book variant has a&#xa;digital variant_type. " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="156" width="410" height="64" as="geometry" />
+          <mxGeometry y="208" width="460" height="64" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-8" value="master (boolean): A master variant serves a template that other &#xa;variants are based on." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="220" width="410" height="38" as="geometry" />
+          <mxGeometry y="272" width="460" height="38" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-6" value="search_tags (text:array) : searchable keywords associated with the variant." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="258" width="410" height="26" as="geometry" />
+          <mxGeometry y="310" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-9" value="care_tags (text:array)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="284" width="410" height="26" as="geometry" />
+          <mxGeometry y="336" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-11" value="storefront_visibility (boolean)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="310" width="410" height="26" as="geometry" />
+          <mxGeometry y="362" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-12" value="backorderable (boolean)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="336" width="410" height="26" as="geometry" />
+          <mxGeometry y="388" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-13" value="images (activestorage) " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="362" width="410" height="26" as="geometry" />
+          <mxGeometry y="414" width="460" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="xNZ4ATSNOMt5Z4T5nZos-4" value="digital_downloads (activestorage) : Variants of digital variant_type should &#xa;have downloads. Physical products may also have digital attachments i.e&#xa;Michelle Obama Autobiography (with audio file)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-1">
+          <mxGeometry y="440" width="460" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="xNZ4ATSNOMt5Z4T5nZos-3" value="eligible_for_gifting (boolean)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-1">
+          <mxGeometry y="502" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-28" value="data (jsonb)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-1" vertex="1">
-          <mxGeometry y="388" width="410" height="26" as="geometry" />
+          <mxGeometry y="528" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-14" value="Product" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="750" y="-200" width="410" height="116" as="geometry" />
+          <mxGeometry x="730" y="-200" width="460" height="142" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-15" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-14" vertex="1">
-          <mxGeometry y="26" width="410" height="26" as="geometry" />
+          <mxGeometry y="26" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-20" value="status (enum): Options include &quot;drafted&quot;, &quot;&quot;created&quot;, &quot;approved&quot;, &#xa;&quot;published&quot;, &quot;archived&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="49kWa-taQujCRStD-I59-14" vertex="1">
-          <mxGeometry y="52" width="410" height="38" as="geometry" />
+          <mxGeometry y="52" width="460" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="xNZ4ATSNOMt5Z4T5nZos-2" value="product_type (enum) : Options include standard, gift_card" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-14">
+          <mxGeometry y="90" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-27" value="data (jsonb)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-14" vertex="1">
-          <mxGeometry y="90" width="410" height="26" as="geometry" />
+          <mxGeometry y="116" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-29" value="Product::OptionType" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="1280" y="-600" width="280" height="178" as="geometry" />
+          <mxGeometry x="1280" y="-600" width="280" height="192" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-30" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-29" vertex="1">
           <mxGeometry y="26" width="280" height="26" as="geometry" />
@@ -67,14 +82,14 @@
         <mxCell id="49kWa-taQujCRStD-I59-33" value="product_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-29" vertex="1">
           <mxGeometry y="52" width="280" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="49kWa-taQujCRStD-I59-31" value="name (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="49kWa-taQujCRStD-I59-29" vertex="1">
-          <mxGeometry y="78" width="280" height="28" as="geometry" />
+        <mxCell id="49kWa-taQujCRStD-I59-31" value="name (string) e.g (Format: HardCover, PaperBack)&#xa;(Condition: New, Used, Refurbished)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="49kWa-taQujCRStD-I59-29" vertex="1">
+          <mxGeometry y="78" width="280" height="42" as="geometry" />
         </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-19" value="description (text) : This acts as a help text for the &#xa;customer" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="49kWa-taQujCRStD-I59-29" vertex="1">
-          <mxGeometry y="106" width="280" height="44" as="geometry" />
+          <mxGeometry y="120" width="280" height="44" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-3" value="position (integer)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="49kWa-taQujCRStD-I59-29" vertex="1">
-          <mxGeometry y="150" width="280" height="28" as="geometry" />
+          <mxGeometry y="164" width="280" height="28" as="geometry" />
         </mxCell>
         <mxCell id="-MTvJyrtgdokTE8N0LGK-1" value="InventoryLocation" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
           <mxGeometry x="120" y="-120" width="420" height="200" as="geometry" />
@@ -163,8 +178,8 @@
         <mxCell id="A97aOiuL6e9JtIXtelht-18" value="product_option_value_id (FK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="A97aOiuL6e9JtIXtelht-15" vertex="1">
           <mxGeometry y="78" width="280" height="28" as="geometry" />
         </mxCell>
-        <mxCell id="5EAPZrsPtRcHzYcJFA_N-2" value="Customer::PriceList (polymorphic)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="120" y="-1040" width="420" height="290" as="geometry" />
+        <mxCell id="5EAPZrsPtRcHzYcJFA_N-2" value="Customer::PriceList (polymorphic / ?sti)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
+          <mxGeometry x="120" y="-1040" width="420" height="316" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-3" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
           <mxGeometry y="26" width="420" height="26" as="geometry" />
@@ -184,16 +199,19 @@
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-9" value="increment_quantity (integer) : purchase in multiples of x" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
           <mxGeometry y="174" width="420" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="5EAPZrsPtRcHzYcJFA_N-7" value="price_cents (integer)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
+        <mxCell id="xNZ4ATSNOMt5Z4T5nZos-1" value="display_price (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="5EAPZrsPtRcHzYcJFA_N-2">
           <mxGeometry y="200" width="420" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="5EAPZrsPtRcHzYcJFA_N-10" value="price_currency (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
+        <mxCell id="5EAPZrsPtRcHzYcJFA_N-7" value="price_cents (integer)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
           <mxGeometry y="226" width="420" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="5EAPZrsPtRcHzYcJFA_N-11" value="customer_groups (text - array) : Element values should be retrieved from the&#xa;customer_groups enum " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="252" width="420" height="38" as="geometry" />
+        <mxCell id="5EAPZrsPtRcHzYcJFA_N-10" value="price_currency (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
+          <mxGeometry y="252" width="420" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="IhNO1zzbE4TS1bx1REmc-4" value="Product::Variant::InputField" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
+        <mxCell id="5EAPZrsPtRcHzYcJFA_N-11" value="customer_groups (text - array) : Element values should be retrieved from the&#xa;customer_groups enum " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
+          <mxGeometry y="278" width="420" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-4" value="Product::Variant::InputField (?sti)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
           <mxGeometry x="120" y="-680" width="420" height="272" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-5" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-4" vertex="1">

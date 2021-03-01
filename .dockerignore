@@ -1,0 +1,17 @@
+# Git
+.git
+.gitignore
+
+# Logs
+log/*
+
+# Temp files
+tmp/*
+
+dump.rdb
+README.md
+.jshintrc
+.DS_Store
+
+# Domain Modelling file(s)
+soko-erd.drawio

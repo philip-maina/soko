@@ -8,7 +8,7 @@ FROM ruby:3.0
 LABEL maintainer="philip.maina@hey.com"
 
 # nodejs specific repository and instructions
-RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends nodejs
 
 # yarn specific repository and instructions
@@ -16,24 +16,25 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends yarn
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+ENV APP_HOME /usr/src/app
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
 
 # Gemfile Caching Trick: 
 #   Separate the copying of files that should trigger a rebuild of our gems from those that shouldn’t.
 #   This avoids rebuilding the image for these steps (and hence running bundle install) when other unrelated 
 #   files are changed.
-COPY Gemfile* /usr/src/app/
+COPY Gemfile $APP_HOME/
+COPY Gemfile.lock $APP_HOME/
 RUN bundle install
 
 
 # Yarn Caching Trick:
-COPY package.json /usr/src/app
+COPY package.json $APP_HOME/
+COPY yarn.lock $APP_HOME/
 RUN yarn install
 
 # Copy the app repo
-COPY . /usr/src/app
-
-RUN rails webpacker:install
+COPY . $APP_HOME
 
 CMD ["bin/rails", "s", "-b", "0.0.0.0"]

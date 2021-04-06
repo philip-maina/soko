@@ -37,4 +37,5 @@ RUN yarn install
 # Copy the app repo
 COPY . $APP_HOME
 
+# Default command to run when a container is started from the image. 
 CMD ["bin/rails", "s", "-b", "0.0.0.0"]

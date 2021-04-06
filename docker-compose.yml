@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
   web:
     build:
       context: .
@@ -9,5 +10,16 @@ services:
       - "3000:3000"
     volumes:
       - .:/usr/src/app
+    environment:
+      DATABASE_HOST: database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: soko_development_postgres_pass
+
+  database:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: soko_development_postgres_pass
+
   redis:
     image: redis

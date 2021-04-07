@@ -10,16 +10,14 @@ services:
       - "3000:3000"
     volumes:
       - .:/usr/src/app
-    environment:
-      DATABASE_HOST: database
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: soko_development_postgres_pass
+    env_file:
+      - .env/development/database
+      - .env/development/web
 
   database:
     image: postgres
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: soko_development_postgres_pass
+    env_file:
+      - .env/development/database
 
   redis:
     image: redis

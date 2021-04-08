@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-07T09:31:39.151Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="bd6TOgvEZNKWj_Setxcw" version="14.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-04-08T21:23:26.236Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36" etag="8da7zWtTc0sRNbSB-9R-" version="14.5.3" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
     <mxGraphModel dx="2646" dy="1746" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -76,7 +76,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-14" value="Product" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="730" y="-90" width="460" height="186" as="geometry" />
+          <mxGeometry x="730" y="-90" width="460" height="226" as="geometry" />
         </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-15" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-14" vertex="1">
           <mxGeometry y="26" width="460" height="26" as="geometry" />
@@ -87,8 +87,11 @@
         <mxCell id="49kWa-taQujCRStD-I59-20" value="status (enum): Options include &quot;drafted&quot;, &quot;published&quot;, &quot;archived&quot;.  Explanation: We&#xa;can save new products as a draft and work on them iteratively until they’re complete &#xa;and ready to be made available to selected sales channels with a published status. &#xa;We, also archive products we&#39;re no longer selling to keep your product list&#xa;organised and free of clutter, while retaining all product information." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="49kWa-taQujCRStD-I59-14" vertex="1">
           <mxGeometry y="78" width="460" height="82" as="geometry" />
         </mxCell>
+        <mxCell id="TjSfER7dUz7gS5TxNhZZ-3" value="brand_id (FK- optional) : Brand is product level since it remains the same across &#xa;all variants.&#xa; " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="49kWa-taQujCRStD-I59-14">
+          <mxGeometry y="160" width="460" height="40" as="geometry" />
+        </mxCell>
         <mxCell id="49kWa-taQujCRStD-I59-27" value="data (jsonb)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="49kWa-taQujCRStD-I59-14" vertex="1">
-          <mxGeometry y="160" width="460" height="26" as="geometry" />
+          <mxGeometry y="200" width="460" height="26" as="geometry" />
         </mxCell>
         <mxCell id="9piP-qMQjMW-x3T_Rdiz-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=ERoneToMany;endFill=0;" parent="1" source="49kWa-taQujCRStD-I59-29" target="IhNO1zzbE4TS1bx1REmc-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -482,6 +485,18 @@
         </mxCell>
         <mxCell id="93qC_zg4oYfhFcOvwt_j-81" value="metadata (jsonb)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontStyle=0" parent="93qC_zg4oYfhFcOvwt_j-72" vertex="1">
           <mxGeometry y="228" width="420" height="28" as="geometry" />
+        </mxCell>
+        <mxCell id="TjSfER7dUz7gS5TxNhZZ-4" value="Brand" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" vertex="1" parent="1">
+          <mxGeometry x="840" y="520" width="310" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="TjSfER7dUz7gS5TxNhZZ-5" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="TjSfER7dUz7gS5TxNhZZ-4">
+          <mxGeometry y="26" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TjSfER7dUz7gS5TxNhZZ-6" value="name (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="TjSfER7dUz7gS5TxNhZZ-4">
+          <mxGeometry y="52" width="310" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="TjSfER7dUz7gS5TxNhZZ-8" value="description (rich text powered by Action Text - optional) " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="TjSfER7dUz7gS5TxNhZZ-4">
+          <mxGeometry y="78" width="310" height="32" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

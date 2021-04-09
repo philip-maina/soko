@@ -18,6 +18,9 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
+# Rails interface to the {PostgreSQL RDBMS}
+gem 'pg', '~> 1.2', '>= 1.2.3'
+
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

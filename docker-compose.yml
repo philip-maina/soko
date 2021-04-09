@@ -18,6 +18,11 @@ services:
     image: postgres
     env_file:
       - .env/development/database
+    volumes:
+      - database_data:/var/lib/postgresql/data
 
   redis:
     image: redis
+
+volumes:
+  database_data:

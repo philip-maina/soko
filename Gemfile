@@ -94,6 +94,11 @@ gem 'colorize', '~> 0.8.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # Fixtures replacement with a straightforward definition syntax.
+  # Including factory_bot_rails in the development group of your Gemfile will 
+  # allow Rails to generate factories instead of fixtures.
+  gem 'factory_bot_rails', '~> 6.1'
 end
 
 group :development do
@@ -115,8 +120,6 @@ group :test do
   gem 'webdrivers'
 
 
-  # Fixtures replacement with a straightforward definition syntax
-  gem 'factory_bot_rails', '~> 6.1'
   # Allows mocking and stubbing of methods.
   gem 'mocha', '~> 1.12'
   # Easily generate fake data: names, addresses, phone numbers, etc.

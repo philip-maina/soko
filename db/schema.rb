@@ -10,14 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_10_202136) do
+ActiveRecord::Schema.define(version: 2021_04_16_121028) do
 
   create_sequence "action_text_rich_texts_id_seq"
+  create_sequence "action_text_rich_texts_id_seq1"
   create_sequence "active_storage_attachments_id_seq"
+  create_sequence "active_storage_attachments_id_seq1"
   create_sequence "active_storage_blobs_id_seq"
+  create_sequence "active_storage_blobs_id_seq1"
   create_sequence "active_storage_variant_records_id_seq"
+  create_sequence "active_storage_variant_records_id_seq1"
   create_sequence "brands_id_seq"
+  create_sequence "brands_id_seq1"
+  create_sequence "locations_id_seq"
   create_sequence "products_id_seq"
+  create_sequence "products_id_seq1"
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +81,16 @@ ActiveRecord::Schema.define(version: 2021_04_10_202136) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.boolean "inventory"
+    t.boolean "local_pickup"
+    t.boolean "default"
+    t.integer "fulfillment_priority"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

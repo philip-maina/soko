@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_130143) do
+ActiveRecord::Schema.define(version: 2021_04_16_164335) do
 
   create_sequence "action_text_rich_texts_id_seq"
   create_sequence "action_text_rich_texts_id_seq1"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 2021_04_16_130143) do
   create_sequence "brands_id_seq"
   create_sequence "brands_id_seq1"
   create_sequence "locations_id_seq"
+  create_sequence "product_option_value_variants_id_seq"
+  create_sequence "product_option_values_id_seq"
+  create_sequence "product_options_id_seq"
   create_sequence "product_variants_id_seq"
   create_sequence "products_id_seq"
   create_sequence "products_id_seq1"
@@ -101,6 +104,34 @@ ActiveRecord::Schema.define(version: 2021_04_16_130143) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "product_option_value_variants", force: :cascade do |t|
+    t.bigint "product_option_value_id", null: false
+    t.bigint "product_variant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_option_value_id"], name: "index_product_option_value_variants_on_product_option_value_id"
+    t.index ["product_variant_id"], name: "index_product_option_value_variants_on_product_variant_id"
+  end
+
+  create_table "product_option_values", force: :cascade do |t|
+    t.bigint "product_option_id", null: false
+    t.string "value"
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_option_id"], name: "index_product_option_values_on_product_option_id"
+  end
+
+  create_table "product_options", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.string "name"
+    t.text "description"
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_options_on_product_id"
+  end
+
   create_table "product_variants", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.enum "variant_type", default: "physical", null: false, enum_name: "product_variant_type"
@@ -132,6 +163,10 @@ ActiveRecord::Schema.define(version: 2021_04_16_130143) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "product_option_value_variants", "product_option_values"
+  add_foreign_key "product_option_value_variants", "product_variants"
+  add_foreign_key "product_option_values", "product_options"
+  add_foreign_key "product_options", "products"
   add_foreign_key "product_variants", "products"
   add_foreign_key "products", "brands"
 end

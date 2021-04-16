@@ -7,8 +7,9 @@ class Product::Variant < ApplicationRecord
   enum variant_type: VARIANT_TYPES
 
   # R/Ships:
-  belongs_to :product
   has_rich_text :description
   has_many_attached :images
   has_many_attached :downloads
+  belongs_to :product
+  has_many :option_value_variants, class_name: "Product::OptionValueVariant", foreign_key: "product_variant_id", dependent: :destroy
 end

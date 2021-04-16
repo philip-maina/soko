@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_171756) do
+ActiveRecord::Schema.define(version: 2021_04_16_175815) do
 
   create_sequence "action_text_rich_texts_id_seq"
   create_sequence "action_text_rich_texts_id_seq1"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_171756) do
   create_sequence "active_storage_variant_records_id_seq1"
   create_sequence "brands_id_seq"
   create_sequence "brands_id_seq1"
+  create_sequence "customer_prices_id_seq"
   create_sequence "locations_id_seq"
   create_sequence "product_option_value_variants_id_seq"
   create_sequence "product_option_values_id_seq"
@@ -91,6 +92,19 @@ ActiveRecord::Schema.define(version: 2021_04_16_171756) do
 
   create_table "brands", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "customer_prices", force: :cascade do |t|
+    t.integer "customer_priceable_id"
+    t.string "customer_priceable_type"
+    t.integer "minimum_quantity", default: 1, null: false
+    t.integer "increment_quantity", default: 1, null: false
+    t.boolean "default", default: true
+    t.integer "price_cents", default: 0, null: false
+    t.string "price_currency", default: "KES", null: false
+    t.integer "compare_at_price_cents", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

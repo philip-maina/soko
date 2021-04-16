@@ -13,4 +13,5 @@ class Product::Variant < ApplicationRecord
   belongs_to :product
   has_many :inventories, class_name: "Product::Variant::Inventory", foreign_key: "product_variant_id", dependent: :destroy
   has_many :option_value_variants, class_name: "Product::OptionValueVariant", foreign_key: "product_variant_id", dependent: :destroy
+  has_many :customer_prices, as: "customer_priceable", class_name: "Customer::Price", foreign_key: "customer_priceable_id", dependent: :destroy
 end

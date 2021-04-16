@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_164335) do
+ActiveRecord::Schema.define(version: 2021_04_16_171756) do
 
   create_sequence "action_text_rich_texts_id_seq"
   create_sequence "action_text_rich_texts_id_seq1"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_164335) do
   create_sequence "product_option_value_variants_id_seq"
   create_sequence "product_option_values_id_seq"
   create_sequence "product_options_id_seq"
+  create_sequence "product_variant_inventories_id_seq"
   create_sequence "product_variants_id_seq"
   create_sequence "products_id_seq"
   create_sequence "products_id_seq1"
@@ -132,6 +133,18 @@ ActiveRecord::Schema.define(version: 2021_04_16_164335) do
     t.index ["product_id"], name: "index_product_options_on_product_id"
   end
 
+  create_table "product_variant_inventories", force: :cascade do |t|
+    t.bigint "product_variant_id", null: false
+    t.bigint "location_id", null: false
+    t.bigint "quantity_on_hand", default: 0, null: false
+    t.bigint "quantity_reserved", default: 0, null: false
+    t.integer "low_inventory_threshold", default: 0, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_product_variant_inventories_on_location_id"
+    t.index ["product_variant_id"], name: "index_product_variant_inventories_on_product_variant_id"
+  end
+
   create_table "product_variants", force: :cascade do |t|
     t.bigint "product_id", null: false
     t.enum "variant_type", default: "physical", null: false, enum_name: "product_variant_type"
@@ -167,6 +180,8 @@ ActiveRecord::Schema.define(version: 2021_04_16_164335) do
   add_foreign_key "product_option_value_variants", "product_variants"
   add_foreign_key "product_option_values", "product_options"
   add_foreign_key "product_options", "products"
+  add_foreign_key "product_variant_inventories", "locations"
+  add_foreign_key "product_variant_inventories", "product_variants"
   add_foreign_key "product_variants", "products"
   add_foreign_key "products", "brands"
 end

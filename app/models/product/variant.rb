@@ -11,5 +11,6 @@ class Product::Variant < ApplicationRecord
   has_many_attached :images
   has_many_attached :downloads
   belongs_to :product
+  has_many :inventories, class_name: "Product::Variant::Inventory", foreign_key: "product_variant_id", dependent: :destroy
   has_many :option_value_variants, class_name: "Product::OptionValueVariant", foreign_key: "product_variant_id", dependent: :destroy
 end

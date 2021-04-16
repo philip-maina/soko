@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_16_121028) do
+ActiveRecord::Schema.define(version: 2021_04_16_130143) do
 
   create_sequence "action_text_rich_texts_id_seq"
   create_sequence "action_text_rich_texts_id_seq1"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_04_16_121028) do
   create_sequence "brands_id_seq"
   create_sequence "brands_id_seq1"
   create_sequence "locations_id_seq"
+  create_sequence "product_variants_id_seq"
   create_sequence "products_id_seq"
   create_sequence "products_id_seq1"
 
@@ -38,6 +39,11 @@ ActiveRecord::Schema.define(version: 2021_04_16_121028) do
   create_enum :product_type, [
     "standard",
     "gift_card",
+  ], force: :cascade
+
+  create_enum :product_variant_type, [
+    "physical",
+    "digital",
   ], force: :cascade
 
   create_table "action_text_rich_texts", force: :cascade do |t|
@@ -95,6 +101,25 @@ ActiveRecord::Schema.define(version: 2021_04_16_121028) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "product_variants", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.enum "variant_type", default: "physical", null: false, enum_name: "product_variant_type"
+    t.string "title"
+    t.string "subtitle"
+    t.string "sku"
+    t.boolean "master"
+    t.text "search_tags", default: [], array: true
+    t.text "care_tags", default: [], array: true
+    t.boolean "visible_on_storefront", default: true
+    t.boolean "track_inventory", default: true
+    t.boolean "backorderable", default: true
+    t.boolean "giftable", default: true
+    t.jsonb "data", default: {}
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_variants_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.bigint "brand_id"
     t.enum "product_type", default: "standard", null: false, enum_name: "product_type"
@@ -107,5 +132,6 @@ ActiveRecord::Schema.define(version: 2021_04_16_121028) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "product_variants", "products"
   add_foreign_key "products", "brands"
 end

@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-22T20:58:57.676Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="Hsh0N_AccBGbUnkOeHRE" version="14.5.10" type="github">
+<mxfile host="app.diagrams.net" modified="2021-04-22T21:03:11.267Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="sN9Gk6LmEo2shGpxPzLC" version="14.5.10" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
     <mxGraphModel dx="2646" dy="2789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -355,7 +355,7 @@
         <mxCell id="JafjkQ3NCWFQFSb00nGx-1" value="low_stock_threshold (integer) : This helps in notifying the merchant team any &#xa;time a product falls below a specified stock level." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-26" vertex="1">
           <mxGeometry y="210" width="440" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="RL_wMTlk4jhRtlJ_5OAq-15" value="expires_on (date)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-26">
+        <mxCell id="RL_wMTlk4jhRtlJ_5OAq-15" value="expires_on (date) : nil indicates NEVER EXPIRES" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-26">
           <mxGeometry y="250" width="440" height="26" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-36" value="Collection::Item (polymorphic)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">

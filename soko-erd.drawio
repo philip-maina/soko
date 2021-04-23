@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-04-23T17:32:27.044Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="d85bqslCRI5Zogd6Ryo0" version="14.5.10" type="github">
+<mxfile host="app.diagrams.net" modified="2021-04-23T22:42:27.982Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Safari/537.36" etag="WPQseqOOaityGheqV6Nu" version="14.5.10" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
     <mxGraphModel dx="2646" dy="2789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -188,7 +188,8 @@
         <mxCell id="RL_wMTlk4jhRtlJ_5OAq-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=ERmandOne;endFill=0;" edge="1" parent="1" source="A97aOiuL6e9JtIXtelht-1" target="NdFbpm1k1_LlCCe0Vx4J-2">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="1360" y="349" />
+              <mxPoint x="1380" y="449" />
+              <mxPoint x="1380" y="449" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -197,11 +198,8 @@
             <mxPoint x="1585" y="40" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="RL_wMTlk4jhRtlJ_5OAq-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.007;entryY=0.786;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=ERzeroToMany;endFill=1;" edge="1" parent="1" source="A97aOiuL6e9JtIXtelht-1" target="A97aOiuL6e9JtIXtelht-14">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-1" value="Collection (could be an STI based on collection_type)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="1400" y="180" width="370" height="222" as="geometry" />
+          <mxGeometry x="1400" y="300" width="370" height="222" as="geometry" />
         </mxCell>
         <mxCell id="A97aOiuL6e9JtIXtelht-2" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="A97aOiuL6e9JtIXtelht-1" vertex="1">
           <mxGeometry y="26" width="370" height="26" as="geometry" />
@@ -300,10 +298,15 @@
           <mxGeometry y="390" width="440" height="38" as="geometry" />
         </mxCell>
         <mxCell id="RL_wMTlk4jhRtlJ_5OAq-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.005;entryY=-0.077;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=ERzeroToMany;endFill=1;" edge="1" parent="1" source="IhNO1zzbE4TS1bx1REmc-4" target="IhNO1zzbE4TS1bx1REmc-14">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="90" y="-630" />
+              <mxPoint x="90" y="-630" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-4" value="Product::Variant::PersonalizationField (sti)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="120" y="-659" width="440" height="300" as="geometry" />
+          <mxGeometry x="120" y="-700" width="440" height="330" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-5" value="id (PK, bigint)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-4" vertex="1">
           <mxGeometry y="26" width="440" height="26" as="geometry" />
@@ -317,17 +320,20 @@
         <mxCell id="IhNO1zzbE4TS1bx1REmc-7" value="help_text (text) : Text that appears as a sub-heading to the field label or &#xa;as a tooltip, but doesn’t appear in the field entry area. " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-4" vertex="1">
           <mxGeometry y="104" width="440" height="36" as="geometry" />
         </mxCell>
-        <mxCell id="IhNO1zzbE4TS1bx1REmc-9" value="placeholder (string) :  Text in the field entry area that isn’t submitted if the field &#xa;is left untouched by the user." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-4" vertex="1">
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-9" value="placeholder (string) :  Text in the field entry area that isn’t submitted if the field &#xa;is left untouched by the user. Applies to text_field, text_area" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-4" vertex="1">
           <mxGeometry y="140" width="440" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="IhNO1zzbE4TS1bx1REmc-8" value="required (boolean) : Whether or not this modifier field should be filled in  &#xa;before adding variant to cart&#xa;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-4" vertex="1">
-          <mxGeometry y="180" width="440" height="40" as="geometry" />
+        <mxCell id="RL_wMTlk4jhRtlJ_5OAq-31" value="options (text: array) :  Applies to select_field, multi_select_field" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="IhNO1zzbE4TS1bx1REmc-4">
+          <mxGeometry y="180" width="440" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="IhNO1zzbE4TS1bx1REmc-10" value="field_type (enum) : Options include &quot;text_field&quot;, &quot;text_area&quot;, &quot;number_field&quot;, &#xa;&quot;date_field&quot;, &quot;file_field&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-4" vertex="1">
-          <mxGeometry y="220" width="440" height="40" as="geometry" />
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-8" value="required (boolean) : Whether or not this modifier field should be filled in  &#xa;before adding variant to cart&#xa;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-4" vertex="1">
+          <mxGeometry y="210" width="440" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IhNO1zzbE4TS1bx1REmc-10" value="field_type (enum) : Options include &quot;text_field&quot;, &quot;text_area&quot;, &quot;number_field&quot;, &#xa;&quot;date_field&quot;, &quot;file_field&quot;, &quot;select_field&quot;, &quot;multiple_select_field&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-4" vertex="1">
+          <mxGeometry y="250" width="440" height="40" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-35" value="position (integer) : The order the personalization fields display on the &#xa;product detail page.&#xa;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="IhNO1zzbE4TS1bx1REmc-4" vertex="1">
-          <mxGeometry y="260" width="440" height="40" as="geometry" />
+          <mxGeometry y="290" width="440" height="40" as="geometry" />
         </mxCell>
         <mxCell id="IhNO1zzbE4TS1bx1REmc-12" value="Product::Variant::PersonalizationFieldValue" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
           <mxGeometry x="-420" y="-680" width="420" height="164" as="geometry" />
@@ -629,6 +635,9 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="RL_wMTlk4jhRtlJ_5OAq-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.525;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=ERmandOne;endFill=0;" edge="1" parent="1" source="xNZ4ATSNOMt5Z4T5nZos-4" target="NdFbpm1k1_LlCCe0Vx4J-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="RL_wMTlk4jhRtlJ_5OAq-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.005;entryY=0.05;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=ERzeroToMany;endFill=1;" edge="1" parent="1" source="TjSfER7dUz7gS5TxNhZZ-1" target="IhNO1zzbE4TS1bx1REmc-42">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>

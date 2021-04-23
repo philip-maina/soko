@@ -22,6 +22,8 @@ class Product < ApplicationRecord
 
   # R/Ships:
   belongs_to :brand, optional: true
-  has_many :variants, class_name: "Product::Variant", foreign_key: "product_id", dependent: :destroy
-  has_many :options, class_name: "Product::Option", foreign_key: "product_id", dependent: :destroy
+  has_many :options, class_name: "Product::Option", dependent: :destroy
+  has_many :variants, class_name: "Product::Variant", dependent: :destroy
+  has_many :collection_items, as: :collection_itemable, class_name: "Collection::Item", dependent: :destroy
+  has_many :events, as: :eventable, dependent: :nullify
 end

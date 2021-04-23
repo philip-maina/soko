@@ -6,6 +6,7 @@ class CreateProductVariantInventories < ActiveRecord::Migration[6.1]
       t.bigint :quantity_on_hand, null: false, default: 0
       t.bigint :quantity_reserved, null: false, default: 0
       t.integer :low_inventory_threshold, null: false, default: 0
+      t.date :expires_on
 
       t.timestamps
     end

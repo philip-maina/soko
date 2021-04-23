@@ -1,8 +1,11 @@
 class CreateCustomerPrices < ActiveRecord::Migration[6.1]
   def change
+    create_enum :price_type, %w[basic volume tiered]
+
     create_table :customer_prices do |t|
-      t.integer :customer_priceable_id
+      t.bigint :customer_priceable_id
       t.string :customer_priceable_type
+      t.enum :price_type, enum_name: :price_type, null: false, default: "basic"
       t.integer :minimum_quantity, null: false, default: 1
       t.integer :increment_quantity, null: false, default: 1
       t.boolean :default, default: true
@@ -11,5 +14,7 @@ class CreateCustomerPrices < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+
+    add_index :customer_prices, %i[customer_priceable_id customer_priceable_type], name: "index_customer_prices_on_priceable_id_and_priceable_type"
   end
 end

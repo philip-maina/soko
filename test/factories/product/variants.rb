@@ -15,7 +15,7 @@
 #  track_inventory       :boolean          default(TRUE)
 #  backorderable         :boolean          default(TRUE)
 #  giftable              :boolean          default(TRUE)
-#  weight                :integer
+#  weight                :float
 #  weight_unit           :enum
 #  data                  :jsonb
 #  created_at            :datetime         not null

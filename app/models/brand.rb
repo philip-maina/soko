@@ -12,4 +12,7 @@ class Brand < ApplicationRecord
   # R/Ships:
   has_rich_text :description
   has_many :products, dependent: :nullify
+
+  # Validations:
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
 end

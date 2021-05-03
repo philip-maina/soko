@@ -7,6 +7,7 @@
 #  label              :string           not null
 #  help_text          :text
 #  placeholder        :string
+#  options            :text             default([]), is an Array
 #  required           :boolean          default(TRUE), not null
 #  position           :integer          default(0), not null
 #  field_type         :enum             default("text_field"), not null

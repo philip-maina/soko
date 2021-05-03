@@ -53,6 +53,8 @@ ActiveRecord::Schema.define(version: 2021_04_23_125442) do
     "number_field",
     "date_field",
     "file_field",
+    "select_field",
+    "multi_select_field",
   ], force: :cascade
 
   create_enum :price_type, [
@@ -254,6 +256,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_125442) do
     t.string "label", null: false
     t.text "help_text"
     t.string "placeholder"
+    t.text "options", default: [], array: true
     t.boolean "required", default: true, null: false
     t.integer "position", default: 0, null: false
     t.enum "field_type", default: "text_field", null: false, enum_name: "field_type"
@@ -275,7 +278,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_125442) do
     t.boolean "track_inventory", default: true
     t.boolean "backorderable", default: true
     t.boolean "giftable", default: true
-    t.integer "weight"
+    t.float "weight"
     t.enum "weight_unit", enum_name: "weight_unit"
     t.jsonb "data", default: {}
     t.datetime "created_at", precision: 6, null: false

@@ -14,5 +14,10 @@ class Product::Option < ApplicationRecord
 
   # R/Ships:
   belongs_to :product
-  has_many :option_values, class_name: "Product::OptionValue", dependent: :destroy
+  has_many :option_values, class_name: "Product::OptionValue", foreign_key: "product_option_id", dependent: :destroy
+
+  # Validations:
+  validates :name, :position, presence: true
+  validates :name, uniqueness: { case_sensitive: false, if: :name?, scope: :product_id }
+  validates :position, numericality: { greater_than_or_equal_to: 0, if: :position? }
 end

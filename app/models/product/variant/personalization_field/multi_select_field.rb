@@ -14,8 +14,8 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #
-class Product::Variant::PersonalizationField::TextField < Product::Variant::PersonalizationField
+class Product::Variant::PersonalizationField::MultiSelectField < Product::Variant::PersonalizationField
   def self.sti_name
-    "text_field"
+    "multi_select_field"
   end
 end

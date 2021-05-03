@@ -16,7 +16,7 @@ class CreateProductVariants < ActiveRecord::Migration[6.1]
       t.boolean :track_inventory, default: true
       t.boolean :backorderable, default: true
       t.boolean :giftable, default: true
-      t.integer :weight
+      t.float :weight
       t.enum :weight_unit, enum_name: :weight_unit
       t.jsonb :data, default: {}
 

@@ -26,4 +26,8 @@ class Product < ApplicationRecord
   has_many :variants, class_name: "Product::Variant", dependent: :destroy
   has_many :collection_items, as: :collection_itemable, class_name: "Collection::Item", dependent: :destroy
   has_many :events, as: :eventable, dependent: :nullify
+
+  # Validations:
+  validates :product_type, presence: true
+  validates :product_type, inclusion: { in: PRODUCT_TYPES.values, if: :product_type? }
 end

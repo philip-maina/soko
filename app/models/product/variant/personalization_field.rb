@@ -7,6 +7,7 @@
 #  label              :string           not null
 #  help_text          :text
 #  placeholder        :string
+#  options            :text             default([]), is an Array
 #  required           :boolean          default(TRUE), not null
 #  position           :integer          default(0), not null
 #  field_type         :enum             default("text_field"), not null
@@ -32,5 +33,5 @@ class Product::Variant::PersonalizationField < ApplicationRecord
 
   # R/Ships:
   belongs_to :variant, class_name: "Product::Variant", foreign_key: "product_variant_id"
-  has_many :personalization_field_values, class_name: "Product::Variant::PersonalizationFieldValue", dependent: :nullify
+  has_many :personalization_field_values, class_name: "Product::Variant::PersonalizationFieldValue", foreign_key: "product_variant_personalization_field_id", dependent: :nullify
 end

@@ -31,7 +31,7 @@ class Product::Variant < ApplicationRecord
   enum variant_type: VARIANT_TYPES
   enum weight_unit: WEIGHT_UNITS
 
-  # R/Ships:
+  # Associations:
   has_rich_text :description
   has_many_attached :images
   has_many_attached :downloads
@@ -46,6 +46,7 @@ class Product::Variant < ApplicationRecord
 
   # Validations:
   validates :title, :sku, :variant_type, presence: true
+  validates :sku, uniqueness: { case_sensitive: false, if: :sku? }
   validates :variant_type, inclusion: { in: VARIANT_TYPES.values, if: :variant_type? }
   validates :weight_unit, inclusion: { in: WEIGHT_UNITS.values, if: -> (record) { record.physical? && record.weight_unit? } }
   validates :master, :visible_on_storefront, :track_inventory, :backorderable, :giftable, inclusion: { in: [ true, false ] }

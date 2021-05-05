@@ -10,7 +10,7 @@
 #
 class Product::Variant::PersonalizationFieldValue < ApplicationRecord
 
-  # R/Ships:
+  # Associations:
   belongs_to :personalization_field, class_name: "Product::Variant::PersonalizationField", foreign_key: "product_variant_personalization_field_id"
   has_many_attached :files
 end

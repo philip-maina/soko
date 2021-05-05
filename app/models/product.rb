@@ -20,7 +20,7 @@ class Product < ApplicationRecord
   enum status: STATUSES
   enum product_type: PRODUCT_TYPES
 
-  # R/Ships:
+  # Associations:
   belongs_to :brand, optional: true
   has_many :options, class_name: "Product::Option", dependent: :destroy
   has_many :variants, class_name: "Product::Variant", dependent: :destroy
@@ -28,6 +28,7 @@ class Product < ApplicationRecord
   has_many :events, as: :eventable, dependent: :nullify
 
   # Validations:
-  validates :product_type, presence: true
+  validates :product_type, :status, presence: true
+  validates :status, inclusion: { in: STATUSES.values, if: :status? }
   validates :product_type, inclusion: { in: PRODUCT_TYPES.values, if: :product_type? }
 end

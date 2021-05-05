@@ -15,6 +15,10 @@
 #  updated_at         :datetime         not null
 #
 class Product::Variant::PersonalizationField::SelectField < Product::Variant::PersonalizationField
+
+  # Associations:
+  validates :options, presence: true
+  
   def self.sti_name
     "select_field"
   end

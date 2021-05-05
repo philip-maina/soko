@@ -12,6 +12,9 @@
 #
 class Seo::Listing < ApplicationRecord
 
-  # R/Ships:
+  # Associations:
   belongs_to :seo_listable, polymorphic: true
+
+  # Validations:
+  validates :meta_title, :meta_description, presence: true
 end

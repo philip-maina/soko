@@ -11,10 +11,10 @@
 #
 class Product::OptionValue < ApplicationRecord
   
-  # Virtual Attributes:
+  # Attr Related Macros: e.g virtual attributes
   attr_accessor :temporary_id
 
-  # R/Ships:
+  # Associations:
   belongs_to :option, class_name: "Product::Option", foreign_key: "product_option_id"
   has_many :option_value_variants, class_name: "Product::OptionValueVariant", foreign_key: "product_option_value_id", dependent: :destroy
 

@@ -15,6 +15,11 @@
 #
 class Navigation::MenuItem < ApplicationRecord
 
-  # R/Ships:
+  # Associations:
   belongs_to :navigation_menu_itemable, polymorphic: true
+
+  # Validations:
+  validates :name, :path, :sibling_position, presence: true
+  validates :visible, inclusion: { in: [ true, false ] }
+  validates :sibling_position, numericality: { greater_than_or_equal_to: 0, if: :sibling_position? }
 end

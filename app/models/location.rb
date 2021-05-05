@@ -13,7 +13,12 @@
 #
 class Location < ApplicationRecord
 
-  # R/Ships:
+  # Associations:
   has_rich_text :pickup_instructions
   has_many :inventories, class_name: "Product::Variant::Inventory", dependent: :destroy
+
+  # Validations:
+  validates :name, presence: true, uniqueness: { case_sensitive: false, if: :name? }
+  validates :default, :inventory, :local_pickup, inclusion: { in: [ true, false ] }
+  validates :fulfillment_priority, numericality: { greater_than_or_equal_to: 0, if: :inventory? }
 end

@@ -9,7 +9,7 @@
 #
 class Brand < ApplicationRecord
 
-  # R/Ships:
+  # Associations:
   has_rich_text :description
   has_many :products, dependent: :nullify
 

@@ -16,7 +16,14 @@
 #
 class Event < ApplicationRecord
 
-  # R/Ships:
+  # Associations:
   belongs_to :eventable, polymorphic: true
   belongs_to :creator, polymorphic: true, optional: true
+
+  # Validations:
+  validates :name, :request_details, presence: true
+
+  # Scopes
+  scope :chronologically, -> { order("created_at asc, id desc") }
+  scope :reverse_chronologically, -> { order("created_at desc, id desc") }
 end

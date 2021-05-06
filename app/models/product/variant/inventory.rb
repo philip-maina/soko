@@ -17,4 +17,7 @@ class Product::Variant::Inventory < ApplicationRecord
   # Associations:
   belongs_to :location
   belongs_to :variant, class_name: "Product::Variant", foreign_key: "product_variant_id"
+
+  # Validations:
+  validates :quantity_on_hand, :quantity_reserved, :low_inventory_threshold, numericality: { greater_than_or_equal_to: 0 }
 end

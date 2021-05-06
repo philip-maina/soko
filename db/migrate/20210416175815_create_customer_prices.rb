@@ -11,6 +11,7 @@ class CreateCustomerPrices < ActiveRecord::Migration[6.1]
       t.boolean :default, default: true
       t.monetize :price
       t.integer :compare_at_price_cents, default: 0, null: false
+      t.string :display_price
 
       t.timestamps
     end

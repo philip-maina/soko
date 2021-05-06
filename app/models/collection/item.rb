@@ -11,7 +11,7 @@
 #
 class Collection::Item < ApplicationRecord
 
-  # R/Ships:
+  # Associations:
   belongs_to :collection
   belongs_to :collection_itemable, polymorphic: true
 end

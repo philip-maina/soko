@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_125442) do
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "KES", null: false
     t.integer "compare_at_price_cents", default: 0, null: false
+    t.string "display_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_priceable_id", "customer_priceable_type"], name: "index_customer_prices_on_priceable_id_and_priceable_type"

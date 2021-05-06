@@ -12,6 +12,7 @@
 #  price_cents             :integer          default(0), not null
 #  price_currency          :string           default("KES"), not null
 #  compare_at_price_cents  :integer          default(0), not null
+#  display_price           :string
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
 #

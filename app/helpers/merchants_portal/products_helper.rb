@@ -1,0 +1,2 @@
+module MerchantsPortal::ProductsHelper
+end

@@ -1,0 +1,2 @@
+module MerchantsPortal::HomeHelper
+end

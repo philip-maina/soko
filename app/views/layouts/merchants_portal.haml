@@ -1,0 +1,19 @@
+!!!
+%html{"data-vb-theme" => "default", :lang => "en"}
+  %head
+    = render 'shared/assets_and_meta_content'
+  %body{class: [params[:controller].parameterize, params[:action]]}
+    .initial__loading
+    .vb__layout.vb__layout--hasSider
+      = render 'layouts/merchants_portal/menu_left'
+      .vb__layout
+        .vb__layout__header
+          = render 'layouts/merchants_portal/topbar'
+        .vb__layout__content
+          = render 'layouts/merchants_portal/breadcrumbs'
+          .vb__utils__content
+            = yield
+        .vb__layout__footer
+          = render 'layouts/merchants_portal/footer'
+
+    = insert_paloma_hook

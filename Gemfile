@@ -77,6 +77,8 @@ gem 'aws-sdk-s3', '~> 1.93'
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 # For Page-specific javascript
 gem 'paloma', '~> 6.0'
+# For font awesome icons
+gem "font-awesome-rails"
 
 
 # Great Ruby debugging companion: pretty print Ruby objects to visualize their structure

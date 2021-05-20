@@ -1,5 +1,9 @@
+/////////////////////////////////////////////////////////////////////////////////////////
+/*  "CORE" STYLES */
+
 :root {
   --vb-color-primary: #4b7cf3;
+  --vb-font-family: 'Mukta', sans-serif;
 }
 
 html {
@@ -12,9 +16,9 @@ html {
 body {
   font-size: 1rem;
   line-height: 1.5;
-  font-family: $base-font;
+  font-family: $base-font-family;
   color: $text;
-  overflow-x: hidden !important;
+  overflow-x: hidden;
   position: relative;
   font-variant: normal;
   font-feature-settings: normal;
@@ -34,7 +38,7 @@ a {
 
 input {
   outline: none !important;
-  font-family: $base-font;
+  font-family: $base-font-family;
   color: $text;
 }
 
@@ -65,13 +69,15 @@ svg {
   overflow: auto;
 }
 
-b,
-strong {
-  font-weight: 700;
-}
-
-::placeholder {
-  color: $gray-2;
+.badge-example {
+  font-size: rem(14);
+  text-transform: uppercase;
+  margin-bottom: rem(15);
+  background: $gray-2;
+  color: $black;
+  display: inline-block;
+  padding: rem(3) rem(6);
+  border-radius: 4px;
 }
 
 // dark theme
@@ -79,6 +85,10 @@ strong {
   body {
     background: $dark-gray-5;
     color: $dark-gray-1;
+  }
+
+  .badge-example {
+    background: $dark-gray-4;
   }
 
   h1,
@@ -98,9 +108,5 @@ strong {
       color: $blue;
       text-decoration: none;
     }
-  }
-
-  ::placeholder {
-    color: $dark-gray-3;
   }
 }

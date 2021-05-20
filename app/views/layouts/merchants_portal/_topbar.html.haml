@@ -1,11 +1,10 @@
 .vb__topbar
-
-  .mr-4
-    %a.mr-2{:href => "javascript: void(0);"}
-      %i.dropdown-toggle-icon.fa.fa-home{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => "Home"}
+  .me-4
+    %a.me-2{:href => "javascript:void(0);"}
+      %i.dropdown-toggle-icon.fa.fa-home{"data-bs-placement" => "bottom", "data-bs-toggle" => "tooltip", :title => "Home"}
     %span.dropdown
-      %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-offset" => "0,15", "data-toggle" => "dropdown", :href => ""}
-        %i.dropdown-toggle-icon.fa.fa-star{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => "Bookmarks"}
+      %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-bs-offset" => "0,15", "data-bs-toggle" => "dropdown", :href => ""}
+        %i.dropdown-toggle-icon.fa.fa-star{"data-bs-placement" => "bottom", "data-bs-toggle" => "tooltip", :title => "Bookmarks"}
       .dropdown-menu{:role => "menu"}
         .card-body.p-1.vb__topbar__favs
           .px-2.pb-2.pt-0
@@ -16,102 +15,35 @@
                 .vb__topbar__favs__setIcon.vb__topbar__favs__setIconActive
                   %i.fa.fa-star
                 %span
-                  %i.mr-2.fa.fa-cart-arrow-down
+                  %i.me-2.fa.fa-cart-arrow-down
                   Sales Orders
               %a.vb__topbar__favs__link{:href => "./dashboards-beta.html"}
                 .vb__topbar__favs__setIcon.vb__topbar__favs__setIconActive
                   %i.fa.fa-star
                 %span
-                  %i.mr-2.fa.fa-tag
+                  %i.me-2.fa.fa-tag
                   Products
               %a.vb__topbar__favs__link{:href => "./dashboards-gamma.html"}
                 .vb__topbar__favs__setIcon
                   %i.fa.fa-star
                 %span
-                  %i.mr-2.fa.fa-tags
+                  %i.me-2.fa.fa-tags
                   Collections
               %a.vb__topbar__favs__link{:href => "./dashboards-crypto.html"}
                 .vb__topbar__favs__setIcon
                   %i.fa.fa-star
                 %span
-                  %i.mr-2.fa.fa-user-o
+                  %i.me-2.fa.fa-user-o
                   Customers
 
 
-  .mr-auto
+  .me-auto
     .vb__topbar__search
-      %i.fa.fa-search
-        / 
       %input#livesearch__input{:placeholder => "Type to search...", :type => "text"}/
-    .vb__topbar__livesearch
-      %button.vb__topbar__livesearch__close{:type => "button"}
-        %i.icmn-cross
-      .container-fluid
-        .vb__topbar__livesearch__wrapper
-          %input#livesearch__input__inner.vb__topbar__livesearch__input{:placeholder => "Type to search...", :type => "text"}/
-          %ul.vb__topbar__livesearch__options
-            %li.vb__topbar__livesearch__option
-              %label.vb__utils__control.vb__utils__control__checkbox
-                %input{:checked => "checked", :type => "checkbox"}/
-                %span.vb__utils__control__indicator
-                Search within page
-            %li.vb__topbar__livesearch__option Press enter to search
-          .vb__topbar__livesearch__results
-            .vb__topbar__livesearch__results__title
-              %span Pages Search Results
-            .row
-              .col-lg-4
-                .vb__topbar__livesearch__result__content
-                  .vb__topbar__livesearch__result__thumb{:style => "background-image: url('../../components/css/img/content/photos/1.jpeg')"}
-                    \#1
-                  .vb__topbar__livesearch__result
-                    .vb__topbar__livesearch__result__text
-                      Samsung Galaxy A50 4GB/64GB
-                    .vb__topbar__livesearch__result__source In some partition
-                .vb__topbar__livesearch__result__content
-                  .vb__topbar__livesearch__result__thumb{:style => "background-image: url('../../components/css/img/content/photos/2.jpeg')"}
-                    KF
-                  .vb__topbar__livesearch__result
-                    .vb__topbar__livesearch__result__text
-                      Apple iPhone 11 64GB
-                    .vb__topbar__livesearch__result__source In some partition
-                .vb__topbar__livesearch__result__content
-                  .vb__topbar__livesearch__result__thumb{:style => "background-image: url('../../components/css/img/content/photos/3.jpeg')"}
-                    GF
-                  .vb__topbar__livesearch__result
-                    .vb__topbar__livesearch__result__text
-                      Samsung Galaxy A51 SM-A515F/DS 4GB/64GB
-                    .vb__topbar__livesearch__result__source In some partition
-                .vb__topbar__livesearch__result__content
-                  .vb__topbar__livesearch__result__thumb{:style => "background-image: url('../../components/css/img/content/photos/4.jpeg')"}
-                    GF
-                  .vb__topbar__livesearch__result
-                    .vb__topbar__livesearch__result__text
-                      Xiaomi Redmi 8 4GB/64GB
-                    .vb__topbar__livesearch__result__source In some partition
-              .col-lg-4
-                .vb__topbar__livesearch__result__content
-                  .vb__topbar__livesearch__result__thumb 01
-                  .vb__topbar__livesearch__result
-                    .vb__topbar__livesearch__result__text
-                      White Case
-                    .vb__topbar__livesearch__result__source In some partition
-                .vb__topbar__livesearch__result__content
-                  .vb__topbar__livesearch__result__thumb 02
-                  .vb__topbar__livesearch__result
-                    .vb__topbar__livesearch__result__text
-                      Blue Case
-                    .vb__topbar__livesearch__result__source In some partition
-                .vb__topbar__livesearch__result__content
-                  .vb__topbar__livesearch__result__thumb 03
-                  .vb__topbar__livesearch__result
-                    .vb__topbar__livesearch__result__text
-                      Green Case
-                    .vb__topbar__livesearch__result__source In some partition
-                    
+    
 
-  .dropdown.mr-4.d-none.d-md-block
-    %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-offset" => "0,15", "data-toggle" => "dropdown", :href => ""}
+  .dropdown.me-4.d-none.d-md-block
+    %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-bs-offset" => "0,15", "data-bs-toggle" => "dropdown", :href => ""}
       %i.dropdown-toggle-icon.fa.fa-folder
       %span.dropdown-toggle-text.d-none.d-xl-inline Issues History
     .dropdown-menu{:role => "menu"}
@@ -120,15 +52,15 @@
       .dropdown-divider
       .dropdown-header Opened
       %a.dropdown-item{:href => "javascript:void(0)"}
-        %i.fa.fa-check-circle-o.mr-2
+        %i.far.fa-check-circle.me-2
         CLNUI-253 Project
         implemen...
       %a.dropdown-item{:href => "javascript:void(0)"}
-        %i.fa.fa-check-circle-o.mr-2
+        %i.far.fa-check-circle.me-2
         CLNUI-234 Active
         history iss...
       %a.dropdown-item{:href => "javascript:void(0)"}
-        %i.fa.fa-check-circle-o.mr-2
+        %i.far.fa-check-circle.me-2
         CLNUI-424 Ion icons
         intergrat...
       %a.dropdown-item{:href => "javascript:void(0)"} More...
@@ -141,8 +73,8 @@
         Settings
 
 
-  .dropdown.mb-0.mr-auto.d-xl-block.d-none
-    %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-offset" => "0,15", "data-toggle" => "dropdown", :href => ""}
+  .dropdown.mb-0.me-auto.d-xl-block.d-none
+    %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-bs-offset" => "0,15", "data-bs-toggle" => "dropdown", :href => ""}
       %i.dropdown-toggle-icon.fa.fa-database
       %span.dropdown-toggle-text Project Management
     .dropdown-menu{:role => "menu"}
@@ -159,40 +91,40 @@
 
 
 
-  .dropdown.mr-4.d-none.d-sm-block
-    %a.dropdown-toggle.text-nowrap{"data-offset" => "5,15", "data-toggle" => "dropdown", :href => ""}
+  .dropdown.me-4.d-none.d-sm-block
+    %a.dropdown-toggle.text-nowrap{"data-bs-offset" => "5,15", "data-bs-toggle" => "dropdown", :href => ""}
       %span.dropdown-toggle-text EN
-    .dropdown-menu.dropdown-menu-right{:role => "menu"}
+    .dropdown-menu.dropdown-menu-end{:role => "menu"}
       %a.dropdown-item{:href => "javascript:void(0)"}
-        %span.text-uppercase.font-size-12.mr-1 EN
+        %span.text-uppercase.font-size-12.me-1 EN
         English
       %a.dropdown-item{:href => "javascript:void(0)"}
-        %span.text-uppercase.font-size-12.mr-1 FR
+        %span.text-uppercase.font-size-12.me-1 FR
         French
       %a.dropdown-item{:href => "javascript:void(0)"}
-        %span.text-uppercase.font-size-12.mr-1 RU
+        %span.text-uppercase.font-size-12.me-1 RU
         Русский
       %a.dropdown-item{:href => "javascript:void(0)"}
-        %span.text-uppercase.font-size-12.mr-1 CN
+        %span.text-uppercase.font-size-12.me-1 CN
         简体中文
 
 
 
-  .vb__topbar__actionsDropdown.dropdown.mr-4.d-none.d-sm-block
-    %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-offset" => "0,15", "data-toggle" => "dropdown", :href => ""}
-      %i.dropdown-toggle-icon.fa.fa-bell-o
-    .vb__topbar__actionsDropdownMenu.dropdown-menu.dropdown-menu-right{:role => "menu"}
+  .vb__topbar__actionsDropdown.dropdown.me-4.d-none.d-sm-block
+    %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-bs-offset" => "0,15", "data-bs-toggle" => "dropdown", :href => ""}
+      %i.dropdown-toggle-icon.far.fa-bell
+    .vb__topbar__actionsDropdownMenu.dropdown-menu.dropdown-menu-end{:role => "menu"}
       %div{:style => "width: 350px;"}
         .card-header.card-header-flex
           %ul.nav.nav-tabs.nav-tabs-line.nav-tabs-line-bold.nav-tabs-noborder.nav-tabs-stretched
             %li.nav-item
-              %a#tab-alert.nav-link.active{"data-toggle" => "tab", :href => "#tab-alert-content", :role => "button"}
+              %a#tab-alert.nav-link.active{"data-bs-toggle" => "tab", :href => "#tab-alert-content", :role => "button"}
                 Alerts
             %li.nav-item
-              %a#tab-events.nav-link{"data-toggle" => "tab", :href => "#tab-events-content", :role => "button"}
+              %a#tab-events.nav-link{"data-bs-toggle" => "tab", :href => "#tab-events-content", :role => "button"}
                 Events
             %li.nav-item
-              %a#tab-actions.nav-link{"data-toggle" => "tab", :href => "#tab-actions-content", :role => "button"}
+              %a#tab-actions.nav-link{"data-bs-toggle" => "tab", :href => "#tab-actions-content", :role => "button"}
                 Actions
         .card-body
           .tab-content
@@ -256,11 +188,11 @@
         
 
   .dropdown
-    %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-offset" => "5,15", "data-toggle" => "dropdown", :href => ""}
+    %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-bs-offset" => "5,15", "data-bs-toggle" => "dropdown", :href => ""}
       %img.dropdown-toggle-avatar{:alt => "User avatar", :src => "../../components/css/img/avatars/avatar-2.png"}/
-    .dropdown-menu.dropdown-menu-right{:role => "menu"}
+    .dropdown-menu.dropdown-menu-end{:role => "menu"}
       %a.dropdown-item{:href => "javascript:void(0)"}
-        %i.dropdown-icon.fa.fa-user-o
+        %i.dropdown-icon.far.fa-user
         Profile
       .dropdown-divider
       .dropdown-header
@@ -274,7 +206,7 @@
       %a.dropdown-item{:href => "javascript:void(0)"}
         %i.dropdown-icon.fa.fa-chevron-right
         Issue Navigator
-        %span.badge.badge-success.font-size-11.ml-2 25 New
+        %span.badge.bg-success.font-size-11.ms-2 25 New
       .dropdown-divider
       %a.dropdown-item{:href => "javascript:void(0)"}
         %i.dropdown-icon.fa.fa-sign-out

@@ -24,3 +24,17 @@ import "@fortawesome/fontawesome-free/js/all.js"
 
 // Stylesheets
 import "../../stylesheets/application"
+
+
+
+
+// Set up Initialization
+import Initializers from "../initializers"
+$(document).on("turbolinks:load", function () {
+  console.log("TURBOLINKS LOADED")
+  Initializers.initGlobals()
+  Initializers.initPopovers()
+  Initializers.initTooltips()
+  Initializers.initScrollBarModule()
+  // Paloma.start()
+})

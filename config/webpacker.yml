@@ -2,7 +2,7 @@
 
 default: &default
   source_path: app/assets_webpack
-  source_entry_path: javascripts/packs
+  source_entry_path: src/javascripts/packs
   public_root_path: public
   public_output_path: packs
   cache_path: tmp/cache/webpacker
@@ -33,6 +33,8 @@ default: &default
     - .woff2
 
   extensions:
+    - .tsx
+    - .ts
     - .mjs
     - .js
     - .sass

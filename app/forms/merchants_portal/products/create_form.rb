@@ -42,7 +42,7 @@ class MerchantsPortal::Products::CreateForm
       product_variant_personalization_fields.each(&:save!)
       seo_listings.each(&:save!)
 
-      Events::Product::Created.create!(product: product)
+      Event::Product::Created.create!(product: product)
     end
   end
 

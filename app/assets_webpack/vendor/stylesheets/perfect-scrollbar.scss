@@ -1,0 +1,41 @@
+/*  PERFECT SCROLLBAR CUSTOM STYLES */
+
+.ps {
+  position: relative;
+  overflow: auto;
+
+  .ps__rail-y {
+    width: 4px !important;
+    background: none !important;
+    > .ps__thumb-y {
+      width: 4px !important;
+      background: #c5cdd2 !important;
+    }
+  }
+
+  .ps__rail-x {
+    height: 4px !important;
+    background: none !important;
+    > .ps__thumb-x {
+      height: 4px !important;
+      background: #c5cdd2 !important;
+    }
+  }
+}
+
+[data-vb-theme='dark'] {
+  .ps {
+    .ps__rail-y {
+      > .ps__thumb-y {
+        background: #32304b !important;
+      }
+    }
+  
+    .ps__rail-x {
+      > .ps__thumb-x {
+        background: #32304b !important;
+      }
+    }
+  }
+}
+

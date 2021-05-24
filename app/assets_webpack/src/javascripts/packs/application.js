@@ -26,6 +26,8 @@ import "@fortawesome/fontawesome-free/js/all.js"
 import "../../stylesheets/application"
 
 
+// Images
+require.context('../../images', true, /\.(gif|png|jpe?g|svg)$/i)
 
 
 // Set up Initialization

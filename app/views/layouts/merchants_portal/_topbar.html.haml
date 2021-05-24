@@ -4,7 +4,7 @@
       %i.dropdown-toggle-icon.fa.fa-home{"data-bs-placement" => "bottom", "data-bs-toggle" => "tooltip", :title => "Home"}
     %span.dropdown
       %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-bs-offset" => "0,15", "data-bs-toggle" => "dropdown", :href => ""}
-        %i.dropdown-toggle-icon.fa.fa-star{"data-bs-placement" => "bottom", "data-bs-toggle" => "tooltip", :title => "Bookmarks"}
+        %i.dropdown-toggle-icon.far.fa-star{"data-bs-placement" => "bottom", "data-bs-toggle" => "tooltip", :title => "Bookmarks"}
       .dropdown-menu{:role => "menu"}
         .card-body.p-1.vb__topbar__favs
           .px-2.pb-2.pt-0
@@ -13,27 +13,27 @@
             .px-2.pb-2
               %a.vb__topbar__favs__link{:href => "./dashboards-alpha.html"}
                 .vb__topbar__favs__setIcon.vb__topbar__favs__setIconActive
-                  %i.fa.fa-star
+                  %i.far.fa-star
                 %span
                   %i.me-2.fa.fa-cart-arrow-down
                   Sales Orders
               %a.vb__topbar__favs__link{:href => "./dashboards-beta.html"}
                 .vb__topbar__favs__setIcon.vb__topbar__favs__setIconActive
-                  %i.fa.fa-star
+                  %i.far.fa-star
                 %span
                   %i.me-2.fa.fa-tag
                   Products
               %a.vb__topbar__favs__link{:href => "./dashboards-gamma.html"}
                 .vb__topbar__favs__setIcon
-                  %i.fa.fa-star
+                  %i.far.fa-star
                 %span
                   %i.me-2.fa.fa-tags
                   Collections
               %a.vb__topbar__favs__link{:href => "./dashboards-crypto.html"}
                 .vb__topbar__favs__setIcon
-                  %i.fa.fa-star
+                  %i.far.fa-star
                 %span
-                  %i.me-2.fa.fa-user-o
+                  %i.me-2.fa.fa-user-tag
                   Customers
 
 
@@ -44,7 +44,7 @@
 
   .dropdown.me-4.d-none.d-md-block
     %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-bs-offset" => "0,15", "data-bs-toggle" => "dropdown", :href => ""}
-      %i.dropdown-toggle-icon.fa.fa-folder
+      %i.dropdown-toggle-icon.far.fa-folder
       %span.dropdown-toggle-text.d-none.d-xl-inline Issues History
     .dropdown-menu{:role => "menu"}
       %a.dropdown-item{:href => "javascript:void(0)"} Current search
@@ -189,7 +189,7 @@
 
   .dropdown
     %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-bs-offset" => "5,15", "data-bs-toggle" => "dropdown", :href => ""}
-      %img.dropdown-toggle-avatar{:alt => "User avatar", :src => "../../components/css/img/avatars/avatar-2.png"}/
+      %img.dropdown-toggle-avatar{ alt: "User avatar", src: asset_pack_path("media/src/images/avatars/avatar.png") }/
     .dropdown-menu.dropdown-menu-end{:role => "menu"}
       %a.dropdown-item{:href => "javascript:void(0)"}
         %i.dropdown-icon.far.fa-user
@@ -209,5 +209,5 @@
         %span.badge.bg-success.font-size-11.ms-2 25 New
       .dropdown-divider
       %a.dropdown-item{:href => "javascript:void(0)"}
-        %i.dropdown-icon.fa.fa-sign-out
+        %i.dropdown-icon.fa.fa-sign-out-alt
         Logout

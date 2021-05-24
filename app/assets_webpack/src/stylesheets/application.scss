@@ -1,14 +1,15 @@
 
-// Vendor libraries
+// Vendor Default Libraries
 @import "bootstrap";
 @import "@fortawesome/fontawesome-free";
+@import "perfect-scrollbar";
+
+// Vendor Custom Libraries
 @import "../../vendor/stylesheets/perfect-scrollbar";
 
 
-
-// Rails defaults
+// Rails Defaults
 @import "actiontext";
-
 
 
 // Source Files

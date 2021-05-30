@@ -1,4 +1,5 @@
 import ScrollBarModule from "./global/components/scrollBarModule"
+import ToolTipModule from "./global/components/toolTipModule"
 
 export default class Initializers {
   static initScrollBarModule() {
@@ -6,9 +7,11 @@ export default class Initializers {
   }
 
   static initTooltips() {
+    new ToolTipModule().init()
   }
 
   static initPopovers() {
+    
   }
 
   static initGlobals() {

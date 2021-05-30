@@ -5,8 +5,11 @@
     %br/
     %p.mb-0
       Copyright ©
+      %span#copyright-year
       :javascript
-        document.write(new Date().getFullYear());
+        document.addEventListener('turbolinks:load', function() {
+          document.getElementById('copyright-year').innerHTML = new Date().getFullYear();
+        })
       %a{:href => "https://sellpixels.com", :rel => "noopener noreferrer", :target => "_blank"} soko.com
       |
       %a{:href => "https://sellpixels.com/privacy", :rel => "noopener noreferrer", :target => "_blank"} Privacy Policy

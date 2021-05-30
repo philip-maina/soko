@@ -1,7 +1,7 @@
 .vb__topbar
   .me-4
-    %a.me-2{:href => "javascript:void(0);"}
-      %i.dropdown-toggle-icon.fa.fa-home{"data-bs-placement" => "bottom", "data-bs-toggle" => "tooltip", :title => "Home"}
+    = link_to merchants_portal_home_path, class: "me-2" do
+      %i.dropdown-toggle-icon.fa.fa-home{ "data-bs-placement" => "bottom", "data-bs-toggle" => "tooltip", :title => "Home"}
     %span.dropdown
       %a.dropdown-toggle.text-nowrap{"aria-expanded" => "false", "data-bs-offset" => "0,15", "data-bs-toggle" => "dropdown", :href => ""}
         %i.dropdown-toggle-icon.far.fa-star{"data-bs-placement" => "bottom", "data-bs-toggle" => "tooltip", :title => "Bookmarks"}

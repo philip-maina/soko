@@ -1,5 +1,6 @@
 class MerchantsPortal::ProductsController < MerchantsPortal::BaseController
   before_action :set_product, only: %i[ edit update destroy ]
+  add_breadcrumb "Products", :merchants_portal_products_path
 
   def index
   end
@@ -7,6 +8,7 @@ class MerchantsPortal::ProductsController < MerchantsPortal::BaseController
   def new
     @products_create_form = MerchantsPortal::Products::CreateForm.new
     @products_create_form.prepopulate
+    add_breadcrumb "New Product", :new_merchants_portal_product_path
   end
 
   def create

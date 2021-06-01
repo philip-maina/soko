@@ -6,6 +6,7 @@ environment.plugins.append("Provide", new webpack.ProvidePlugin({
   jQuery: "jquery",
   "window.$": "jquery",
   "window.jQuery": "jquery",
+  ko: "knockout"
 }))
 
 module.exports = environment

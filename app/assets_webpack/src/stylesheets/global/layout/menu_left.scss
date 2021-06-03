@@ -420,17 +420,9 @@
               overflow: hidden;
               text-indent: -999px;
               position: relative;
-              padding-left: 0;
-              padding-right: 0;
-              &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                top: 50%;
-                height: 1px;
-                background: $gray-2;
-                width: 100%;
-              }
+              padding: 0px 0px;
+              height: 0px;
+              width: 0px;
             }
 
             &__item {

@@ -1,7 +1,7 @@
-.vb__menuLeft
-  .vb__menuLeft__mobileTrigger
+.vb__menuLeft{"data-menu-left": true}
+  .vb__menuLeft__mobileTrigger{ "data-bind": "click: toggleMobileMenu" }
     %span
-  .vb__menuLeft__trigger
+  .vb__menuLeft__trigger{ "data-bind": "click: toggleMenu" }
   .vb__menuLeft__outer
     .vb__menuLeft__logo__container
       .vb__menuLeft__logo
@@ -12,71 +12,95 @@
         %li.vb__menuLeft__category
           Sales Management
         %li.vb__menuLeft__item.vb__menuLeft__submenu
-          %span.vb__menuLeft__item__link
+          %span.vb__menuLeft__item__link{ "data-bind": "click: toggleSubMenu" }
             %span.vb__menuLeft__item__title Sales Orders
             %span.badge.bg-success.ms-2 4
             %i.vb__menuLeft__item__icon.fa.fa-cart-arrow-down
           %ul.vb__menuLeft__navigation
             %li.vb__menuLeft__item
-              %a.vb__menuLeft__item__link{:href => "apps-profile.html"}
+              %a.vb__menuLeft__item__link{ id: "sales-orders_all" }
                 %span.vb__menuLeft__item__title All
             %li.vb__menuLeft__item
-              %a.vb__menuLeft__item__link{:href => "apps-calendar.html"}
+              %a.vb__menuLeft__item__link{ id: "sales-orders_drafts" }
                 %span.vb__menuLeft__item__title Drafts
             %li.vb__menuLeft__item
-              %a.vb__menuLeft__item__link{:href => "apps-gallery.html"}
+              %a.vb__menuLeft__item__link{ id: "sales-orders_abandoned-checkouts" }
                 %span.vb__menuLeft__item__title Abandoned Checkouts
         %li.vb__menuLeft__item.vb__menuLeft__submenu
-          %span.vb__menuLeft__item__link
+          %span.vb__menuLeft__item__link{ "data-bind": "click: toggleSubMenu" }
             %span.vb__menuLeft__item__title Products
             %i.vb__menuLeft__item__icon.fa.fa-tag
           %ul.vb__menuLeft__navigation
             %li.vb__menuLeft__item
-              %a.vb__menuLeft__item__link{:href => "apps-github-explore.html"}
+              %a.vb__menuLeft__item__link{ id: "products_all" }
                 %span.vb__menuLeft__item__title All
             %li.vb__menuLeft__item
-              %a.vb__menuLeft__item__link{:href => "apps-github-discuss.html"}
+              %a.vb__menuLeft__item__link{ id: "products_bundles" }
                 %span.vb__menuLeft__item__title Bundles
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
-          %span.vb__menuLeft__item__link
+        %li.vb__menuLeft__item
+          %span.vb__menuLeft__item__link{ id: "gift_cards" }
             %span.vb__menuLeft__item__title Gift Cards
             %i.vb__menuLeft__item__icon.fa.fa-gift   
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
-          %span.vb__menuLeft__item__link
+        %li.vb__menuLeft__item
+          %span.vb__menuLeft__item__link{ id: "collections" }
             %span.vb__menuLeft__item__title Collections
             %i.vb__menuLeft__item__icon.fa.fa-tags
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
-          %span.vb__menuLeft__item__link
+        %li.vb__menuLeft__item
+          %span.vb__menuLeft__item__link{ id: "customers" }
             %span.vb__menuLeft__item__title Customers
             %i.vb__menuLeft__item__icon.fa.fa-user-tag
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
-          %span.vb__menuLeft__item__link
+        %li.vb__menuLeft__item
+          %span.vb__menuLeft__item__link{ id: "marketing" }
             %span.vb__menuLeft__item__title Marketing
             %i.vb__menuLeft__item__icon.fa.fa-bullhorn
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
-          %span.vb__menuLeft__item__link
+        %li.vb__menuLeft__item
+          %span.vb__menuLeft__item__link{ id: "discounts" }
             %span.vb__menuLeft__item__title Discounts
             %i.vb__menuLeft__item__icon.fa.fa-percent
         
         %li
           %hr
 
-
         %li.vb__menuLeft__category
           Purchase Management
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
-          %span.vb__menuLeft__item__link
+        %li.vb__menuLeft__item
+          %span.vb__menuLeft__item__link{ id: "purchase_orders" }
             %span.vb__menuLeft__item__title Purchase Orders
             %span.badge.bg-success.ms-2 1
             %i.vb__menuLeft__item__icon.fa.fa-cart-plus
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
-          %span.vb__menuLeft__item__link
+        %li.vb__menuLeft__item
+          %span.vb__menuLeft__item__link{ id: "suppliers" }
             %span.vb__menuLeft__item__title Suppliers
             %i.vb__menuLeft__item__icon.fa.fa-people-carry
         %li.vb__menuLeft__item.vb__menuLeft__item--disabled
-          %span.vb__menuLeft__item__link
+          %span.vb__menuLeft__item__link{ id: "bill_of_materials" }
             %span.vb__menuLeft__item__title Bill of Materials
             %i.vb__menuLeft__item__icon.fa.fa-bookmark
+        %li.vb__menuLeft__item.vb__menuLeft__submenu
+          %span.vb__menuLeft__item__link{ "data-bind": "click: toggleSubMenu" }
+            %span.vb__menuLeft__item__title Nested Items
+            %i.vb__menuLeft__item__icon.fa.fa-stream
+          %ul.vb__menuLeft__navigation
+            %li.vb__menuLeft__item.vb__menuLeft__submenu
+              %span.vb__menuLeft__item__link{ "data-bind": "click: toggleSubMenu" }
+                %span.vb__menuLeft__item__title Nested Item 1-1
+              %ul.vb__menuLeft__navigation
+                %li.vb__menuLeft__item
+                  %span.vb__menuLeft__item__link
+                    %span.vb__menuLeft__item__title Nested Item 1-1-1
+                %li.vb__menuLeft__item.vb__menuLeft__item--disabled
+                  %span.vb__menuLeft__item__link
+                    %span.vb__menuLeft__item__title Nested Item 1-1-2
+            %li.vb__menuLeft__item.vb__menuLeft__submenu
+              %span.vb__menuLeft__item__link{ "data-bind": "click: toggleSubMenu" }
+                %span.vb__menuLeft__item__title Nested Item 1-2
+              %ul.vb__menuLeft__navigation
+                %li.vb__menuLeft__item
+                  %span.vb__menuLeft__item__link
+                    %span.vb__menuLeft__item__title Nested Item 1-2-1
+                %li.vb__menuLeft__item.vb__menuLeft__item--disabled
+                  %span.vb__menuLeft__item__link
+                    %span.vb__menuLeft__item__title Nested Item 1-2-2
 
       
         %li
@@ -85,15 +109,15 @@
 
         %li.vb__menuLeft__category
           Teams
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
+        %li.vb__menuLeft__item
           %span.vb__menuLeft__item__link
             %span.vb__menuLeft__item__title All Members
             %i.vb__menuLeft__item__icon.far.fa-user
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
+        %li.vb__menuLeft__item
           %span.vb__menuLeft__item__link
             %span.vb__menuLeft__item__title Sales
             %i.vb__menuLeft__item__icon.far.fa-user
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
+        %li.vb__menuLeft__item
           %span.vb__menuLeft__item__link
             %span.vb__menuLeft__item__title Operations
             %i.vb__menuLeft__item__icon.far.fa-user
@@ -104,11 +128,11 @@
 
         %li.vb__menuLeft__category
           Content Management
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
+        %li.vb__menuLeft__item
           %span.vb__menuLeft__item__link
             %span.vb__menuLeft__item__title Pages
             %i.vb__menuLeft__item__icon.fa.fa-rss
-        %li.vb__menuLeft__item.vb__menuLeft__submenu
+        %li.vb__menuLeft__item
           %span.vb__menuLeft__item__link
             %span.vb__menuLeft__item__title Navigation
             %i.vb__menuLeft__item__icon.fa.fa-bars
@@ -116,6 +140,6 @@
 
 
       .vb__menuLeft__banner
-        %p Let us help you sell better!
+        %p Let's help you sell better!
         %a.btn.btn-sm.btn-success.btn-rounded.px-3{:href => "https://themeforest.net/item/clean-ui-react-admin-template/21938700", :rel => "noopener noreferrer", :target => "_blank"} Explore Soko
-.vb__menuLeft__backdrop
+.vb__menuLeft__backdrop{ "data-bind": "click: toggleMobileMenu" }

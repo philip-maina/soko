@@ -37,5 +37,6 @@ $(document).on("turbolinks:load", function () {
   Initializers.initPopovers()
   Initializers.initTooltips()
   Initializers.initScrollBarModule()
+  Initializers.initMenuLeftModule("products_all")
   // Paloma.start()
 })

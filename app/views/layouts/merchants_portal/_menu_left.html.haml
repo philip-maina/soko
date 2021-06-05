@@ -32,7 +32,7 @@
             %i.vb__menuLeft__item__icon.fa.fa-tag
           %ul.vb__menuLeft__navigation
             %li.vb__menuLeft__item
-              %a.vb__menuLeft__item__link{ id: "products_all" }
+              = link_to merchants_portal_products_path, class: "vb__menuLeft__item__link", id: "products_all" do
                 %span.vb__menuLeft__item__title All
             %li.vb__menuLeft__item
               %a.vb__menuLeft__item__link{ id: "products_bundles" }
@@ -101,11 +101,9 @@
                 %li.vb__menuLeft__item.vb__menuLeft__item--disabled
                   %span.vb__menuLeft__item__link
                     %span.vb__menuLeft__item__title Nested Item 1-2-2
-
       
         %li
           %hr
-
 
         %li.vb__menuLeft__category
           Teams
@@ -124,7 +122,6 @@
 
         %li
           %hr
-
 
         %li.vb__menuLeft__category
           Content Management

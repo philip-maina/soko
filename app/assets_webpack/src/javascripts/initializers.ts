@@ -18,7 +18,7 @@ export default class Initializers {
   static initGlobals() {
   }
 
-  static initMenuLeftModule(currentMenuItemId: string) {
+  static initMenuLeftModule(currentMenuItemId?: string) {
     let $menuLeftContainer = $("[data-menu-left]")
     if (!$menuLeftContainer.length) return
 

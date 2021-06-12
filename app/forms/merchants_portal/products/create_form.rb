@@ -11,7 +11,7 @@ class MerchantsPortal::Products::CreateForm
               :product_variants, :product_option_value_variants, :product_variant_inventories,
               :customer_prices, :product_variant_personalization_fields, :seo_listings
 
-  def initialize(params)
+  def initialize(params = {})
     @params = params
     @errors = []
   end

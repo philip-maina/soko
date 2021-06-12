@@ -1,3 +1,7 @@
 // Place all the styles related to the merchants_portal/products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+[data-bs-spy='scroll'] {
+  height: 100vh;
+}

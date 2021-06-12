@@ -4,15 +4,17 @@
 @import "perfect-scrollbar";
 @import "@fortawesome/fontawesome-free";
 
-// Vendor Custom Libraries
-@import "../../vendor/stylesheets/perfect-scrollbar";
-
-
 // Rails Defaults
 @import "actiontext";
 
+// Global Defaults
+@import "global";
+
+// Vendor Custom Libraries
+@import "../../vendor/stylesheets/perfect-scrollbar";
+@import "../../vendor/stylesheets/bootstrap";
+
 
 // Source Files
-@import "global";
 @import "merchants_portal/home";
 @import "merchants_portal/products";

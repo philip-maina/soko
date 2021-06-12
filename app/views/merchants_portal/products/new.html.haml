@@ -1,2 +1,175 @@
-%h1 MerchantsPortal::Products#new
-%p Find me in app/views/merchants_portal/products/new.html.haml
+.row.p-3
+  -# scrollspy
+  .col-sm-3
+    %nav#variant-sections.navbar.navbar-light.bg-transparent.flex-column.align-items-stretch
+      %nav.nav.nav-pills.flex-column
+        %a.nav-link.text-gray-6.font-size-15{ href: "#basic-information", data: { turbolinks: 'false' } } Basic Information
+        %a.nav-link.text-gray-6.font-size-15{ href: "#images", data: { turbolinks: 'false' } } Images
+        %a.nav-link.text-gray-6.font-size-15{ href: "#pricing", data: { turbolinks: 'false' } } Pricing
+        %a.nav-link.text-gray-6.font-size-15{ href: "#inventory", data: { turbolinks: 'false' } } Inventory
+        %a.nav-link.text-gray-6.font-size-15{ href: "#personalization", data: { turbolinks: 'false' } } Personalization
+        %a.nav-link.text-gray-6.font-size-15{ href: "#search-optimization", data: { turbolinks: 'false' } } Search Optimization
+        
+  -# spied element
+  .col-sm-9{"data-bs-offset" => "50", "data-bs-spy" => "scroll", "data-bs-target" => "#variant-sections", :tabindex => "0"}
+    .card.mb-4#basic-information
+      .card-header.card-header-flex
+        .d-flex.flex-column.justify-content-center.me-auto
+          %h5.mb-0.me-2.font-size-16 Basic Information
+        .ms-auto.d-flex.flex-column.justify-content-center
+          %div
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement": "top", "data-bs-toggle": "tooltip", href: "#", title: "Unlock Account" }
+              %i.fa.fa-unlock
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement": "top", "data-bs-toggle": "tooltip", href: "#", title: "Mark as important" }
+              %i.far.fa-star
+            %a.btn.btn-sm.btn-light{ "data-bs-placement": "top", "data-bs-toggle": "tooltip", href: "#", title: "Delete user" }
+              %i.far.fa-trash-alt
+      .card-body
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+    .card.mb-4#images
+      .card-header.card-header-flex
+        .d-flex.flex-column.justify-content-center.me-auto
+          %h5.mb-0.me-2.font-size-16 Images
+        .ms-auto.d-flex.flex-column.justify-content-center
+          %div
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Unlock Account" }
+              %i.fa.fa-unlock
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Mark as important" }
+              %i.far.fa-star
+            %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
+              %i.far.fa-trash-alt
+      .card-body
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+    .card.mb-4#pricing
+      .card-header.card-header-flex
+        .d-flex.flex-column.justify-content-center.me-auto
+          %h5.mb-0.me-2.font-size-16 Pricing
+        .ms-auto.d-flex.flex-column.justify-content-center
+          %div
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Unlock Account" }
+              %i.fa.fa-unlock
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Mark as important" }
+              %i.far.fa-star
+            %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
+              %i.far.fa-trash-alt
+      .card-body
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+    .card.mb-4#inventory
+      .card-header.card-header-flex
+        .d-flex.flex-column.justify-content-center.me-auto
+          %h5.mb-0.me-2.font-size-16 Inventory
+        .ms-auto.d-flex.flex-column.justify-content-center
+          %div
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Unlock Account" }
+              %i.fa.fa-unlock
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Mark as important" }
+              %i.far.fa-star
+            %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
+              %i.far.fa-trash-alt
+      .card-body
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+    .card.mb-4#personalization
+      .card-header.card-header-flex
+        .d-flex.flex-column.justify-content-center.me-auto
+          %h5.mb-0.me-2.font-size-16 Personalization
+        .ms-auto.d-flex.flex-column.justify-content-center
+          %div
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Unlock Account" }
+              %i.fa.fa-unlock
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Mark as important" }
+              %i.far.fa-star
+            %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
+              %i.far.fa-trash-alt
+      .card-body
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+    .card.mb-4#search-optimization
+      .card-header.card-header-flex
+        .d-flex.flex-column.justify-content-center.me-auto
+          %h5.mb-0.me-2.font-size-16 Search Optimization
+        .ms-auto.d-flex.flex-column.justify-content-center
+          %div
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Unlock Account" }
+              %i.fa.fa-unlock
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Mark as important" }
+              %i.far.fa-star
+            %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
+              %i.far.fa-trash-alt
+      .card-body
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.

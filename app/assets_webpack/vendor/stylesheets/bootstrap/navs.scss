@@ -2,6 +2,8 @@
 
 .nav {
   .nav-link {
+    color: $text;
+
     &.disabled {
       opacity: 0.4;
     }
@@ -79,9 +81,9 @@
       .nav-link {
         &.active {
           &:after {
-            height: 7px;
-            bottom: -4px;
-            border-radius: 7px;
+            height: 4px;
+            bottom: -1px;
+            border-radius: 4px;
           }
         }
       }

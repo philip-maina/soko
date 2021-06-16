@@ -1,9 +1,14 @@
 .d-flex.flex-wrap
   .me-auto.pe-3.my-2
-    %i.fa.fa-tag.font-size-21.me-2
-    .text-nowrap.d-inline-block.font-size-18.text-dark
-      %a.font-size-18.text-gray-6{:href => "javascript: void(0);"} Product  PROD-000001
-  .d-flex.flex-wrap.font-size-16
+    %i.fa.fa-tag.font-size-18.me-2
+    .text-nowrap.d-inline-block.text-dark
+      %a.font-size-18.text-gray-6{:href => "#"} 
+        %strong Product  PROD-000001
+      %span.badge.badge-pill.badge-success.ms-2
+        %i.fa.fa-check
+        PUBLISHED
+      
+  .d-flex.flex-wrap.font-size-18
     .me-3.my-2.text-nowrap
       %button.btn.btn-primary.btn-with-addon
         %span.btn-addon
@@ -48,6 +53,7 @@
         %a.nav-link.text-gray-6.font-size-15{ href: "#images", data: { turbolinks: 'false' } } Images
         %a.nav-link.text-gray-6.font-size-15{ href: "#pricing", data: { turbolinks: 'false' } } Pricing
         %a.nav-link.text-gray-6.font-size-15{ href: "#inventory", data: { turbolinks: 'false' } } Inventory
+        %a.nav-link.text-gray-6.font-size-15{ href: "#shipping", data: { turbolinks: 'false' } } Shipping
         %a.nav-link.text-gray-6.font-size-15{ href: "#personalization", data: { turbolinks: 'false' } } Personalization
         %a.nav-link.text-gray-6.font-size-15{ href: "#search-optimization", data: { turbolinks: 'false' } } Search Optimization
 
@@ -66,23 +72,36 @@
             %a.btn.btn-sm.btn-light{ "data-bs-placement": "top", "data-bs-toggle": "tooltip", href: "#", title: "Delete user" }
               %i.far.fa-trash-alt
       .card-body
-        %p
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-          galley of type and scrambled it to make a type specimen book. It has survived not only five
-          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-        %p
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-          galley of type and scrambled it to make a type specimen book. It has survived not only five
-          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-        %p
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-          galley of type and scrambled it to make a type specimen book. It has survived not only five
-          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        .row.mb-4
+          .form-group.col-md-6
+            %label.form-label Title
+            %input.form-control{ placeholder: "e.g Becoming", type: "text" }/
+          .form-group.col-md-6
+            %label.form-label Subtitle
+            %input.form-control{ placeholder: "e.g by Michelle Obama", type: "text" }/
+        .row.mb-4
+          .form-group.col-md-12
+            %label.form-label Brand
+            %select.form-control{ multiple: "multiple", "data-select2-tags": true }
+              %option{ selected: "selected" } Obamas
+              %option Option 2
+              %option Option 3
+              %option Option 4
+              %option Option 5
+        .row.mb-4
+          .form-group.col-md-12
+            %label.form-label Description
+            %input#master-variant_description{ name: "content", type: "hidden", value: "Editor content goes here"}/
+            %trix-editor{ input: "master-variant_description" }
+        .row.mb-4
+          .form-group.col-md-12
+            %label.form-label Care Instructions
+            %select.form-control{ multiple: "multiple", "data-select2-tags": true }
+              %option{ selected: "selected" } Avoid Humidity
+              %option Keep away from Direct Sunlight
+              %option Option 3
+              %option Option 4
+              %option Option 5
 
     .card.mb-4#images
       .card-header.card-header-flex
@@ -138,6 +157,32 @@
       .card-header.card-header-flex
         .d-flex.flex-column.justify-content-center.me-auto
           %h5.mb-0.me-2.font-size-16 Inventory
+        .ms-auto.d-flex.flex-column.justify-content-center
+          %div
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Unlock Account" }
+              %i.fa.fa-unlock
+            %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Mark as important" }
+              %i.far.fa-star
+            %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
+              %i.far.fa-trash-alt
+      .card-body
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+        %p
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+          been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+          galley of type and scrambled it to make a type specimen book. It has survived not only five
+          centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+
+
+    .card.mb-4#shipping
+      .card-header.card-header-flex
+        .d-flex.flex-column.justify-content-center.me-auto
+          %h5.mb-0.me-2.font-size-16 Shipping
         .ms-auto.d-flex.flex-column.justify-content-center
           %div
             %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Unlock Account" }

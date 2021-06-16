@@ -3,8 +3,10 @@
 @import "bootstrap";
 @import "perfect-scrollbar";
 @import "@fortawesome/fontawesome-free";
+@import "select2";
 
 // Rails Defaults
+@import "trix";
 @import "actiontext";
 
 // Global Defaults
@@ -12,6 +14,7 @@
 
 // Vendor Custom Libraries
 @import "../../vendor/stylesheets/perfect-scrollbar";
+@import "../../vendor/stylesheets/select2";
 @import "../../vendor/stylesheets/bootstrap";
 
 

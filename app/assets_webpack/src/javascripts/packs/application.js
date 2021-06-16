@@ -23,6 +23,7 @@ import $ from "jquery"
 import "bootstrap"
 import "@fortawesome/fontawesome-free/js/all.js"
 import "knockout"
+import "select2"
 
 
 // Stylesheets
@@ -43,6 +44,7 @@ $(document).on("turbolinks:load", function () {
   Initializers.initGlobals()
   Initializers.initPopovers()
   Initializers.initTooltips()
+  Initializers.initSelect2()
   Initializers.initScrollBarModule()
 
   Paloma.start()

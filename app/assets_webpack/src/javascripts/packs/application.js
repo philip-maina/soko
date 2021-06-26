@@ -18,24 +18,31 @@ require("trix")
 require("@rails/actiontext")
 
 
+
 // Vendor libraries
 import $ from "jquery"
+import "jquery-ui/ui/widgets/sortable"
 import "bootstrap"
 import "@fortawesome/fontawesome-free/js/all.js"
-import "knockout"
+import ko from "knockout"
+import "knockout-sortable"
 import "select2"
+
 
 
 // Stylesheets
 import "../../stylesheets/application"
 
 
+
 // Images
 require.context('../../images', true, /\.(gif|png|jpe?g|svg)$/i)
 
 
+
 // Paloma controllers
 requireAll(require.context("../palomaControllers", true, /(\.ts$)/));
+
 
 
 // Set up Initialization

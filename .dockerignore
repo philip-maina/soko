@@ -8,6 +8,9 @@ log/*
 # Temp files
 tmp/*
 
+node_modules
+yarn-error.log
+
 dump.rdb
 README.md
 .jshintrc

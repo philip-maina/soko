@@ -7,12 +7,12 @@
 
 // Rails Defaults
 @import "trix";
-@import "actiontext";
 
 // Global Defaults
 @import "global";
 
 // Vendor Custom Libraries
+@import "actiontext";
 @import "../../vendor/stylesheets/perfect-scrollbar";
 @import "../../vendor/stylesheets/select2";
 @import "../../vendor/stylesheets/bootstrap";

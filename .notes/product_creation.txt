@@ -317,3 +317,329 @@ form_name: {
     ]
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+================================================================================================
+
+
+FRONTEND (JS)
+
+{
+  brand: { name: "Barnes & Noble", id: "" },
+  collectionItems: [
+    { collectionId: 1 },
+    { collectionId: 5 }
+  ],
+  options: [
+    {
+      name: "Format",
+      description: "View all available Formats & Editions",
+      position: 0,
+      optionValues: [
+        {
+          id: 1,
+          value: "Signed Book",
+          position: 0
+        },
+        {
+          id: 2,
+          value: "Hardcover",
+          position: 1
+        },
+        {
+          id: 3,
+          value: "Paperback",
+          position: 2
+        },
+        {
+          id: 4,
+          value: "eBook (pdf)",
+          position: 3
+        },
+        {
+          id: 5,
+          value: "Audio Book",
+          position: 4
+        }
+      ]
+    },
+    {
+      name: "Font Size",
+      description: "",
+      position: 1,
+      productOptionValues: [
+        {
+          id: 6,
+          value: "Regular Print",
+          position: 0
+        },
+        {
+          id: 7,
+          value: "Large Print",
+          position: 1
+        }
+      ]
+    }
+  ],
+  variants: [
+    {
+      variantType: "physical",
+      master: "true",
+      title: "Becoming",
+      subtitle: "by Michelle Obama",
+      description:,
+      sku: "PROD-0000001",
+      careTags: ["Avoid Humidity", "Keep away from Direct Sunlight"],
+      searchTags: ["michelle", "michele", "obama", "becoming", "first lady"],
+      images: [{
+        dataUrl:
+      }],
+      downloads: [],
+      trackInventory: true,
+      backorderable: true,
+      visibleOnStorefront: true,
+      giftable: true,
+      weight: 723.5,
+      weightUnit: "g",
+      optionValueVariants: []
+      inventories: [{ quantityOnHand: 0, lowStockThreshold: 0, locationId: 1 }],
+      customerPrices: [
+        { 
+          priceType: "basic", 
+          minimumQuantity: 1, 
+          incrementQuantity: 1, 
+          price: 2850, 
+          priceCurrency: "KES",
+          compareAtPrice: 2850,
+          displayPrice: "KSh 2850",
+          default:
+        }
+      ],
+      personalizationFields: [],
+      seoListing: {
+        metaTitle: "Becoming by Michelle Obama",
+        metaDescription:
+      }
+    },
+    {
+      variantType: "physical",
+      master: "false",
+      title: "Becoming",
+      subtitle: "by Michelle Obama (Signed Edition)",
+      description:,
+      sku: "PROD-0000002",
+      careTags: ["Avoid Humidity", "Keep away from Direct Sunlight"],
+      searchTags: ["michelle", "michele", "obama", "becoming", "first lady", "signed"],
+      images:,
+      downloads: [],
+      trackInventory: "true",
+      backorderable: "true",
+      visibleOnStorefront: "true",
+      giftable: "true",
+      weight: 760,
+      weightUnit: "g",
+      optionValueVariants: [
+        { optionValueId: 1 },
+        { optionValueId: 6 }
+      ]
+      inventories: [{ quantityOnHand: 150, lowStockThreshold: 15, locationId: 1 }],
+      customerPrices: [
+        { 
+          priceType: "basic", 
+          minimumQuantity: 1, 
+          incrementQuantity: 1, 
+          price: 4050, 
+          priceCurrency: "KES",
+          compareAtPrice: 4050,
+          displayPrice: "KSh 4050",
+          default:
+        }
+      ],
+      personalizationFields: [
+        {
+          label: "Signature Placement",
+          helpText: "Where in the book should the signature be inscribed ?",
+          placeholder:,
+          options: [ "Title Page", "Inside Cover" ],
+          required: "true",
+          fieldType: "select_field",
+          position: 0
+        }
+      ],
+      seoListing: {
+        metaTitle: "Becoming by Michelle Obama (Signed Edition)",
+        metaDescription:
+      }
+    },
+    {
+      variantType: "physical",
+      master: "false",
+      title: "Becoming",
+      subtitle: "by Michelle Obama (Hardcover)",
+      description:,
+      sku: "PROD-0000003",
+      careTags: ["Avoid Humidity", "Keep away from Direct Sunlight"],
+      searchTags: ["michelle", "michele", "obama", "becoming", "first lady", "hardcover"],
+      images:,
+      downloads: [],
+      trackInventory: "true",
+      backorderable: "true",
+      visibleOnStorefront: "true",
+      giftable: "true",
+      weight: 723.5,
+      weightUnit: "g",
+      optionValueVariants: [
+        { optionValueId: 2 },
+        { optionValueId: 6 }
+      ]
+      inventories: [{ quantityOnHand: 1500, lowStockThreshold: 60, locationId: 1 }],
+      customerPrices: [
+        { 
+          priceType: "basic", 
+          minimumQuantity: 1, 
+          incrementQuantity: 1, 
+          price: 3200, 
+          priceCurrency: "KES",
+          compareAtPrice: 3200,
+          displayPrice: "KSh 3200",
+          default:
+        }
+      ],
+      personalizationFields: [],
+      seoListing: {
+        metaTitle: "Becoming by Michelle Obama (Hardcover)",
+        metaDescription:
+      }
+    },
+    {
+      variantType: "physical",
+      master: "false",
+      title: "Becoming",
+      subtitle: "by Michelle Obama (Hardcover | Large Print)",
+      description:,
+      sku: "PROD-0000004",
+      careTags: ["Avoid Humidity", "Keep away from Direct Sunlight"],
+      searchTags: ["michelle", "michele", "obama", "becoming", "first lady", "hardcover", "large"],
+      images:,
+      downloads: [],
+      trackInventory: "true",
+      backorderable: "true",
+      visibleOnStorefront: "true",
+      giftable: "true",
+      weight: 795.5,
+      weightUnit: "g",
+      optionValueVariants: [
+        { optionValueId: 2 },
+        { optionValueId: 7 }
+      ]
+      inventories: [{ quantityOnHand: 400, lowStockThreshold: 20, locationId: 1 }],
+      customerPrices: [
+        { 
+          priceType: "basic", 
+          minimumQuantity: 1, 
+          incrementQuantity: 1, 
+          price: 3500, 
+          priceCurrency: "KES",
+          compareAtPrice: 3500,
+          displayPrice: "KSh 3500",
+          default:
+        }
+      ],
+      personalizationFields: [],
+      seoListing: {
+        metaTitle: "Becoming by Michelle Obama (Hardcover | Large Print)",
+        metaDescription:
+      }
+    },
+    {
+      variantType: "physical",
+      master: "false",
+      title: "Becoming",
+      subtitle: "by Michelle Obama (Paperback)",
+      description:,
+      sku: "PROD-0000005",
+      careTags: ["Avoid Humidity", "Keep away from Direct Sunlight"],
+      searchTags: ["michelle", "michele", "obama", "becoming", "first lady", "paperback"],
+      images:,
+      downloads: [],
+      trackInventory: "true",
+      backorderable: "true",
+      visibleOnStorefront: "true",
+      giftable: "true",
+      weight: 393,
+      weightUnit: "g",
+      optionValueVariants: [
+        { optionValueId: 3 },
+        { optionValueId: 6 }
+      ]
+      inventories: [{ quantityOnHand: 2000, lowStockThreshold: 100, locationId: 1 }],
+      customerPrices: [
+        { 
+          priceType: "basic", 
+          minimumQuantity: 1, 
+          incrementQuantity: 1, 
+          price: 2850, 
+          priceCurrency: "KES",
+          compareAtPrice: 2850,
+          displayPrice: "KSh 2850",
+          default:
+        }
+      ],
+      personalizationFields: [],
+      seoListing: {
+        metaTitle: "Becoming by Michelle Obama (Paperback)",
+        metaDescription:
+      }
+    },
+    {
+      variantType: "physical",
+      master: "false",
+      title: "Becoming",
+      subtitle: "by Michelle Obama (eBook pdf)",
+      description:,
+      sku: "PROD-0000006",
+      careTags: [],
+      searchTags: ["michelle", "michele", "obama", "becoming", "first lady", "ebook", "digital", "pdf"],
+      images:,
+      downloads: [ <File> ],
+      trackInventory: "false",
+      backorderable: "true",
+      visibleOnStorefront: "true",
+      giftable: "true",
+      optionValueVariants: [
+        { optionValueId: 4 }
+      ]
+      inventories: [],
+      customerPrices: [
+        { 
+          priceType: "basic", 
+          minimumQuantity: 1, 
+          incrementQuantity: 1, 
+          price: 1500, 
+          priceCurrency: "KES",
+          compareAtPrice: 1500,
+          displayPrice: "KSh 1500",
+          default:
+        }
+      ],
+      personalizationFields: [],
+      seoListing: {
+        metaTitle: "Becoming by Michelle Obama (eBook pdf)",
+        metaDescription:
+      }
+    },
+  ]
+}

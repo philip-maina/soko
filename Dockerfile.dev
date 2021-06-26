@@ -3,18 +3,25 @@
 #      This ensures that whenever you change the packages being installed, you get the latest
 #      package/repository information at the same time not cached information.
 
-FROM ruby:3.0
+FROM ruby:3.0.0
 
 LABEL maintainer="philip.maina@hey.com"
 
-# nodejs specific repository and instructions
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
-RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends nodejs
+# Allow apt to work with https-based sources e.g node & yarn
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
+  apt-transport-https
 
-# yarn specific repository and instructions
+# Ensure more up to date version of node
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -
+
+# Ensure latest packages for yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends yarn
+
+# Install system packages
+RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \ 
+  nodejs \
+  yarn
 
 ENV APP_HOME /usr/src/app
 RUN mkdir -p $APP_HOME

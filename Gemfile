@@ -5,16 +5,8 @@ ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.4'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 
@@ -31,7 +23,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'scanf', '~> 1.0'
 
 
-
+# DB Storage
+# ----------
 # Rails interface to the {PostgreSQL RDBMS}
 gem 'pg', '~> 1.2', '>= 1.2.3'
 # Integrate PostgreSQL's enum data type into ActiveRecord's schema and migrations.
@@ -45,6 +38,8 @@ gem 'ar-sequence', '~> 0.1.2'
 gem 'pg_search', '~> 2.3', '>= 2.3.5'
 
 
+# Transient Data Storage
+# ----------------------
 # Use redis adapter for in-memory key–value database, caching and pub/sub messaging
 gem 'redis', '~> 4.2', '>= 4.2.5'
 # Cross platform GUI tool for redis
@@ -57,6 +52,8 @@ gem 'money-rails', '~> 1.14'
 gem 'activerecord-import', '~> 1.0', '>= 1.0.8'
 
 
+# BG Jobs
+# -------
 # For background job processing.
 gem "sidekiq"
 # Sinatra powers the web ui for sidekiq
@@ -65,6 +62,8 @@ gem "sinatra", require: false
 gem "sidekiq-statistic"
 
 
+# Asset Processing & Storage
+# ---------------------------
 # Use Active Storage variant (does resizing of images)
 gem 'image_processing', '~> 1.2'
 # Validation for active storage isn't yet integrated in the official release of Rails 6
@@ -73,6 +72,14 @@ gem 'active_storage_validations', '~> 0.9.2'
 gem 'aws-sdk-s3', '~> 1.93'
 
 
+# Assets & Javascripts
+# --------------------
+# Use SCSS for stylesheets
+gem 'sass-rails', '>= 6'
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'webpacker', '~> 5.4'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
 # For enabling Haml as the templating engine
 gem 'haml-rails', '~> 2.0', '>= 2.0.1'
 # For Page-specific javascript
@@ -92,6 +99,37 @@ gem 'rubocop-rails_config', '~> 1.3', '>= 1.3.4'
 # command line output, using ANSI escape sequences.
 gem 'colorize', '~> 0.8.1'
 
+
+
+# Profiling & troubleshooting
+# ---------------------------
+# gem 'stackprof'
+# gem 'flamegraph'
+
+
+# Security
+# --------
+
+
+
+# Code critics
+# ------------
+# gem 'rubocop-rails', require: false
+
+
+
+
+# Logging/Instrumentation
+# -----------------------
+
+
+
+# Deployment
+# ----------
+
+
+# Monitoring
+# ---------
 
 
 group :development, :test do

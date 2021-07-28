@@ -8,12 +8,14 @@ Paloma.controller("MerchantsPortal/Products", {
   },
   new: function () {
     const form = new ProductForm({
+      brands: [],
       options: [],
       variants: [],
       collectionItems: []
     }).init()
 
     ko.applyBindings(form, $("[data-product-form]")[0])
+    window.productForm = form
   },
   create: function () {
   },

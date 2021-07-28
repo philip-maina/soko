@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_125442) do
+ActiveRecord::Schema.define(version: 2021_07_18_203916) do
 
   create_sequence "action_text_rich_texts_id_seq"
   create_sequence "active_storage_attachments_id_seq"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2021_04_23_125442) do
   create_sequence "events_id_seq"
   create_sequence "locations_id_seq"
   create_sequence "navigation_menu_items_id_seq"
+  create_sequence "product_inventories_id_seq"
   create_sequence "product_option_value_variants_id_seq"
   create_sequence "product_option_values_id_seq"
   create_sequence "product_options_id_seq"
@@ -79,7 +80,21 @@ ActiveRecord::Schema.define(version: 2021_04_23_125442) do
     "digital",
   ], force: :cascade
 
-  create_enum :weight_unit, [
+  create_enum :unit_of_measure, [
+    "pcs",
+    "g",
+    "kg",
+    "oz",
+    "lb",
+    "ml",
+    "l",
+    "cm",
+    "m",
+    "cm2",
+    "m2",
+  ], force: :cascade
+
+  create_enum :weight_unit_of_measure, [
     "g",
     "kg",
     "lb",
@@ -203,6 +218,18 @@ ActiveRecord::Schema.define(version: 2021_04_23_125442) do
     t.index ["navigation_menu_itemable_id", "navigation_menu_itemable_type"], name: "index_menu_items_on_menu_itemable_id_and_menu_itemable_type"
   end
 
+  create_table "product_inventories", force: :cascade do |t|
+    t.bigint "location_id", null: false
+    t.enum "unit", default: "pcs", null: false, enum_name: "unit_of_measure"
+    t.float "quantity_on_hand", default: 0.0, null: false
+    t.float "quantity_reserved", default: 0.0, null: false
+    t.float "low_stock_threshold", default: 0.0, null: false
+    t.date "expires_on"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_product_inventories_on_location_id"
+  end
+
   create_table "product_option_value_variants", force: :cascade do |t|
     t.bigint "product_option_value_id", null: false
     t.bigint "product_variant_id", null: false
@@ -233,14 +260,10 @@ ActiveRecord::Schema.define(version: 2021_04_23_125442) do
 
   create_table "product_variant_inventories", force: :cascade do |t|
     t.bigint "product_variant_id", null: false
-    t.bigint "location_id", null: false
-    t.bigint "quantity_on_hand", default: 0, null: false
-    t.bigint "quantity_reserved", default: 0, null: false
-    t.integer "low_inventory_threshold", default: 0, null: false
-    t.date "expires_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_product_variant_inventories_on_location_id"
+    t.bigint "product_inventory_id", null: false
+    t.index ["product_inventory_id"], name: "index_product_variant_inventories_on_product_inventory_id"
     t.index ["product_variant_id"], name: "index_product_variant_inventories_on_product_variant_id"
   end
 
@@ -280,10 +303,12 @@ ActiveRecord::Schema.define(version: 2021_04_23_125442) do
     t.boolean "backorderable", default: true
     t.boolean "giftable", default: true
     t.float "weight"
-    t.enum "weight_unit", enum_name: "weight_unit"
+    t.enum "weight_unit", enum_name: "weight_unit_of_measure"
     t.jsonb "data", default: {}
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "inventory_multiplier", default: 1.0, null: false
+    t.enum "inventory_multiplier_unit", default: "pcs", null: false, enum_name: "unit_of_measure"
     t.index ["product_id"], name: "index_product_variants_on_product_id"
   end
 
@@ -310,11 +335,12 @@ ActiveRecord::Schema.define(version: 2021_04_23_125442) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "collection_items", "collections"
+  add_foreign_key "product_inventories", "locations"
   add_foreign_key "product_option_value_variants", "product_option_values"
   add_foreign_key "product_option_value_variants", "product_variants"
   add_foreign_key "product_option_values", "product_options"
   add_foreign_key "product_options", "products"
-  add_foreign_key "product_variant_inventories", "locations"
+  add_foreign_key "product_variant_inventories", "product_inventories"
   add_foreign_key "product_variant_inventories", "product_variants"
   add_foreign_key "product_variant_personalization_field_values", "product_variant_personalization_fields"
   add_foreign_key "product_variant_personalization_fields", "product_variants"

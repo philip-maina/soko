@@ -1,7 +1,7 @@
 class CreateProductVariants < ActiveRecord::Migration[6.1]
   def change
     create_enum :product_variant_type, %w[physical digital]
-    create_enum :weight_unit, %w[g kg lb oz]
+    create_enum :weight_unit_of_measure, %w[g kg lb oz]
 
     create_table :product_variants do |t|
       t.references :product, null: false, foreign_key: true
@@ -17,7 +17,7 @@ class CreateProductVariants < ActiveRecord::Migration[6.1]
       t.boolean :backorderable, default: true
       t.boolean :giftable, default: true
       t.float :weight
-      t.enum :weight_unit, enum_name: :weight_unit
+      t.enum :weight_unit, enum_name: :weight_unit_of_measure
       t.jsonb :data, default: {}
 
       t.timestamps

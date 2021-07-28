@@ -15,7 +15,7 @@ class Location < ApplicationRecord
 
   # Associations:
   has_rich_text :pickup_instructions
-  has_many :inventories, class_name: "Product::Variant::Inventory", dependent: :destroy
+  has_many :inventories, class_name: "Product::Inventory", dependent: :destroy
 
   # Validations:
   validates :name, presence: true, uniqueness: { case_sensitive: false, if: :name? }

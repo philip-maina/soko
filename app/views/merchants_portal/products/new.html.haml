@@ -82,12 +82,13 @@
           .row.mb-4
             .form-group.col-md-12
               %label.form-label Brand
-              %select.form-control{ multiple: "multiple", "data-select2-tags": true }
+              %select.form-control{ "data-bind": "options: $root.brands, optionsCaption: 'Select/Add Brand...', optionsText: 'text', optionsValue: 'id', value: $root.brand, select2: { placeholder: 'Select/Add Brand...', allowClear: true, tags: true, tokenSeparators: [',', ' '] }" }
                 %option{ selected: "selected" } Obamas
                 %option Option 2
                 %option Option 3
                 %option Option 4
                 %option Option 5
+
           .row.mb-4
             .form-group.col-md-12
               %label.form-label Description

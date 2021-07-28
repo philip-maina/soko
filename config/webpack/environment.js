@@ -11,7 +11,8 @@ environment.plugins.append("Provide", new webpack.ProvidePlugin({
 
 
 // Webpack doesn’t pollute the global namespace by default
-// This makes jquery, knockout,..etc available globally i.e in views, console, window
+// This makes jquery, knockout,..etc available globally i.e in views(<!-- ko if: -->), console, 
+// window
 environment.loaders.append("expose-loader-jquery", {
   test: require.resolve("jquery"),
   use: [

@@ -29,6 +29,10 @@ import "knockout-sortable"
 import "select2"
 
 
+// Vendor Custom libraries
+import "../../../vendor/javascripts/ko"
+
+
 
 // Stylesheets
 import "../../stylesheets/application"

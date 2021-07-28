@@ -20,9 +20,10 @@ class MerchantsPortal::Products::CreateParams
             :brand_id,
             :product_type,
             brand: brand_attrs,
-            { collection_items: collection_item_attrs },
-            { product_options: product_option_attrs },
-            { product_variants: product_variant_attrs }
+            collection_items: collection_item_attrs,
+            product_options: product_option_attrs,
+            product_variants: product_variant_attrs,
+            product_inventories: product_inventory_attrs
           ]
         ).to_h
     end
@@ -40,15 +41,7 @@ class MerchantsPortal::Products::CreateParams
         :name,
         :description,
         :position,
-        { product_option_values: product_option_value_attrs }
-      ]
-    end
-
-    def product_option_value_attrs
-      [
-        :temporary_id,
-        :value,
-        :position
+        product_option_values: product_option_value_attrs
       ]
     end
 
@@ -71,10 +64,29 @@ class MerchantsPortal::Products::CreateParams
         care_tags: [],
         search_tags: [],
         seo_listing: seo_listing_attrs,
-        { customer_prices: customer_price_attrs },
-        { product_variant_inventories: product_variant_inventory_attrs },
-        { product_option_value_variants: product_option_value_variant_attrs },
-        { product_variant_personalization_fields: product_variant_personalization_field_attrs }
+        customer_prices: customer_price_attrs,
+        product_variant_inventories: product_variant_inventory_attrs,
+        product_option_value_variants: product_option_value_variant_attrs,
+        product_variant_personalization_fields: product_variant_personalization_field_attrs
+      ]
+    end
+
+    def product_inventory_attrs
+      [
+        :temporary_id,
+        :location_id,
+        :unit,
+        :quantity_on_hand, 
+        :low_stock_threshold,
+        :expires_on
+      ]
+    end
+
+    def product_option_value_attrs
+      [
+        :temporary_id,
+        :value,
+        :position
       ]
     end
 
@@ -98,11 +110,7 @@ class MerchantsPortal::Products::CreateParams
     end
 
     def product_variant_inventory_attrs
-      [
-        :location_id,
-        :quantity_on_hand, 
-        :low_stock_threshold
-      ]
+      [ :product_inventory_id ]
     end
 
     def product_option_value_variant_attrs

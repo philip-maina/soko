@@ -6,7 +6,8 @@ import Variant from "./productForm/variant"
 export default class ProductForm {
   constants: Readonly<{}>
 
-  brand: KnockoutObservable<Brand>
+  brand: KnockoutObservable<{}>
+  brands: KnockoutObservableArray<{}>
   collectionItems: KnockoutObservableArray<CollectionItem>
   options: KnockoutObservableArray<Option>
   masterVariant: Variant
@@ -18,12 +19,19 @@ export default class ProductForm {
   __: {}
 
   constructor(params: {
+    brands: Array<{}>,
     options: Array<{}>,
     variants: Array<any>,
     collectionItems: Array<{}>
   }) {
     this.constants = Object.freeze({})
 
+    this.brand = ko.observable()
+    this.brands = ko.observableArray([
+      { id: "0", text: "Barnes & Nobles" },
+      { id: "1", text: "Macmillan Publishers" },
+      { id: "2", text: "Hachette Livre" }
+    ])
     this.collectionItems = ko.observableArray([])
     this.options = ko.observableArray([])
     this.nonMasterVariants =

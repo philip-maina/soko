@@ -21,7 +21,7 @@ class MerchantsPortal::ProductsController < MerchantsPortal::BaseController
           render json: {
             success: true,
             errors: [],
-            editUrl: merchants_portal_edit_product_url(@products_create_form.product)
+            editUrl: edit_merchants_portal_product_url(@products_create_form.product)
           }
         else
           render json: {

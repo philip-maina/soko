@@ -34,8 +34,8 @@ class Product::Variant::PersonalizationField < ApplicationRecord
   enum field_type: FIELD_TYPES
 
   # Associations:
-  belongs_to :variant, class_name: "Product::Variant", foreign_key: "product_variant_id"
-  has_many :personalization_field_values, class_name: "Product::Variant::PersonalizationFieldValue", foreign_key: "product_variant_personalization_field_id", dependent: :nullify
+  belongs_to :variant, class_name: "Product::Variant", foreign_key: "product_variant_id", inverse_of: :personalization_fields
+  has_many :personalization_field_values, class_name: "Product::Variant::PersonalizationFieldValue", foreign_key: "product_variant_personalization_field_id", dependent: :nullify, inverse_of: :personalization_field
 
   # Validations:
   validates :label, :field_type, :position, presence: true

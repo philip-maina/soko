@@ -13,8 +13,8 @@
 class Seo::Listing < ApplicationRecord
 
   # Associations:
-  belongs_to :seo_listable, polymorphic: true
+  belongs_to :seo_listable, polymorphic: true, inverse_of: :seo_listing
 
   # Validations:
-  validates :meta_title, :meta_description, presence: true
+  validates :meta_title, presence: true
 end

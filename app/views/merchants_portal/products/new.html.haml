@@ -82,12 +82,7 @@
           .row.mb-4
             .form-group.col-md-12
               %label.form-label Brand
-              %select.form-control{ "data-bind": "options: $root.brands, optionsCaption: 'Select/Add Brand...', optionsText: 'text', optionsValue: 'id', value: $root.brand, select2: { placeholder: 'Select/Add Brand...', allowClear: true, tags: true, tokenSeparators: [',', ' '] }" }
-                %option{ selected: "selected" } Obamas
-                %option Option 2
-                %option Option 3
-                %option Option 4
-                %option Option 5
+              %select.form-control{ "data-bind": "options: $root.brands, optionsCaption: 'Select/Add Brand...', optionsText: 'name', optionsValue: 'id', value: $root.brandId, select2: { placeholder: 'Select/Add Brand...', allowClear: true, tags: true, tokenSeparators: [','] }" }
 
           .row.mb-4
             .form-group.col-md-12
@@ -97,12 +92,7 @@
           .row.mb-4
             .form-group.col-md-12
               %label.form-label Care Instructions
-              %select.form-control{ multiple: "multiple", "data-select2-tags": true }
-                %option{ selected: "selected" } Avoid Humidity
-                %option Keep away from Direct Sunlight
-                %option Option 3
-                %option Option 4
-                %option Option 5
+              %select.form-control{ multiple: "multiple", "data-bind": "options: careTags, optionsText: 'name', selectedOptions: masterVariant.careTags, select2: { placeholder: 'Select/Add Care Instructions...', allowClear: true, tags: true, tokenSeparators: [','] }" }
 
       .card.mb-4#images{ "data-bind": "with: masterVariant.imageInputModule" }
         .card-header.card-header-flex

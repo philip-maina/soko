@@ -6,8 +6,11 @@ import Variant from "./productForm/variant"
 export default class ProductForm {
   constants: Readonly<{}>
 
-  brand: KnockoutObservable<{}>
+  brand: KnockoutComputed<{}>
+  brandId: KnockoutObservable<{}>
   brands: KnockoutObservableArray<{}>
+  careTags: KnockoutObservableArray<{}>
+
   collectionItems: KnockoutObservableArray<CollectionItem>
   options: KnockoutObservableArray<Option>
   masterVariant: Variant
@@ -22,16 +25,21 @@ export default class ProductForm {
     brands: Array<{}>,
     options: Array<{}>,
     variants: Array<any>,
-    collectionItems: Array<{}>
+    collectionItems: Array<{}>,
+    careTags: Array<{}>
   }) {
     this.constants = Object.freeze({})
 
-    this.brand = ko.observable()
-    this.brands = ko.observableArray([
-      { id: "0", text: "Barnes & Nobles" },
-      { id: "1", text: "Macmillan Publishers" },
-      { id: "2", text: "Hachette Livre" }
+    this.brandId = ko.observable()
+    this.brands  = ko.observableArray([
+      { id: "0", name: "Barnes & Nobles", newOption: false },
+      { id: "1", name: "Macmillan Publishers", newOption: false },
+      { id: "2", name: "Hachette Livre", newOption: false }
     ])
+    this.brand = ko.computed(() => {
+      return this.brands().find((brand) => brand.id == this.brandId())
+    })
+
     this.collectionItems = ko.observableArray([])
     this.options = ko.observableArray([])
     this.nonMasterVariants =
@@ -45,13 +53,21 @@ export default class ProductForm {
     this.masterVariant = 
       masterVariant ? 
         new Variant({...masterVariant, $imagesModule: $("#images") }).init() :
-        new Variant({ master: true, $imagesModule: $("#images") }).init()
+        new Variant({ 
+          master: true, 
+          $imagesModule: $("#images"),
+          careTags: params.careTags
+        }).init()
 
+
+    this.careTags = ko.observableArray(params.careTags)
     this.canSave = ko.observable(false)
     this.isSaving = ko.observable(false)
 
     this.__ = {}
   }
+
+  
 
 
   serialize() {

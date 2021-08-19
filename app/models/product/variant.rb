@@ -39,15 +39,15 @@ class Product::Variant < ApplicationRecord
   has_rich_text :description
   has_many_attached :images
   has_many_attached :downloads
-  belongs_to :product
-  has_one :seo_listing, as: :seo_listable, class_name: "Seo::Listing", dependent: :destroy
-  has_many :customer_prices, as: :customer_priceable, class_name: "Customer::Price", dependent: :destroy
-  has_many :collection_items, as: :collection_itemable, class_name: "Collection::Item", dependent: :destroy
-  has_many :events, as: :eventable, dependent: :nullify
-  has_many :variant_inventories, class_name: "Product::VariantInventory", foreign_key: "product_variant_id", dependent: :destroy
+  belongs_to :product, inverse_of: :variants
+  has_one :seo_listing, as: :seo_listable, class_name: "Seo::Listing", foreign_key: "seo_listable_id", dependent: :destroy, inverse_of: :seo_listable
+  has_many :customer_prices, as: :customer_priceable, class_name: "Customer::Price", foreign_key: "customer_priceable_id", dependent: :destroy, inverse_of: :customer_priceable
+  has_many :collection_items, as: :collection_itemable, class_name: "Collection::Item", foreign_key: "collection_itemable_id", dependent: :destroy, inverse_of: :collection_itemable
+  has_many :events, as: :eventable, dependent: :nullify, inverse_of: :eventable
+  has_many :variant_inventories, class_name: "Product::VariantInventory", foreign_key: "product_variant_id", dependent: :destroy, inverse_of: :variant
   has_many :inventories, class_name: "Product::Inventory", through: :variant_inventories
-  has_many :option_value_variants, class_name: "Product::OptionValueVariant", foreign_key: "product_variant_id", dependent: :destroy
-  has_many :personalization_fields, class_name: "Product::Variant::PersonalizationField", foreign_key: "product_variant_id", dependent: :destroy
+  has_many :option_value_variants, class_name: "Product::OptionValueVariant", foreign_key: "product_variant_id", dependent: :destroy, inverse_of: :variant
+  has_many :personalization_fields, class_name: "Product::Variant::PersonalizationField", foreign_key: "product_variant_id", dependent: :destroy, inverse_of: :variant
 
   # Validations:
   validates :title, :sku, :variant_type, presence: true
@@ -58,4 +58,15 @@ class Product::Variant < ApplicationRecord
   validates :inventory_multiplier, numericality: { greater_than: 0 }
   validates :master, :visible_on_storefront, :track_inventory, :backorderable, :giftable, inclusion: { in: [ true, false ] }
   validates :weight, numericality: { greater_than: 0, if: -> (record) { record.physical? && record.weight? } }
+
+  # Scopes/Querying methods:
+
+
+  # Class API:
+
+
+  # Public API:
+
+
+  # Private API:
 end

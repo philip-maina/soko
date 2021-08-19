@@ -7,9 +7,11 @@ class MerchantsPortal::Products::CreateForm
   attr_reader :params, 
               :errors
 
-  attr_reader :brand, :product, :collection_items, :product_options, :product_option_values,
-              :product_variants, :product_option_value_variants, :product_variant_inventories,
-              :customer_prices, :product_variant_personalization_fields, :seo_listings
+  attr_accessor :brand, :collection_items, :customer_prices, 
+                :product, :product_inventories, 
+                :product_options, :product_option_values, :product_option_value_variants,
+                :product_variants, :product_variant_inventories, :product_variant_personalization_fields, 
+                :seo_listings
 
   def initialize(params = {})
     @params = params
@@ -28,11 +30,12 @@ class MerchantsPortal::Products::CreateForm
 
   def save!
     return unless errors.blank?
-
+    
     ActiveRecord::Base.transaction do
       brand.save! if brand
       product.save!
       collection_items.each(&:save!)
+      product_inventories.each(&:save!)
       product_options.each(&:save!)
       product_option_values.each(&:save!)
       product_variants.each(&:save!)
@@ -42,16 +45,17 @@ class MerchantsPortal::Products::CreateForm
       product_variant_personalization_fields.each(&:save!)
       seo_listings.each(&:save!)
 
-      Event::Product::Created.create!(product: product)
+      # Event::Product::Created.create!(product: product)
     end
   end
 
   private
     def populate
       unless params.blank?
-        @brand = Populators::Brand.populate(params[:product][:brand]) || Brand.find_by(id: params[:product][:brand_id])
+        @brand   = ::Brand.find_by(id: params[:product][:brand_id]) || Populators::Brand.populate(params[:product][:brand])
         @product = Populators::Product.populate(@brand, params[:product].slice(:product_type))
         @collection_items = Populators::Collection::Items.populate(@product, params[:product][:collection_items])
+        @product_inventories = Populators::Product::Inventories.populate(@product, params[:product][:product_inventories])
 
         @product_options,
         @product_option_values = Populators::Product::Options.populate(@product, params[:product][:product_options])
@@ -61,7 +65,7 @@ class MerchantsPortal::Products::CreateForm
         @product_variant_inventories,
         @customer_prices,
         @product_variant_personalization_fields,
-        @seo_listings = Populators::Product::Variants.populate(@product, @product_option_values, params[:product][:product_variants])
+        @seo_listings = Populators::Product::Variants.populate(@product, @product_inventories, @product_option_values, params[:product][:product_variants])
       end
     end
 
@@ -69,11 +73,12 @@ class MerchantsPortal::Products::CreateForm
       @errors.concat(Validators::Brand.validate(brand)) if brand
       @errors.concat(Validators::Product.validate(product))
       @errors.concat(Validators::Collection::Items.validate(collection_items))
+      @errors.concat(Validators::Product::Inventories.validate(product_inventories))
       @errors.concat(Validators::Product::Options.validate(product_options))
       @errors.concat(Validators::Product::OptionValues.validate(product_option_values))
       @errors.concat(Validators::Product::Variants.validate(product_variants))
       @errors.concat(Validators::Product::OptionValueVariants.validate(product_option_value_variants))
-      @errors.concat(Validators::Product::Variant::Inventories.validate(product_variant_inventories))
+      @errors.concat(Validators::Product::VariantInventories.validate(product_variant_inventories))
       @errors.concat(Validators::Customer::Prices.validate(customer_prices))
       @errors.concat(Validators::Product::Variant::PersonalizationFields.validate(product_variant_personalization_fields))
       @errors.concat(Validators::Seo::Listings.validate(seo_listings))

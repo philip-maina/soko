@@ -8,7 +8,6 @@ class MerchantsPortal::Products::CreateParams
   def permit!
     @params = permit_params(@params)
     @params = format_params(@params)
-    @params
   end
 
   private
@@ -55,6 +54,8 @@ class MerchantsPortal::Products::CreateParams
         :sku,
         :weight,
         :weight_unit,
+        :inventory_multiplier,
+        :inventory_multiplier_unit,
         :track_inventory,
         :backorderable,
         :visible_on_storefront,

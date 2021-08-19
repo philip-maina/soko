@@ -12,6 +12,6 @@
 class Collection::Item < ApplicationRecord
 
   # Associations:
-  belongs_to :collection
-  belongs_to :collection_itemable, polymorphic: true
+  belongs_to :collection, inverse_of: :items
+  belongs_to :collection_itemable, polymorphic: true, inverse_of: :collection_items
 end

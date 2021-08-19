@@ -11,7 +11,7 @@ class Brand < ApplicationRecord
 
   # Associations:
   has_rich_text :description
-  has_many :products, dependent: :nullify
+  has_many :products, dependent: :nullify, inverse_of: :brand
 
   # Validations:
   validates :name, presence: true, uniqueness: { case_sensitive: false }

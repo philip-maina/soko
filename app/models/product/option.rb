@@ -13,8 +13,8 @@
 class Product::Option < ApplicationRecord
 
   # Associations:
-  belongs_to :product
-  has_many :option_values, class_name: "Product::OptionValue", foreign_key: "product_option_id", dependent: :destroy
+  belongs_to :product, inverse_of: :options
+  has_many :option_values, class_name: "Product::OptionValue", foreign_key: "product_option_id", dependent: :destroy, inverse_of: :option
 
   # Validations:
   validates :name, :position, presence: true

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_18_203916) do
+ActiveRecord::Schema.define(version: 2021_08_08_214234) do
 
   create_sequence "action_text_rich_texts_id_seq"
   create_sequence "active_storage_attachments_id_seq"
@@ -223,7 +223,7 @@ ActiveRecord::Schema.define(version: 2021_07_18_203916) do
     t.enum "unit", default: "pcs", null: false, enum_name: "unit_of_measure"
     t.float "quantity_on_hand", default: 0.0, null: false
     t.float "quantity_reserved", default: 0.0, null: false
-    t.float "low_stock_threshold", default: 0.0, null: false
+    t.float "low_inventory_threshold", default: 0.0, null: false
     t.date "expires_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

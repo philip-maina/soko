@@ -4,30 +4,36 @@ class MerchantsPortal::Products::CreateForm
       # brand is optional
       def self.populate(attrs)
         return nil unless attrs.present?
-        Brand.new(attrs)
+        ::Brand.new(attrs)
       end
     end
     
     class Product
       def self.populate(brand, attrs)
-        Product.new(brand: brand, product_type: attrs[:product_type])
+        ::Product.new(brand: brand, product_type: attrs[:product_type])
       end
     end
 
-    class Collection::Items
+    class Product::Inventories
       def self.populate(product, attrs)
-        attrs.map { |collection_item_attrs| product.collection_items.new(collection_item_attrs) }
+        attrs.map do |product_inventory_attrs| 
+          ::Product::Inventory.new(product_inventory_attrs)
+        end
       end
     end
 
     class Product::Options
       # product options are optional
       def self.populate(product, attrs)
-        options, 
-        option_values = [], []
+        options, option_values = [], []
 
         attrs.each do |option_attrs|
-          option = product.options.new(option_attrs.slice(:name, :description, :position))
+          option = ::Product::Option.new(
+            product: product,
+            name: option_attrs[:name],
+            description: option_attrs[:description],
+            position: option_attrs[:position]
+          )
           options.push(option)
           option_values.concat(Product::OptionValues.populate(option, option_attrs[:product_option_values]))
         end
@@ -39,9 +45,7 @@ class MerchantsPortal::Products::CreateForm
     class Product::OptionValues
       def self.populate(option, attrs)
         attrs.map do |option_value_attrs|
-          option_value = option.option_values.new(option_value_attrs.slice(:value, :position))
-          option_value.temporary_id = option_value_attrs[:temporary_id]
-          option_value
+          ::Product::OptionValue.new(option_value_attrs.merge(option: option))
         end
       end
     end
@@ -49,19 +53,19 @@ class MerchantsPortal::Products::CreateForm
     class Product::Variants
       # There will be at least one variant - master AND and its seo_listing, 
       # However product_variant_inventories, product_option_value_variants, customer_prices, personalization_fields are optional 
-      def self.populate(product, option_values, attrs)
+      def self.populate(product, inventories, option_values, attrs)
         variants,
         option_value_variants,
-        inventories,
+        variant_inventories,
         customer_prices, 
         personalization_fields,
-        seo_listings = [], [], [], [], []
+        seo_listings = [], [], [], [], [], []
 
         attrs.each do |variant_attrs|
-          variant = Product::Variant.populate(product, attrs)
+          variant = Product::Variant.populate(product, variant_attrs)
           variants.push(variant)
-          
-          seo_listings.push(Product::Seo::Listing.populate(variant, variant_attrs[:seo_listing]))
+
+          seo_listings.push(Seo::Listing.populate(variant, variant_attrs[:seo_listing]))
 
           option_value_variants.concat(
             Product::OptionValueVariants.populate(
@@ -71,9 +75,10 @@ class MerchantsPortal::Products::CreateForm
             )
           ) if variant_attrs[:product_option_value_variants].present?
 
-          inventories.concat(
-            Product::Variant::Inventories.populate(
+          variant_inventories.concat(
+            Product::VariantInventories.populate(
               variant,
+              inventories,
               variant_attrs[:product_variant_inventories]
             )
           ) if variant_attrs[:product_variant_inventories].present?
@@ -96,7 +101,7 @@ class MerchantsPortal::Products::CreateForm
         return [
           variants,
           option_value_variants,
-          inventories,
+          variant_inventories,
           customer_prices, 
           personalization_fields,
           seo_listings
@@ -106,25 +111,26 @@ class MerchantsPortal::Products::CreateForm
 
     class Product::Variant
       def self.populate(product, attrs)
-        product.variants.new(
-          attrs.slice(
-            :variant_type,
-            :master,
-            :title,
-            :subtitle,
-            :description,
-            :sku,
-            :care_tags,
-            :search_tags,
-            :images,
-            :downloads,
-            :track_inventory,
-            :backorderable,
-            :visible_on_storefront,
-            :giftable,
-            :weight,
-            :weight_unit
-          )
+        ::Product::Variant.new(
+          product: product,
+          variant_type: attrs[:variant_type],
+          master: attrs[:master],
+          title: attrs[:title],
+          subtitle: attrs[:subtitle],
+          description: attrs[:description],
+          sku: attrs[:sku],
+          care_tags: attrs[:care_tags],
+          search_tags: attrs[:search_tags],
+          images: attrs[:images],
+          downloads: attrs[:downloads],
+          track_inventory: attrs[:track_inventory],
+          backorderable: attrs[:backorderable],
+          visible_on_storefront: attrs[:visible_on_storefront],
+          giftable: attrs[:giftable],
+          weight: attrs[:weight],
+          weight_unit: attrs[:weight_unit],
+          inventory_multiplier: attrs[:inventory_multiplier],
+          inventory_multiplier_unit: attrs[:inventory_multiplier_unit]
         )
       end
     end
@@ -133,40 +139,68 @@ class MerchantsPortal::Products::CreateForm
       def self.populate(variant, option_values, attrs)
         attrs.map do |option_value_variant_attrs|
           option_value = find_option_value(option_values, option_value_variant_attrs)
-          variant.option_value_variants.new(product_option_value: option_value)
+          ::Product::OptionValueVariant.new(variant: variant, option_value: option_value)
         end
       end
 
-      def self.find_option_value(option_values)
+      def self.find_option_value(option_values, option_value_variant_attrs)
         option_values.find do |option_value|
           option_value.temporary_id == option_value_variant_attrs[:product_option_value_id]
         end
       end
     end
 
-    class Product::Variant::Inventories
-      def self.populate(variant, attrs)
-        attrs.map { |inventory_attrs| variant.inventories.new(inventory_attrs) }
+    class Product::VariantInventories
+      def self.populate(variant, inventories, attrs)
+        attrs.map do |variant_inventory_attrs|
+          inventory = find_inventory(inventories, variant_inventory_attrs)
+          ::Product::VariantInventory.new(variant: variant, inventory: inventory)
+        end
       end
-    end
 
-    class Customer::Prices
-      def self.populate(variant, attrs)
-        attrs.map { |customer_price_attrs| variant.customer_prices.new(customer_price_attrs) }
+      def self.find_inventory(inventories, variant_inventory_attrs)
+        inventories.find do |inventory|
+          inventory.temporary_id == variant_inventory_attrs[:product_inventory_id]
+        end
       end
     end
 
     class Product::Variant::PersonalizationFields
       def self.populate(variant, attrs)
         attrs.map do |personalization_field_attrs| 
-          variant.personalization_fields.new(personalization_field_attrs)
+          ::Product::Variant::PersonalizationField.new(
+            personalization_field_attrs.merge(variant: variant)
+          )
         end
       end
     end
 
-    class Seo::Listing
-      def self.populate(variant, attrs)
-        variant.build_seo_listing(attrs)
+
+    module Customer
+      class Prices
+        def self.populate(variant, attrs)
+          attrs.map do |customer_price_attrs|
+            ::Customer::Price.new(customer_price_attrs.merge(customer_priceable: variant)) 
+          end
+        end
+      end
+    end
+    
+    module Collection
+      class Items
+        def self.populate(product, attrs)
+          attrs.map do |collection_item_attrs|
+            ::Collection::Item.new(collection_item_attrs.merge(collection_itemable: product))
+          end
+        end
+      end
+    end
+
+    module Seo
+      class Listing
+        def self.populate(variant, attrs)
+          ::Seo::Listing.new(attrs.merge(seo_listable: variant))
+        end
       end
     end
   end

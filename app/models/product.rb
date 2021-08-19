@@ -21,14 +21,25 @@ class Product < ApplicationRecord
   enum product_type: PRODUCT_TYPES
 
   # Associations:
-  belongs_to :brand, optional: true
-  has_many :options, class_name: "Product::Option", dependent: :destroy
-  has_many :variants, class_name: "Product::Variant", dependent: :destroy
-  has_many :collection_items, as: :collection_itemable, class_name: "Collection::Item", dependent: :destroy
-  has_many :events, as: :eventable, dependent: :nullify
+  belongs_to :brand, optional: true, inverse_of: :products
+  has_many :options, class_name: "Product::Option", foreign_key: "product_id", dependent: :destroy, inverse_of: :product
+  has_many :variants, class_name: "Product::Variant", foreign_key: "product_id", dependent: :destroy, inverse_of: :product
+  has_many :collection_items, as: :collection_itemable, class_name: "Collection::Item", foreign_key: "collection_itemable_id", dependent: :destroy, inverse_of: :collection_itemable
+  has_many :events, as: :eventable, dependent: :nullify, inverse_of: :eventable
 
   # Validations:
   validates :product_type, :status, presence: true
   validates :status, inclusion: { in: STATUSES.values, if: :status? }
   validates :product_type, inclusion: { in: PRODUCT_TYPES.values, if: :product_type? }
+
+  # Scopes/Querying methods:
+
+
+  # Class API:
+
+  
+  # Public API:
+
+
+  # Private API:
 end

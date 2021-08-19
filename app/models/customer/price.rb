@@ -25,7 +25,7 @@ class Customer::Price < ApplicationRecord
   enum price_type: PRICE_TYPES
 
   # Associations:
-  belongs_to :customer_priceable, polymorphic: true
+  belongs_to :customer_priceable, polymorphic: true, inverse_of: :customer_prices
 
   # Validations:
   validates :default, inclusion: { in: [ true, false ] }

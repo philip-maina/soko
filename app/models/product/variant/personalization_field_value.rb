@@ -11,6 +11,6 @@
 class Product::Variant::PersonalizationFieldValue < ApplicationRecord
 
   # Associations:
-  belongs_to :personalization_field, class_name: "Product::Variant::PersonalizationField", foreign_key: "product_variant_personalization_field_id"
+  belongs_to :personalization_field, class_name: "Product::Variant::PersonalizationField", foreign_key: "product_variant_personalization_field_id", inverse_of: :personalization_field_values
   has_many_attached :files
 end

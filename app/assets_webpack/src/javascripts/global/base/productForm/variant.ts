@@ -20,6 +20,7 @@ export default class Variant {
       dataUrl: string
     }>,
     $imagesModule: JQuery<HTMLElement>
+    careTags: Array<{}>
   }) {
     this.master = params.master
     this.title = ko.observable(params.title)
@@ -28,6 +29,8 @@ export default class Variant {
       $module: params.$imagesModule,
       attachments: params.images || []
     }).init()
+
+    this.careTags = ko.observableArray(params.careTags)
   }
 
   serialize() {

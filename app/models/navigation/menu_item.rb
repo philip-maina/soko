@@ -16,7 +16,7 @@
 class Navigation::MenuItem < ApplicationRecord
 
   # Associations:
-  belongs_to :navigation_menu_itemable, polymorphic: true
+  belongs_to :navigation_menu_itemable, polymorphic: true, inverse_of: :navigation_menu_items
 
   # Validations:
   validates :name, :path, :sibling_position, presence: true

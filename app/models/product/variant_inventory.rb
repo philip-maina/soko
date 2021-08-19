@@ -11,6 +11,6 @@
 class Product::VariantInventory < ApplicationRecord
 
   # Associations:
-  belongs_to :variant, class_name: "Product::Variant", foreign_key: "product_variant_id"
-  belongs_to :inventory, class_name: "Product::Inventory", foreign_key: "product_inventory_id"
+  belongs_to :variant, class_name: "Product::Variant", foreign_key: "product_variant_id", inverse_of: :variant_inventories
+  belongs_to :inventory, class_name: "Product::Inventory", foreign_key: "product_inventory_id", inverse_of: :variant_inventories
 end

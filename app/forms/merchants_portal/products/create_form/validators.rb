@@ -15,12 +15,18 @@ class MerchantsPortal::Products::CreateForm
       end
     end
 
-    class Collection::Items
-      def self.validate(collection_items)
-        collection_items.map do |collection_item|
-          collection_item.valid?
-          collection_item.errors.full_messages
-        end.flatten.uniq
+    class Product::Inventories
+      def self.validate(inventories)
+        errors = []
+
+        errors.concat(
+          inventories.reduce([]) do |acc, inventory|
+            inventory.valid?
+            acc.concat(inventory.errors.full_messages)
+          end
+        )
+
+        errors.uniq.map { |error| error.prepend("Product Inventory's ") }
       end
     end
 
@@ -111,33 +117,12 @@ class MerchantsPortal::Products::CreateForm
       end
     end
 
-    class Product::Variant::Inventories
-      def self.validate(inventories)
-        errors = []
-
-        errors.concat(
-          inventories.reduce([]) do |acc, inventory|
-            inventory.valid?
-            acc.concat(inventory.errors.full_messages)
-          end
-        )
-
-        errors.uniq.map { |error| error.prepend("Product Variant Inventory's ") }
-      end
-    end
-
-    class Customer::Prices
-      def self.validate(customer_prices)
-        errors = []
-
-        errors.concat(
-          customer_prices.reduce([]) do |acc, customer_price|
-            customer_price.valid?
-            acc.concat(customer_price.errors.full_messages)
-          end
-        )
-
-        errors.uniq.map { |error| error.prepend("Customer Price's ") }
+    class Product::VariantInventories
+      def self.validate(variant_inventories)
+        variant_inventories.map do |variant_inventory|
+          variant_inventory.valid?
+          variant_inventory.errors.full_messages
+        end.flatten.uniq
       end
     end
 
@@ -165,20 +150,51 @@ class MerchantsPortal::Products::CreateForm
           .any? { |labels| labels.size != labels.uniq.size } ? ["Label has already been taken"] : []
       end
     end
-  end
 
-  class Seo::Listings
-    def self.validate(seo_listings)
-      errors = []
 
-      errors.concat(
-        seo_listings.reduce([]) do |acc, seo_listing|
-          seo_listing.valid?
-          acc.concat(seo_listing.errors.full_messages)
+    module Customer
+      class Prices
+        def self.validate(customer_prices)
+          errors = []
+  
+          errors.concat(
+            customer_prices.reduce([]) do |acc, customer_price|
+              customer_price.valid?
+              acc.concat(customer_price.errors.full_messages)
+            end
+          )
+  
+          errors.uniq.map { |error| error.prepend("Customer Price's ") }
         end
-      )
+      end
+    end
 
-      errors.uniq.map { |error| error.prepend("Seo Listing's ") }
+    module Collection
+      class Items
+        def self.validate(collection_items)
+          collection_items.map do |collection_item|
+            collection_item.valid?
+            collection_item.errors.full_messages
+          end.flatten.uniq
+        end
+      end
+    end
+  
+    module Seo
+      class Listings
+        def self.validate(seo_listings)
+          errors = []
+    
+          errors.concat(
+            seo_listings.reduce([]) do |acc, seo_listing|
+              seo_listing.valid?
+              acc.concat(seo_listing.errors.full_messages)
+            end
+          )
+    
+          errors.uniq.map { |error| error.prepend("Seo Listing's ") }
+        end
+      end
     end
   end
 end

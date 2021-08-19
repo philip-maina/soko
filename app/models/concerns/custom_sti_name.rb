@@ -1,6 +1,7 @@
 # NOTE: 
 #   sti_class_for is a public method which means we can be confident 
-#   it won't be changed or removed in the future (rails/activerecord/lib/active_record/inheritance.rb)
+#   if changed in the future, there will be a changelog and deprecation notice.
+#   (rails/activerecord/lib/active_record/inheritance.rb)
 module CustomStiName
   extend ActiveSupport::Concern
 

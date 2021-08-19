@@ -692,6 +692,8 @@ Solution:
 ---------
 Example: https://bulkbox.co.ke/zesta-strawberry-jam-12x500g/
 
+When there are non-master variants, then only those should be validated and not the master one.
+
 form_name: {
   product: {
     product_type: "standard",

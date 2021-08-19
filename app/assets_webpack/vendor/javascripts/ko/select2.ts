@@ -15,43 +15,56 @@ import "select2"
 
 
 ko.bindingHandlers.select2 = {
-  after: ["options", "selectedOptions", "value"],
+  after: ["options"],
   init: function (element, valueAccessor, allBindingsAccessor) {
-    let $element = $(element)
-    let select2Options = Object.assign({}, ko.unwrap(valueAccessor()))
+    let $element      = $(element)
+    let optionsText   = allBindingsAccessor.get("optionsText")
+    let optionsValue  = allBindingsAccessor.get("optionsValue")
     let subscriptions = []
 
-    let options         = allBindingsAccessor.get("options")
-    let value           = allBindingsAccessor.get("value") // Single Selection
-    let selectedOptions = allBindingsAccessor.get("selectedOptions") // Multi Selection
-    let optionsText     = allBindingsAccessor.get("optionsText")
+    let select2Options = Object.assign({ 
+      createTag: function (params) {
+        let term = $.trim(params.term)
+        if (term === '') return null
+        
+        let tag = { id: term, text: term, newOption: true }
+        if (optionsText)  tag[optionsText]  = term
+        if (optionsValue) tag[optionsValue] = term
 
-    $element.on('select2:select select2:unselect', function(event) {
-      let selectedOption = event.params.data
+        return tag
+      }}, 
+      ko.unwrap(valueAccessor())
+    )
 
-      if (options().some((option) => option[optionsText].toLowerCase() == selectedOption.text.toLowerCase())) return
+    // let options         = allBindingsAccessor.get("options")
+    // let value           = allBindingsAccessor.get("value") // Single Selection
+    // let selectedOptions = allBindingsAccessor.get("selectedOptions") // Multi Selection
 
-      if (event.type == "select2:select") {
-        selectedOption[optionsText] = selectedOption.text
-        options.push(selectedOption)
-        selectedOptions.push(selectedOption)
-        value(selectedOption)
-      }
+    // $element.on('select2:select', function(event) {
+    //   let selectedOption = event.params.data
+      
+    //   if (options().some((option) => (option[optionsText] || option).toLowerCase() == selectedOption.text.toLowerCase())) return
 
-      if (event.type == "select2:unselect") {
-        value()
-        selectedOptions.remove(selectedOption)
-        options.remove(selectedOption)
-      }      
-    });
+    //   if (selectedOptions) selectedOptions.push(selectedOption)
+    //   if (value) value(selectedOption)
+    //   return
+    // })
 
-    
 
-    // Delay to allow other binding handlers to run, as this binding handler 
-    // // depends on options, selectedOptions & value bindings
-    // setTimeout(() => { $element.select2(select2Options) }, 0)
+    // $element.on('select2:unselect', function(event) {
+    //   let selectedOption = event.params.data
 
+    //   if (selectedOptions) selectedOptions.remove(selectedOption)
+    //   if (value) value()
+    //   refresh
+    // })
+
+    // $element.on('select2:selecting select2:unselecting', function() { ignoreChange = true })
+    // $element.on('select2:select select2:unselect', function() { ignoreChange = false })
+
+  
     let refresh = () => setTimeout(() => {
+      console.log("REFRESHING.....")
       $element.select2("destroy")
       $element.select2(select2Options)
     }, 0)
@@ -68,11 +81,15 @@ ko.bindingHandlers.select2 = {
     addSubscription("value") // Single
     addSubscription("selectedOptions") // Multiple
 
+    // Delay to allow other binding handlers to run, as this binding handler 
+    // depends on options, selectedOptions & value bindings
+    setTimeout(() => { $element.select2(select2Options) }, 0)
+    
     ko.utils.domNodeDisposal.addDisposeCallback(element, function () {
-      while (subscriptions.length) {
-        subscriptions.pop().dispose()
-      }
+      $element.select2("destroy")
+      while (subscriptions.length) { subscriptions.pop().dispose() }
     })
+
   },
   update: function (element, valueAccessor, allBindingsAccessor) {
 

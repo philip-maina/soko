@@ -17,8 +17,8 @@
 class Event < ApplicationRecord
 
   # Associations:
-  belongs_to :eventable, polymorphic: true
-  belongs_to :creator, polymorphic: true, optional: true
+  belongs_to :eventable, polymorphic: true, inverse_of: :events
+  belongs_to :creator, polymorphic: true, optional: true, inverse_of: :events
 
   # Validations:
   validates :name, :request_details, presence: true

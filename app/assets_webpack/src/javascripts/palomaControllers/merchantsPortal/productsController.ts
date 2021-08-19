@@ -11,7 +11,8 @@ Paloma.controller("MerchantsPortal/Products", {
       brands: [],
       options: [],
       variants: [],
-      collectionItems: []
+      collectionItems: [],
+      careTags: [{ id: "1", name: "Avoid Humidity" } , { id: "1", name: "Keep away from direct sunlight" }]
     }).init()
 
     ko.applyBindings(form, $("[data-product-form]")[0])

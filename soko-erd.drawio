@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-07-18T20:56:35.344Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36" etag="0_vd8FeHvxkTr6U2Qc1U" version="14.8.5" type="github">
+<mxfile host="app.diagrams.net" modified="2021-09-10T14:45:42.166Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" etag="ngwDZd8YQGWzwqBz82vD" version="15.1.4" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
-    <mxGraphModel dx="2646" dy="2789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2646" dy="2846" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -271,10 +271,10 @@
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-5" value="price_type (enum) : Options include &quot;basic&quot;, &quot;volume&quot; and &quot;tiered&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
           <mxGeometry y="120" width="440" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="5EAPZrsPtRcHzYcJFA_N-6" value="minimum_quantity (integer) : customers need to order enough to &#xa;apply this price list. The minimum quantity for which this Customer::Price &#xa;applies. If there is a Customer::Price with higher starting quantity that still &#xa;applies to this." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
+        <mxCell id="5EAPZrsPtRcHzYcJFA_N-6" value="minimum_order_quantity (integer) : customers need to order enough to &#xa;apply this price list. The minimum quantity for which this Customer::Price &#xa;applies. If there is a Customer::Price with higher starting quantity that still &#xa;applies to this." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
           <mxGeometry y="146" width="440" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="5EAPZrsPtRcHzYcJFA_N-9" value="increment_quantity (integer) : purchase in multiples of x" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
+        <mxCell id="5EAPZrsPtRcHzYcJFA_N-9" value="increment_order_quantity (integer) : purchase in multiples of x" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
           <mxGeometry y="216" width="440" height="26" as="geometry" />
         </mxCell>
         <mxCell id="xNZ4ATSNOMt5Z4T5nZos-1" value="display_price (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">

@@ -55,7 +55,7 @@
           %a.nav-link.text-gray-6.font-size-15{ href: "#inventory", data: { turbolinks: 'false' } } Inventory
           %a.nav-link.text-gray-6.font-size-15{ href: "#shipping", data: { turbolinks: 'false' } } Shipping
           %a.nav-link.text-gray-6.font-size-15{ href: "#personalization", data: { turbolinks: 'false' } } Personalization
-          %a.nav-link.text-gray-6.font-size-15{ href: "#search-optimization", data: { turbolinks: 'false' } } Search Optimization
+          %a.nav-link.text-gray-6.font-size-15{ href: "#search", data: { turbolinks: 'false' } } Search
 
     -# spied element
     .col-sm-9{"data-bs-offset" => "50", "data-bs-spy" => "scroll", "data-bs-target" => "#variant-sections", :tabindex => "0"}
@@ -82,17 +82,30 @@
           .row.mb-4
             .form-group.col-md-12
               %label.form-label Brand
-              %select.form-control{ "data-bind": "options: $root.brands, optionsCaption: 'Select/Add Brand...', optionsText: 'name', optionsValue: 'id', value: $root.brandId, select2: { placeholder: 'Select/Add Brand...', allowClear: true, tags: true, tokenSeparators: [','] }" }
+              -# %input.form-control{ list: "masterVariant__brand", placeholder: "Example: Zuchinni", "data-bind": "event: { keydown: setBrand }" }
+              -# %datalist{ id: "masterVariant__brand", "data-bind": "foreach: brands" }
+              -#   %option{ "data-bind": "text: name"}
+
+              -# %select.form-control{ "data-bind": "options: $root.brands, optionsCaption: 'Select/Add Brand...', optionsText: 'name', optionsValue: 'id', value: $root.brand, select2: { placeholder: 'Select/Add Brand...', allowClear: true, tags: true, tokenSeparators: [','] }" }
 
           .row.mb-4
             .form-group.col-md-12
               %label.form-label Description
-              %input#master-variant_description{ name: "content", type: "hidden", value: "Editor content goes here"}/
-              %trix-editor{ input: "master-variant_description" }
+              %input#masterVariant__description{ name: "content", type: "hidden", value: "Editor content goes here"}/
+              %trix-editor{ input: "masterVariant__description" }
           .row.mb-4
             .form-group.col-md-12
               %label.form-label Care Instructions
-              %select.form-control{ multiple: "multiple", "data-bind": "options: careTags, optionsText: 'name', selectedOptions: masterVariant.careTags, select2: { placeholder: 'Select/Add Care Instructions...', allowClear: true, tags: true, tokenSeparators: [','] }" }
+              %input.form-control{ list: "masterVariant__careInstructions", placeholder: "Example: Avoid Humidity", "data-bind": "event: { keyup: masterVariant.addCareTag.bind($root.masterVariant), input: masterVariant.addCareTag.bind($root.masterVariant) }" }
+              %datalist{ id: "masterVariant__careInstructions", "data-bind": "foreach: careTags" }
+                %option{ "data-bind": "text: $data"}
+              .pb-4.mb-2.mt-2{ "data-bind": "foreach: masterVariant.careTags" }
+                %a.badge.bg-gray-2.font-size-12.me-2.mb-1
+                  %span
+                    %span.text-blue{ "data-bind": "contentEditable: { value: $data, context: $parent.masterVariant.careTags }" }
+                    %span.text-default{ "data-bind": "click: $parent.masterVariant.removeCareTag.bind($parent.masterVariant)" }
+                      %i.fa.fa-times.fa-sm.ms-2.text-gray-6
+
 
       .card.mb-4#images{ "data-bind": "with: masterVariant.imageInputModule" }
         .card-header.card-header-flex
@@ -108,14 +121,8 @@
                 %i.far.fa-trash-alt
         .card-body
           %input{ type: "file", accept: '.png,.jpg,.jpeg,.gif', class: 'd-none', 'data-bind': 'event: { change: onAttachmentChange }' }
-          .vb__gallery__items.d-flex.flex-wrap{ "data-bind": "sortable: { data: attachments }" }
-            -# .vb__gallery__item{ "data-bind": "if: $index() == 0" }
-            -#   .vb__gallery__itemContent
-            -#     .vb__gallery__itemControl
-            -#       .btn-group.vb__gallery__itemControlContainer
-            -#         %button.btn{ type: "button", "data-bind": "{ click: $parent.openAttachmentPicker.bind($parent) }" }
-            -#           %i.far.fa-plus-square.fa-2x
-            .vb__gallery__item
+          .vb__gallery__items.d-flex.flex-wrap{ "data-bind": "sortable: { data: attachments, options: { items: '.sortable-item' } }" }
+            .vb__gallery__item.sortable-item
               .vb__gallery__itemContent{ "data-bind": "css: { 'border border-success': ($index() == 0) }" }
                 .vb__gallery__itemControl
                   .btn-group.vb__gallery__itemControlContainer
@@ -125,12 +132,17 @@
                       %i.fa.fa-trash
                 %img{ "data-bind": "attr: { src: dataUrl }" }/
               .text-gray-6{ "data-bind": "text: name" }
-           
+            -# .vb__gallery__item.unsortable-item{ "data-bind": "if: $index() === ($parent.attachments().length - 1)"}
+            -#   .vb__gallery__itemContent
+            -#     .vb__gallery__itemControl
+            -#       .btn-group.vb__gallery__itemControlContainer
+            -#         %button.btn{ type: "button", "data-bind": "{ click:  $parent.openAttachmentPicker.bind($parent) }" }
+            -#           %i.far.fa-plus-square.fa-2x
           .vb__gallery__item{ "data-bind": "if: attachments().length == 0"}
             .vb__gallery__itemContent
               .vb__gallery__itemControl
                 .btn-group.vb__gallery__itemControlContainer
-                  %button.btn{ type: "button", "data-bind": "{ click: openAttachmentPicker }" }
+                  %button.btn{ type: "button", "data-bind": "{ click:  openAttachmentPicker }" }
                     %i.far.fa-plus-square.fa-2x
           
             
@@ -146,18 +158,33 @@
                 %i.far.fa-star
               %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
                 %i.far.fa-trash-alt
-        .card-body
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        %ul.list-group.list-group-flush
+          %li.list-group-item.text-gray-6.mt-4
+            .row.mb-4
+              .form-group.col-md-6
+                %label.form-label Price
+                .input-group
+                  .input-group-prepend
+                    %span.input-group-text KSh
+                  %input.form-control{ type: "number", "data-bind": "value: masterVariant.customerPrice.compareAtPrice", "aria-label": "Amount (to the nearest Kenyan Shilling)" }/
+                  .input-group-append
+                    %span.input-group-text .00
+              .form-group.col-md-6
+                %label.form-label Sale Price
+                .input-group
+                  .input-group-prepend
+                    %span.input-group-text KSh
+                  %input.form-control{ type: "number", "data-bind": "value: masterVariant.customerPrice.price", "aria-label": "Amount (to the nearest Kenyan Shilling)" }/
+                  .input-group-append
+                    %span.input-group-text .00
+                %small.form-text.text-muted If not on sale, set Sale Price equal to Price  
+          %li.list-group-item.text-gray-6.mt-4
+            .row.mb-4
+              .form-group.col-md-12
+                %label.form-label Minimum Purchase Quantity
+                %input.form-control{ type: "number", "data-bind": "value: masterVariant.customerPrice.minimumQuantity" }/
+                %small.form-text.text-muted Setting a minimum purchase quantity can be particularly useful for lower priced products that are only profitable when sold at higher volumes.
+                
 
       .card.mb-4#inventory
         .card-header.card-header-flex
@@ -172,18 +199,52 @@
               %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
                 %i.far.fa-trash-alt
         .card-body
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+          .row.mb-4
+            .form-group.col-md-12
+              %label.form-label SKU (Stock Keeping Unit)
+              %input.form-control{ placeholder: "e.g INV-PROD-0001", type: "text", "data-bind": "value: masterVariant.sku" }/
+          .row.mb-4
+            .form-group.col-md-12
+              .form-check
+                %input.form-check-input{ type: "checkbox", "data-bind": "checked: masterVariant.trackInventory" }/
+                %label.form-check-label Track Inventory
+            .form-group.col-md-12{ "data-bind": "visible: masterVariant.trackInventory" }
+              .form-check
+                %input.form-check-input{ type: "checkbox", "data-bind": "checked: masterVariant.backorderable" }/
+                %label.form-check-label Continue selling when out of stock
+          / ko if: masterVariant.trackInventory
+          .row.mb-4
+            .form-group.col-md-8
+              %label.form-label On product sale, reduce inventory by:
+              .input-group
+                %input.form-control{ type: "number", "data-bind": "value: masterVariant.inventoryMultiplier" }/
+                %select.input-group-text{ "data-bind": "options: units, optionsText: 'name', value: masterVariant.inventoryMultiplierUnit" }
 
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
+          .row.mb-4
+            .col-md-12.table-responsive
+              %table.table
+                %thead
+                  %tr
+                    %th.fw-normal.text-gray-6 Location
+                    %th.fw-normal.text-gray-6 Quantity
+                    %th.fw-normal.text-gray-6 Low Inventory
+                    %th.fw-normal.text-gray-6.text-right Share With
+                %tbody{ "data-bind": "foreach: masterVariant.inventories" }
+                  %tr
+                    %td.align-middle.text-blue{ "data-bind": "text: locationName" }
+                    %td.align-middle
+                      .form-group
+                        .input-group
+                          %input.form-control{ type: "number", "data-bind": "value: quantityOnHand" }/
+                          %select.input-group-text{ "data-bind": "options: $root.masterVariant.inventoryUnits, optionsText: 'name', value: unit" }
+                    %td.align-middle
+                      .form-group
+                        .input-group
+                          %input.form-control{ type: "number", "data-bind": "value: lowInventoryThreshold" }/
+                          %select.input-group-text{ "data-bind": "options: $root.masterVariant.inventoryUnits, optionsText: 'name', value: unit" }
+                      
+                    %td.align-middle.fw-bold.text-right
+          / /ko
 
       .card.mb-4#shipping
         .card-header.card-header-flex
@@ -197,18 +258,28 @@
                 %i.far.fa-star
               %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
                 %i.far.fa-trash-alt
-        .card-body
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        %ul.list-group.list-group-flush.mt-4.mb-4
+          %li.list-group-item.text-gray-6
+            .row.mb-4
+              .form-group.col-md-12
+                .form-check
+                  %input.form-check-input{ type: "checkbox", "data-bind": "checked: masterVariant.physical" }/
+                  %label.form-check-label This is a physical product
+              .form-group.col-md-12{ "data-bind": "visible: masterVariant.physical" }
+                .form-check
+                  %input.form-check-input{ type: "checkbox", "data-bind": "checked: masterVariant.trackWeight" }/
+                  %label.form-check-label Track Weight
+          / ko if: masterVariant.trackWeight
+          %li.list-group-item.text-gray-6
+            .form-group.col-md-8
+              %label.form-label Weight
+              .input-group
+                %input.form-control{ type: "number", "data-bind": "value: masterVariant.weight" }/
+                %select.input-group-text{ "data-bind": "options: masterVariant.weightUnits, optionsText: 'name', value: masterVariant.weightUnit" }
+              %small.form-text.text-muted Used to calculate shipping rates at checkout.
+          / /ko
+          
+            
 
       .card.mb-4#personalization
         .card-header.card-header-flex
@@ -223,28 +294,54 @@
               %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
                 %i.far.fa-trash-alt
         .card-body
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+          .row.mb-4
+            .col-md-12.table-responsive
+              %table.table
+                %thead
+                  %tr
+                    %th
+                    %th.fw-normal.text-gray-6 Mandatory
+                    %th.fw-normal.text-gray-6 Label
+                    %th.fw-normal.text-gray-6 Placeholder
+                    %th.fw-normal.text-gray-6 Help Text
+                    %th.fw-normal.text-gray-6 Field Type
+                    %th.fw-normal.text-gray-6 Options
+                    %th
+                %tbody{ "data-bind": "sortable: { data: masterVariant.personalizationFields, options: { items: '.sortable-item', handle: '.sortable-handle', cursor: 'grabbing', axis: 'y' } }" }
+                  %tr.sortable-item
+                    %td.align-middle.text-center.sortable-handle
+                      %i.fas.fa-grip-vertical
+                    %td.align-middle
+                      .form-group.text-center
+                        %input.form-check-input{ type: "checkbox", "data-bind": "checked: required", "aria-label": "Mandatory" }/
+                    %td.align-middle
+                      .form-group.text-center
+                        %input.form-control{ type: "text", "data-bind": "value: label" }/
+                    %td.align-middle
+                      .form-group.text-center
+                        %input.form-control{ type: "text", "data-bind": "value: placeholder" }/
+                    %td.align-middle
+                      .form-group.text-center
+                        %textarea.form-control{ rows: 1, "data-bind": "value: helpText" }
+                    %td.align-middle
+                      .form-group.text-center
+                        %select.form-select{ "data-bind": "options: fieldTypes, value: fieldType, optionsText: function(item) { return _.startCase(item) }" }
+                    %td.align-middle
+                      %span.text-center.text-warning N/A
+                    %td.align-middle
+                      %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete Field", "data-bind": "click: $root.masterVariant.removePersonalizationField.bind($root.masterVariant)" }
+                        %i.far.fa-trash-alt
+                %tfoot
+                  %tr
+                    %td.align-middle{ colspan: "8" }
+                      %button.btn.btn-outline-default.mt-2.mb-2{ type: "button", "data-bind": "click: masterVariant.addPersonalizationField.bind($root.masterVariant)" } Add Personalization Field
+                  
+                      
 
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-      .card.mb-4#search-optimization
+      .card.mb-4#search
         .card-header.card-header-flex
           .d-flex.flex-column.justify-content-center.me-auto
-            %h5.mb-0.me-2.font-size-16 Search Optimization
+            %h5.mb-0.me-2.font-size-16 Search
           .ms-auto.d-flex.flex-column.justify-content-center
             %div
               %a.btn.btn-sm.btn-light.me-2{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Unlock Account" }
@@ -253,15 +350,27 @@
                 %i.far.fa-star
               %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
                 %i.far.fa-trash-alt
-        .card-body
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-
-          %p
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        %ul.list-group.list-group-flush.mb-4
+          %li.list-group-item.text-gray-6.mt-4
+            .form-group.col-md-12
+              %label.form-label Search Tags
+              %input.form-control{ list: "masterVariant__searchTags", placeholder: "Example: brown, blue, big, clothing, t-shirt, phone", "data-bind": "event: { keyup: masterVariant.addSearchTag.bind($root.masterVariant), input: masterVariant.addSearchTag.bind($root.masterVariant) }" }
+              %small.form-text.text-muted These are searchable keywords associated with your product. They help customers find your product through the online store search.
+              %datalist{ id: "masterVariant__searchTags", "data-bind": "foreach: searchTags" }
+                %option{ "data-bind": "text: $data"}
+              .pb-4.mb-2.mt-2{ "data-bind": "foreach: masterVariant.searchTags" }
+                %a.badge.bg-gray-2.font-size-12.me-2.mb-1
+                  %span
+                    %span.text-blue{ "data-bind": "contentEditable: { value: $data, context: $parent.masterVariant.searchTags }" }
+                    %span.text-default{ "data-bind": "click: $parent.masterVariant.removeSearchTag.bind($parent.masterVariant)" }
+                      %i.fa.fa-times.fa-sm.ms-2.text-gray-6
+          %li.list-group-item.text-gray-6.mt-4{ "data-bind": "with: masterVariant.seoListing" }
+            %h6 Search Engine Optimization
+            .row.mb-4
+              .form-group.col-md-12
+                %label.form-label Page Title
+                %input.form-control{ placeholder: "e.g Becoming", type: "text", "data-bind": "value: metaTitle" }/
+            .row.mb-4
+              .form-group.col-md-12
+                %label.form-label Page Description
+                %textarea.form-control{ type: "text", "data-bind": "value: metaDescription" }

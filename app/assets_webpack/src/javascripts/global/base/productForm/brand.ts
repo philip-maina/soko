@@ -5,10 +5,6 @@ export default class Brand {
   serialize() {
   }
 
-  newRecord() {
-    
-  }
-
   init() {
   }
 }

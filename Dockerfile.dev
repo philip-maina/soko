@@ -27,6 +27,10 @@ ENV APP_HOME /usr/src/app
 RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
 
+# Remove existing running server
+COPY bin/docker-entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/docker-entrypoint.sh
+
 # Gemfile Caching Trick: 
 #   Separate the copying of files that should trigger a rebuild of our gems from those that shouldn’t.
 #   This avoids rebuilding the image for these steps (and hence running bundle install) when other unrelated 
@@ -43,6 +47,8 @@ RUN yarn install
 
 # Copy the app repo
 COPY . $APP_HOME
+
+ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
 
 # Default command to run when a container is started from the image. 
 CMD ["bin/rails", "s", "-b", "0.0.0.0"]

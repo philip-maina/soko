@@ -4,4 +4,15 @@ Rails.application.routes.draw do
     resources :products
     get 'home/show', as: :home
   end
+
+
+
+  ####
+  # Custom/Vanity routes start here
+  # --------------------------------
+  # For each new custom route: 
+    # • Be sure you have the canonical route declared above
+    # • Add the new custom route below the existing ones
+    # • Document why it's needed
+  # • Explain anything else non-standard
 end

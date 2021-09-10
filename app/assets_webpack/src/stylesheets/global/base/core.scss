@@ -80,6 +80,10 @@ svg {
   border-radius: 4px;
 }
 
+[contenteditable] {
+  outline: 0px solid transparent;
+}
+
 // dark theme
 [data-vb-theme='dark'] {
   body {

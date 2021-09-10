@@ -4,6 +4,7 @@ export default class ToolTipModule {
   init(){
     $("body").tooltip({
       container: "body",
+      trigger: "hover",
       selector: '[data-bs-toggle="tooltip"]'
     })
   }

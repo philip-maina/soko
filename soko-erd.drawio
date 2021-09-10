@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-09-10T14:45:42.166Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" etag="ngwDZd8YQGWzwqBz82vD" version="15.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2021-09-10T14:50:01.944Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36" etag="jyai6amktO73yBsPRG1q" version="15.1.4" type="github">
   <diagram id="p4hcM83d8j11S7aXxWR0" name="Page-1">
     <mxGraphModel dx="2646" dy="2846" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -257,43 +257,43 @@
           <mxGeometry y="78" width="280" height="28" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-2" value="Customer::Price (polymorphic)" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;strokeColor=#9673a6;fillColor=#FFE599;" parent="1" vertex="1">
-          <mxGeometry x="120" y="-1270" width="440" height="428" as="geometry" />
+          <mxGeometry x="110" y="-1270" width="450" height="428" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-3" value="id (PK)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="26" width="440" height="26" as="geometry" />
+          <mxGeometry y="26" width="450" height="26" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-4" value="customer_priceable_id (FK, bigint)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="52" width="440" height="26" as="geometry" />
+          <mxGeometry y="52" width="450" height="26" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-8" value="customer_priceable_type (string) : &quot;Product::Variant&quot; or &quot;ProductBundle&quot; &#xa;or &quot;Product::Variant::PersonalizationField&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="78" width="440" height="42" as="geometry" />
+          <mxGeometry y="78" width="450" height="42" as="geometry" />
         </mxCell>
-        <mxCell id="5EAPZrsPtRcHzYcJFA_N-5" value="price_type (enum) : Options include &quot;basic&quot;, &quot;volume&quot; and &quot;tiered&quot;" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="120" width="440" height="26" as="geometry" />
+        <mxCell id="5EAPZrsPtRcHzYcJFA_N-5" value="price_type (enum) : Options include &quot;basic&quot;, &quot;volume&quot; and &quot;tiered&quot; - potentially STI" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
+          <mxGeometry y="120" width="450" height="26" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-6" value="minimum_order_quantity (integer) : customers need to order enough to &#xa;apply this price list. The minimum quantity for which this Customer::Price &#xa;applies. If there is a Customer::Price with higher starting quantity that still &#xa;applies to this." style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="146" width="440" height="70" as="geometry" />
+          <mxGeometry y="146" width="450" height="70" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-9" value="increment_order_quantity (integer) : purchase in multiples of x" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="216" width="440" height="26" as="geometry" />
+          <mxGeometry y="216" width="450" height="26" as="geometry" />
         </mxCell>
         <mxCell id="xNZ4ATSNOMt5Z4T5nZos-1" value="display_price (string)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="242" width="440" height="26" as="geometry" />
+          <mxGeometry y="242" width="450" height="26" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-7" value="price_cents (integer)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="268" width="440" height="26" as="geometry" />
+          <mxGeometry y="268" width="450" height="26" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-10" value="price_currency (string) : Used by both price_cents and compare_at_price_cents" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="294" width="440" height="26" as="geometry" />
+          <mxGeometry y="294" width="450" height="26" as="geometry" />
         </mxCell>
         <mxCell id="TjSfER7dUz7gS5TxNhZZ-11" value="compare_at_price_cents (integer)" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="320" width="440" height="26" as="geometry" />
+          <mxGeometry y="320" width="450" height="26" as="geometry" />
         </mxCell>
         <mxCell id="RL_wMTlk4jhRtlJ_5OAq-3" value="default (boolean): For each variant there is one default customer price e.g for &#xa;guests" style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="346" width="440" height="44" as="geometry" />
+          <mxGeometry y="346" width="450" height="44" as="geometry" />
         </mxCell>
         <mxCell id="5EAPZrsPtRcHzYcJFA_N-11" value="customer_type (? future - enum) : value should be retrieved from the&#xa;customer_types enum " style="text;strokeColor=#000000;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="5EAPZrsPtRcHzYcJFA_N-2" vertex="1">
-          <mxGeometry y="390" width="440" height="38" as="geometry" />
+          <mxGeometry y="390" width="450" height="38" as="geometry" />
         </mxCell>
         <mxCell id="RL_wMTlk4jhRtlJ_5OAq-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1.005;entryY=-0.077;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=ERzeroToMany;endFill=1;" parent="1" source="IhNO1zzbE4TS1bx1REmc-4" target="IhNO1zzbE4TS1bx1REmc-14" edge="1">
           <mxGeometry relative="1" as="geometry">

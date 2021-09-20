@@ -1,4 +1,5 @@
 export default class SeoListing {
+  id: number | null
   metaTitle: KnockoutObservable<string>
   metaDescription: KnockoutObservable<string>
 
@@ -7,12 +8,14 @@ export default class SeoListing {
     metaDescription?: string 
   }) {
     params = { ...this._setDefaults(), ...params }
+    this.id              = params.id
     this.metaTitle       = ko.observable(params.metaTitle)
     this.metaDescription = ko.observable(params.metaDescription)
   }
 
   _setDefaults() {
     return {
+      id: null,
       metaTitle: "",
       metaDescription: ""
     }

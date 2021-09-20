@@ -1,4 +1,7 @@
 import _ from "lodash"
+import { serialize } from "object-to-formdata"
+import Turbolinks from "turbolinks"
+import * as Api from "./api/index"
 import Brand from "./productForm/brand"
 import CollectionItem from "./productForm/collectionItem"
 import Option from "./productForm/option"
@@ -6,13 +9,13 @@ import Variant from "./productForm/variant"
 import Unit from "./unit"
 
 export default class ProductForm {
-  units: KnockoutObservableArray<Unit>
-  brands: KnockoutObservableArray<{}>
+  units: Unit[]
+  brands: Brand[]
   careTags: KnockoutObservableArray<string>
   searchTags: KnockoutObservableArray<string>
   locations: Array<{ id: number, name: string }>
 
-  brand: KnockoutObservable<{}>
+  brand: Brand | undefined
   collectionItems: KnockoutObservableArray<CollectionItem>
   options: KnockoutObservableArray<Option>
   masterVariant: Variant
@@ -21,27 +24,30 @@ export default class ProductForm {
   hasChanges: KnockoutObservable<boolean>
   canSave: KnockoutObservable<boolean>
   isSaving: KnockoutObservable<boolean>
+  errors: KnockoutObservableArray<string>
 
-  __: {}
+  __: {
+    urls: { create: string }
+  }
 
   constructor(params: {
+    urls: { create: string },
     locations: Array<{ id: number, name: string }>,
     units: Array<{ name: string, measurementType: string }>,
-    brands: Array<{ id: number, name: string, isNewRecord: boolean }>,
+    brands: Array<{ id: number, name: string }>,
     options: Array<{}>,
     variants: Array<any>,
     collectionItems: Array<{}>,
     careTags: Array<string>,
     searchTags: Array<string>
   }) {
-    this.locations = params.locations
-
-    this.units      = ko.observableArray(params.units.map((unit) => new Unit(unit).init()))
+    this.locations  = params.locations
+    this.units      = params.units.map((unit) => new Unit(unit).init())
     this.careTags   = ko.observableArray(params.careTags)
     this.searchTags = ko.observableArray(params.searchTags)
 
-    this.brand  = ko.observable()
-    this.brands = ko.mapping.fromJS(params.brands)
+    this.brand  = undefined
+    this.brands = params.brands.map(brand => new Brand(brand).init())
 
     this.collectionItems = ko.observableArray([])
     this.options = ko.observableArray([])
@@ -60,14 +66,28 @@ export default class ProductForm {
 
 
     this.hasChanges = ko.observable(false)
-    this.canSave = ko.observable(false)
-    this.isSaving = ko.observable(false)
+    this.canSave    = ko.observable(false)
+    this.isSaving   = ko.observable(false)
+    this.errors     = ko.observableArray([])   
+
+    this.__ = {
+      urls: { create: params.urls.create }
+    }
   }
 
   
-
-
-  serialize() {
+  get serialize() {
+    return {
+      merchants_portal_products_create_form: {
+        product: {
+          product_type: "standard",
+          collection_items: [],
+          product_options: [],
+          product_variants: [ this.masterVariant.serialize ],
+          product_inventories: [ this.masterVariant.inventories.map(inventory => inventory.serialize) ]
+        }
+      }
+    }
   }
 
   valid() {
@@ -77,6 +97,14 @@ export default class ProductForm {
   }
 
   save() {
+    this.errors([])
+    this.isSaving(true)
+    const formData = serialize(this.serialize)
+    Api.Utilities.postRequest(this.__.urls.create, formData, true).then((response: any) => {
+      this.isSaving(false)
+      if (response.success) { Turbolinks.visit(response.url) } 
+      else { this.errors(response.errors) }
+    })
   }
 
   addOption() {
@@ -91,7 +119,13 @@ export default class ProductForm {
   removeVariant() {
   }
 
-  setBrand() {
+  setBrand(_: any, event: any) {
+    let token = event.target.value.trim()
+    if (!token.length) this.brand = undefined
+
+    let brand = this.brands.find(brand => brand.name().toLowerCase() == token.toLowerCase())
+    if (brand) this.brand = brand
+    else this.brand = new Brand({name: token})
   }
 
   load(params) {

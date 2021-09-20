@@ -101,8 +101,8 @@ class MerchantsPortal::Products::CreateParams
     def customer_price_attrs
       [
         :price_type, 
-        :minimum_quantity, 
-        :increment_quantity, 
+        :minimum_order_quantity, 
+        :increment_order_quantity, 
         :price, 
         :compare_at_price,
         :display_price,

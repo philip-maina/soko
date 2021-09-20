@@ -1,32 +1,36 @@
 export default class CustomerPrice {
+  id: number | null
   price: KnockoutObservable<number>
   compareAtPrice: KnockoutObservable<number>
-  minimumQuantity: KnockoutObservable<number>
+  minimumOrderQuantity: KnockoutObservable<number>
 
   constructor(params: {
+    id?: number,
     price?: number,
     compareAtPrice?: number,
-    minimumQuantity?: number
+    minimumOrderQuantity?: number
   }) {
     params = { ...this._setDefaults(), ...params }
-    this.price           = ko.observable(params.price)
-    this.compareAtPrice  = ko.observable(params.compareAtPrice)
-    this.minimumQuantity = ko.observable(params.minimumQuantity)
+    this.id                   = params.id
+    this.price                = ko.observable(params.price)
+    this.compareAtPrice       = ko.observable(params.compareAtPrice)
+    this.minimumOrderQuantity = ko.observable(params.minimumOrderQuantity)
   }
 
   _setDefaults() {
     return {
+      id: null,
       price: 50,
       compareAtPrice: 50,
-      minimumQuantity: 1
+      minimumOrderQuantity: 1
     }
   }
 
-  serialize() {
+  get serialize() {
     return {
       price: this.price(),
       compare_at_price: this.compareAtPrice(),
-      minimum_quantity: this.minimumQuantity(),
+      minimum_order_quantity: this.minimumOrderQuantity(),
       price_type: "basic"
     }
   }

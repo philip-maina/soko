@@ -7,6 +7,7 @@ import PersonalizationField from "./variant/personalizationField"
 import ProductForm from "../productForm"
 import CustomerPrice from "./variant/customerPrice"
 
+
 export default class Variant {
   productForm: ProductForm
   master: boolean
@@ -14,6 +15,7 @@ export default class Variant {
   title: KnockoutObservable<string>
   subtitle: KnockoutObservable<string>
   description: KnockoutObservable<string>
+  descriptionEditor: HTMLElement
   sku: KnockoutObservable<string>
   careTags: KnockoutObservableArray<string>
   searchTags: KnockoutObservableArray<string>
@@ -27,7 +29,7 @@ export default class Variant {
   inventoryUnits: KnockoutComputed<Unit[]>
   weight: KnockoutObservable<number>
   weightUnit: KnockoutObservable<Unit>
-  weightUnits: KnockoutComputed<Unit[]>
+  weightUnits: Unit[]
   physical: KnockoutComputed<boolean>
   personalizationFields: KnockoutObservableArray<PersonalizationField>
   seoListing: SeoListing
@@ -46,6 +48,7 @@ export default class Variant {
     sku?: string,
     title?: string,
     subtitle?: string,
+    description?: string,
     trackInventory?: boolean,
     backorderable?: boolean,
     careTags?: Array<string>,
@@ -57,28 +60,31 @@ export default class Variant {
     $imagesModule: JQuery<HTMLElement>,
     images?: Array<{ name: string, dataUrl: string }>,
     seoListing?: { metaTitle: string, metaDescription: string },
-    customerPrice?: { price: number, compareAtPrice: number, minimumQuantity: number },
+    customerPrice?: { price: number, compareAtPrice: number, minimumOrderQuantity: number },
     personalizationFields?: Array<{ id: number, required: boolean, label: string, placeholder: string, helpText: string, fieldType: string }>
   }) {
     params = { ...this._setDefaults(), ...params }
     
     this.productForm = params.productForm
-    this.master = params.master
+    this.master      = params.master
     this.variantType = ko.observable(params.variantType) 
-    this.sku = ko.observable(params.sku)
-    this.title = ko.observable(params.title)
-    this.subtitle = ko.observable(params.subtitle)
-    this.careTags = ko.mapping.fromJS(params.careTags)
+    this.sku         = ko.observable(params.sku)
+    this.title       = ko.observable(params.title)
+    this.subtitle    = ko.observable(params.subtitle)
+
+    this.description       = ko.observable(params.description)
+    this.descriptionEditor = $("trix-editor[input='masterVariant__description']")[0]
+
+    this.careTags   = ko.mapping.fromJS(params.careTags)
     this.searchTags = ko.mapping.fromJS(params.searchTags)
 
     this.trackInventory = ko.observable(params.trackInventory)
     this.backorderable  = ko.observable(params.backorderable)
-    this.trackWeight = ko.observable(params.weight ? true : false)
 
-    this.inventoryMultiplier = ko.observable(params.inventoryMultiplier)
-    this.inventoryMultiplierUnit = ko.observable(this.productForm.units().find(unit => unit.name() == params.inventoryMultiplierUnit))
+    this.inventoryMultiplier     = ko.observable(params.inventoryMultiplier)
+    this.inventoryMultiplierUnit = ko.observable(this.productForm.units.find(unit => unit.name() == params.inventoryMultiplierUnit))
     this.inventoryUnits = ko.pureComputed(() => {
-      return this.productForm.units().filter((unit) => {
+      return this.productForm.units.filter((unit) => {
         return this.inventoryMultiplierUnit().compatible(unit)
       })
     })
@@ -87,11 +93,11 @@ export default class Variant {
       locationName: location.name
     }).init())
   
-    
 
-    this.weight = ko.observable(params.weight)
-    this.weightUnit = ko.observable(this.productForm.units().find(unit => unit.name() == params.weightUnit))
-    this.weightUnits = ko.pureComputed(() => { return this.productForm.units().filter(unit => unit.isWeight) })
+    this.weight      = ko.observable(params.weight)
+    this.weightUnit  = ko.observable(this.productForm.units.find(unit => unit.name() == params.weightUnit))
+    this.weightUnits = this.productForm.units.filter(unit => unit.isWeight)
+    this.trackWeight = ko.observable(params.weight ? true : false)
 
     this.physical = ko.computed({
       read: function () { return this.variantType() === "physical" },
@@ -108,9 +114,8 @@ export default class Variant {
       ).init())
     )
 
-    this.seoListing    = new SeoListing(params.seoListing)
-    this.customerPrice = new CustomerPrice(params.customerPrice) 
-
+    this.seoListing       = new SeoListing(params.seoListing)
+    this.customerPrice    = new CustomerPrice(params.customerPrice) 
     this.imageInputModule = new AttachmentInputModule({
       $module: params.$imagesModule,
       attachments: params.images
@@ -190,8 +195,38 @@ export default class Variant {
     this.personalizationFields.remove(data)
   }
 
+  editDescription(_, event) {    
+    this.description(event.target.value)
+  }
+
+
+  get thumbnail() {
+    return this.imageInputModule.attachments[0]
+  }
 
   serialize() {
+    return {
+      master: this.master,
+      variant_type: this.variantType(),
+      sku: this.sku(),
+      title: this.title(),
+      subtitle: this.subtitle(),
+      description: this.description(),
+      track_inventory: this.trackInventory(),
+      backorderable: this.backorderable(),
+      weight: this.weight(),
+      weight_unit: this.weightUnit().serialize,
+      care_tags: this.careTags(),
+      search_tags: this.searchTags(),
+      inventory_multiplier: this.inventoryMultiplier(),
+      inventory_multiplier_unit: this.inventoryMultiplierUnit().serialize,
+      images: [],
+      seo_listing: this.seoListing.serialize,
+      customer_prices: [ this.customerPrice.serialize ],
+      product_variant_inventories: this.inventories.map(inventory => { product_inventory_id: inventory.temporaryId }),
+      product_variant_personalization_fields: this.personalizationFields().map(field => field.serialize),
+      product_option_value_variants: []
+    }
   }
 
   valid(){
@@ -203,6 +238,10 @@ export default class Variant {
     if (!this.trackInventory()) this.backorderable(false)
   }
 
+  _initDescriptionEditor() {
+    this.descriptionEditor.editor.loadHTML(this.description())
+  }
+
   _setDefaults() {
     return {
       master: false,
@@ -210,6 +249,7 @@ export default class Variant {
       sku: "",
       title: "",
       subtitle: "",
+      description: "<div><strong>Editor content goes here</strong></div>",
       trackInventory: true,
       backorderable: false,
       careTags: [],
@@ -227,16 +267,15 @@ export default class Variant {
       customerPrice: {
         price: 50,
         compareAtPrice: 50,
-        minimumQuantity: 1
+        minimumOrderQuantity: 1
       }
     }
   }
 
 
   init() {
-    this.__.subscriptions.trackInventory = [
-      this.trackInventory.subscribe(this._resetBackorderable.bind(this))
-    ]
+    this.__.subscriptions.trackInventory = [ this.trackInventory.subscribe(this._resetBackorderable.bind(this)) ]
+    this._initDescriptionEditor()
 
     return this
   }

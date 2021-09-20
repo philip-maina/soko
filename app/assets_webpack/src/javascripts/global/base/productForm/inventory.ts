@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 export default class Inventory {
   temporaryId: string
-  locationId: KnockoutObservable<number>
+  locationId: number
   locationName: KnockoutObservable<string>
   quantityOnHand: KnockoutObservable<number>
   lowInventoryThreshold: KnockoutObservable<number>
@@ -20,15 +20,23 @@ export default class Inventory {
       measurementType: string
     }
   }) {
-    this.temporaryId = uuidv4()
-    this.locationId = ko.observable(params.locationId)
-    this.locationName = ko.observable(params.locationName)
-    this.quantityOnHand = ko.observable(params.quantityOnHand || 1)
+    this.temporaryId           = uuidv4()
+    this.locationId            = params.locationId
+    this.locationName          = ko.observable(params.locationName)
+    this.quantityOnHand        = ko.observable(params.quantityOnHand || 1)
     this.lowInventoryThreshold = ko.observable(params.lowInventoryThreshold || 1)
-    this.unit = ko.observable()
+    this.unit                  = ko.observable()
   }
 
-  serialize() {
+  get serialize() {
+    return {
+      temporary_id: this.temporaryId,
+      quantity_on_hand: this.quantityOnHand(),
+      low_inventory_threshold: this.lowInventoryThreshold(),
+      location_id: this.locationId,
+      unit: this.unit(),
+      expires_on: null
+    }
   }
 
   init() {

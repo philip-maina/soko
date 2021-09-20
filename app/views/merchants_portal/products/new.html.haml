@@ -11,7 +11,7 @@
         
     .d-flex.flex-wrap.font-size-18
       .me-3.my-2.text-nowrap
-        %button.btn.btn-primary.btn-with-addon
+        %button.btn.btn-primary.btn-with-addon{ "data-bs-toggle": "modal", "data-bs-target": "#previewProductModal" }
           %span.btn-addon
             %i.btn-addon-icon.far.fa-eye
           Preview
@@ -41,9 +41,6 @@
           %a#tab-activity.nav-link.py-3{ "data-bs-toggle" => "tab", :href => "#tab-activity-content" } Activity
 
 
-
-
-
   .row.p-3
     -# scrollspy
     .col-sm-3
@@ -56,6 +53,7 @@
           %a.nav-link.text-gray-6.font-size-15{ href: "#shipping", data: { turbolinks: 'false' } } Shipping
           %a.nav-link.text-gray-6.font-size-15{ href: "#personalization", data: { turbolinks: 'false' } } Personalization
           %a.nav-link.text-gray-6.font-size-15{ href: "#search", data: { turbolinks: 'false' } } Search
+
 
     -# spied element
     .col-sm-9{"data-bs-offset" => "50", "data-bs-spy" => "scroll", "data-bs-target" => "#variant-sections", :tabindex => "0"}
@@ -82,17 +80,14 @@
           .row.mb-4
             .form-group.col-md-12
               %label.form-label Brand
-              -# %input.form-control{ list: "masterVariant__brand", placeholder: "Example: Zuchinni", "data-bind": "event: { keydown: setBrand }" }
-              -# %datalist{ id: "masterVariant__brand", "data-bind": "foreach: brands" }
-              -#   %option{ "data-bind": "text: name"}
-
-              -# %select.form-control{ "data-bind": "options: $root.brands, optionsCaption: 'Select/Add Brand...', optionsText: 'name', optionsValue: 'id', value: $root.brand, select2: { placeholder: 'Select/Add Brand...', allowClear: true, tags: true, tokenSeparators: [','] }" }
-
+              %input.form-control{ list: "masterVariant__brand", placeholder: "Example: Zuchinni", "data-bind": "event: { input: setBrand }" }
+              %datalist{ id: "masterVariant__brand", "data-bind": "foreach: brands" }
+                %option{ "data-bind": "text: name"}
           .row.mb-4
             .form-group.col-md-12
               %label.form-label Description
-              %input#masterVariant__description{ name: "content", type: "hidden", value: "Editor content goes here"}/
-              %trix-editor{ input: "masterVariant__description" }
+              %input#masterVariant__description{ type: "hidden" }/
+              %trix-editor{ input: "masterVariant__description", "data-bind": "event: { 'trix-change': masterVariant.editDescription.bind($root.masterVariant) }" }
           .row.mb-4
             .form-group.col-md-12
               %label.form-label Care Instructions
@@ -120,7 +115,7 @@
               %a.btn.btn-sm.btn-light{ "data-bs-placement": "top", "data-bs-toggle": "tooltip", href: "#", title: "Clear All Images", "data-bind": "{ click: removeAllAttachments }" }
                 %i.far.fa-trash-alt
         .card-body
-          %input{ type: "file", accept: '.png,.jpg,.jpeg,.gif', class: 'd-none', 'data-bind': 'event: { change: onAttachmentChange }' }
+          %input{ type: "file", multiple: true, accept: '.png,.jpg,.jpeg,.gif', class: 'd-none', 'data-bind': 'event: { change: onAttachmentChange }' }
           .vb__gallery__items.d-flex.flex-wrap{ "data-bind": "sortable: { data: attachments, options: { items: '.sortable-item' } }" }
             .vb__gallery__item.sortable-item
               .vb__gallery__itemContent{ "data-bind": "css: { 'border border-success': ($index() == 0) }" }
@@ -131,6 +126,8 @@
                     %button.btn{type: "button", "data-bind": "{ click: $parent.removeAttachment.bind($parent) }"}
                       %i.fa.fa-trash
                 %img{ "data-bind": "attr: { src: dataUrl }" }/
+                .vb__g16__productMark.bg-success{ "data-bind": "visible: ($index() == 0)" }
+                  %i.fa.fa-sm.fa-star
               .text-gray-6{ "data-bind": "text: name" }
             -# .vb__gallery__item.unsortable-item{ "data-bind": "if: $index() === ($parent.attachments().length - 1)"}
             -#   .vb__gallery__itemContent
@@ -164,26 +161,22 @@
               .form-group.col-md-6
                 %label.form-label Price
                 .input-group
-                  .input-group-prepend
-                    %span.input-group-text KSh
+                  %span.input-group-text KSh
                   %input.form-control{ type: "number", "data-bind": "value: masterVariant.customerPrice.compareAtPrice", "aria-label": "Amount (to the nearest Kenyan Shilling)" }/
-                  .input-group-append
-                    %span.input-group-text .00
+                  %span.input-group-text .00
               .form-group.col-md-6
                 %label.form-label Sale Price
                 .input-group
-                  .input-group-prepend
-                    %span.input-group-text KSh
+                  %span.input-group-text KSh
                   %input.form-control{ type: "number", "data-bind": "value: masterVariant.customerPrice.price", "aria-label": "Amount (to the nearest Kenyan Shilling)" }/
-                  .input-group-append
-                    %span.input-group-text .00
+                  %span.input-group-text .00
                 %small.form-text.text-muted If not on sale, set Sale Price equal to Price  
           %li.list-group-item.text-gray-6.mt-4
             .row.mb-4
               .form-group.col-md-12
-                %label.form-label Minimum Purchase Quantity
-                %input.form-control{ type: "number", "data-bind": "value: masterVariant.customerPrice.minimumQuantity" }/
-                %small.form-text.text-muted Setting a minimum purchase quantity can be particularly useful for lower priced products that are only profitable when sold at higher volumes.
+                %label.form-label Minimum Order Quantity
+                %input.form-control{ type: "number", "data-bind": "value: masterVariant.customerPrice.minimumOrderQuantity" }/
+                %small.form-text.text-muted Setting a minimum order quantity can be particularly useful for lower priced products that are only profitable when sold at higher volumes.
                 
 
       .card.mb-4#inventory
@@ -198,53 +191,58 @@
                 %i.far.fa-star
               %a.btn.btn-sm.btn-light{ "data-bs-placement" => "top", "data-bs-toggle" => "tooltip", href: "#", title: "Delete user" }
                 %i.far.fa-trash-alt
-        .card-body
-          .row.mb-4
-            .form-group.col-md-12
-              %label.form-label SKU (Stock Keeping Unit)
-              %input.form-control{ placeholder: "e.g INV-PROD-0001", type: "text", "data-bind": "value: masterVariant.sku" }/
-          .row.mb-4
-            .form-group.col-md-12
-              .form-check
-                %input.form-check-input{ type: "checkbox", "data-bind": "checked: masterVariant.trackInventory" }/
-                %label.form-check-label Track Inventory
-            .form-group.col-md-12{ "data-bind": "visible: masterVariant.trackInventory" }
-              .form-check
-                %input.form-check-input{ type: "checkbox", "data-bind": "checked: masterVariant.backorderable" }/
-                %label.form-check-label Continue selling when out of stock
-          / ko if: masterVariant.trackInventory
-          .row.mb-4
-            .form-group.col-md-8
-              %label.form-label On product sale, reduce inventory by:
-              .input-group
-                %input.form-control{ type: "number", "data-bind": "value: masterVariant.inventoryMultiplier" }/
-                %select.input-group-text{ "data-bind": "options: units, optionsText: 'name', value: masterVariant.inventoryMultiplierUnit" }
+        %ul.list-group.list-group-flush
+          %li.list-group-item.text-gray-6.mt-4
+            .row.mb-4
+              .form-group.col-md-12
+                %label.form-label SKU (Stock Keeping Unit)
+                %input.form-control{ placeholder: "e.g INV-PROD-0001", type: "text", "data-bind": "value: masterVariant.sku" }/
+            .row.mb-4
+              .col-md-12
+                .form-check
+                  %label.form-check-label 
+                    %input.form-check-input{ type: "checkbox", "data-bind": "checked: masterVariant.trackInventory" }/
+                    Track Inventory
+              .col-md-12{ "data-bind": "visible: masterVariant.trackInventory" }
+                .form-check
+                  %label.form-check-label
+                    %input.form-check-input{ type: "checkbox", "data-bind": "checked: masterVariant.backorderable" }/
+                    Continue selling when out of stock
 
-          .row.mb-4
-            .col-md-12.table-responsive
-              %table.table
-                %thead
-                  %tr
-                    %th.fw-normal.text-gray-6 Location
-                    %th.fw-normal.text-gray-6 Quantity
-                    %th.fw-normal.text-gray-6 Low Inventory
-                    %th.fw-normal.text-gray-6.text-right Share With
-                %tbody{ "data-bind": "foreach: masterVariant.inventories" }
-                  %tr
-                    %td.align-middle.text-blue{ "data-bind": "text: locationName" }
-                    %td.align-middle
-                      .form-group
-                        .input-group
-                          %input.form-control{ type: "number", "data-bind": "value: quantityOnHand" }/
-                          %select.input-group-text{ "data-bind": "options: $root.masterVariant.inventoryUnits, optionsText: 'name', value: unit" }
-                    %td.align-middle
-                      .form-group
-                        .input-group
-                          %input.form-control{ type: "number", "data-bind": "value: lowInventoryThreshold" }/
-                          %select.input-group-text{ "data-bind": "options: $root.masterVariant.inventoryUnits, optionsText: 'name', value: unit" }
-                      
-                    %td.align-middle.fw-bold.text-right
+          / ko if: masterVariant.trackInventory
+          %li.list-group-item.text-gray-6.mt-4
+            .row.mb-4
+              .form-group.col-md-8
+                %label.form-label On product sale, reduce inventory by:
+                .input-group
+                  %input.form-control{ type: "number", "data-bind": "value: masterVariant.inventoryMultiplier" }/
+                  %select.input-group-text{ "data-bind": "options: units, optionsText: 'name', value: masterVariant.inventoryMultiplierUnit" }
+            .row.mb-4
+              .col-md-12.table-responsive
+                %table.table
+                  %thead
+                    %tr
+                      %th.fw-normal.text-gray-6 Location
+                      %th.fw-normal.text-gray-6 Quantity
+                      %th.fw-normal.text-gray-6 Low Inventory
+                      %th.fw-normal.text-gray-6.text-right Share With
+                  %tbody{ "data-bind": "foreach: masterVariant.inventories" }
+                    %tr
+                      %td.align-middle.text-blue{ "data-bind": "text: locationName" }
+                      %td.align-middle
+                        .form-group
+                          .input-group
+                            %input.form-control{ type: "number", "data-bind": "value: quantityOnHand" }/
+                            %select.input-group-text{ "data-bind": "options: $root.masterVariant.inventoryUnits, optionsText: 'name', value: unit" }
+                      %td.align-middle
+                        .form-group
+                          .input-group
+                            %input.form-control{ type: "number", "data-bind": "value: lowInventoryThreshold" }/
+                            %select.input-group-text{ "data-bind": "options: $root.masterVariant.inventoryUnits, optionsText: 'name', value: unit" }
+                        
+                      %td.align-middle.fw-bold.text-right
           / /ko
+          
 
       .card.mb-4#shipping
         .card-header.card-header-flex
@@ -334,10 +332,9 @@
                 %tfoot
                   %tr
                     %td.align-middle{ colspan: "8" }
-                      %button.btn.btn-outline-default.mt-2.mb-2{ type: "button", "data-bind": "click: masterVariant.addPersonalizationField.bind($root.masterVariant)" } Add Personalization Field
+                      %a.btn.btn-light.btn-lg.text-primary.font-size-14.d-inline-block.mt-2.mb-2{ type: "button", "data-bind": "click: masterVariant.addPersonalizationField.bind($root.masterVariant)" } Add Personalization Field
                   
                       
-
       .card.mb-4#search
         .card-header.card-header-flex
           .d-flex.flex-column.justify-content-center.me-auto
@@ -365,7 +362,7 @@
                     %span.text-default{ "data-bind": "click: $parent.masterVariant.removeSearchTag.bind($parent.masterVariant)" }
                       %i.fa.fa-times.fa-sm.ms-2.text-gray-6
           %li.list-group-item.text-gray-6.mt-4{ "data-bind": "with: masterVariant.seoListing" }
-            %h6 Search Engine Optimization
+            %h6.mb-3 Search Engine Optimization
             .row.mb-4
               .form-group.col-md-12
                 %label.form-label Page Title
@@ -374,3 +371,15 @@
               .form-group.col-md-12
                 %label.form-label Page Description
                 %textarea.form-control{ type: "text", "data-bind": "value: metaDescription" }
+
+
+
+  -# Variant Modal
+  .modal.fade#previewProductModal{"aria-hidden" => "true", "aria-labelledby" => "myLargeModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog.modal-xl
+      .modal-content{ "data-bind": "with: masterVariant" }
+        .modal-body
+          = render partial: 'site/variants/variant_details'
+        .modal-footer
+          %button.btn.btn-secondary{"data-bs-dismiss" => "modal", :type => "button"} Close
+      

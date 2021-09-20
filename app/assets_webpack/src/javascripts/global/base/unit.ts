@@ -35,7 +35,7 @@ export default class Unit {
     return this.measurementType() == unit.measurementType()
   }
 
-  serialize(): string {
+  get serialize(): string {
     return this.name()
   }
 

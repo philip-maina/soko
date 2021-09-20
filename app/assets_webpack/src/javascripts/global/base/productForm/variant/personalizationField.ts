@@ -45,7 +45,6 @@ export default class PersonalizationField {
 
   serialize() {
     return {
-      id: this.id,
       required: this.required(),
       label: this.label(),
       help_text: this.helpText(),

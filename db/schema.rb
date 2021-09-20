@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_08_214234) do
+ActiveRecord::Schema.define(version: 2021_09_10_182407) do
 
   create_sequence "action_text_rich_texts_id_seq"
   create_sequence "active_storage_attachments_id_seq"
@@ -168,8 +168,8 @@ ActiveRecord::Schema.define(version: 2021_08_08_214234) do
     t.bigint "customer_priceable_id"
     t.string "customer_priceable_type"
     t.enum "price_type", default: "basic", null: false, enum_name: "price_type"
-    t.integer "minimum_quantity", default: 1, null: false
-    t.integer "increment_quantity", default: 1, null: false
+    t.integer "minimum_order_quantity", default: 1, null: false
+    t.integer "increment_order_quantity", default: 1, null: false
     t.boolean "default", default: true
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "KES", null: false

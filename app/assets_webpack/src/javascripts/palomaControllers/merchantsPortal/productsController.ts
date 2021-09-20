@@ -30,10 +30,11 @@ Paloma.controller("MerchantsPortal/Products", {
         { name: "m2", measurementType: "area" }
       ],
       brands: [
-        { id: 0, name: "Barnes & Nobles", isNewRecord: false },
-        { id: 1, name: "Macmillan Publishers", isNewRecord: false },
-        { id: 2, name: "Hachette Livre", isNewRecord: false }
+        { id: 0, name: "Barnes & Nobles" },
+        { id: 1, name: "Macmillan Publishers" },
+        { id: 2, name: "Hachette Livre" }
       ],
+      urls: { create: "" },
       options: [],
       variants: [],
       collectionItems: [],

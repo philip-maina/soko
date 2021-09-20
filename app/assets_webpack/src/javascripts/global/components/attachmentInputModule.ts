@@ -2,6 +2,7 @@ import Attachment from "./attachmentInputModule/attachment"
 
 export default class AttachmentInputModule {
   attachments: KnockoutObservableArray<Attachment>
+  defaultAttachment: KnockoutComputed<Attachment>
   
   __: {
     $module: JQuery<HTMLElement>
@@ -11,8 +12,9 @@ export default class AttachmentInputModule {
   constructor(params: {
     $module: JQuery<HTMLElement>
     attachments: Array<{
-      name: string
-      dataUrl: string
+      name: string,
+      dataUrl: string,
+      rawFile: File
     }>
   }) {
     this.attachments = ko.observableArray(
@@ -20,6 +22,8 @@ export default class AttachmentInputModule {
         return new Attachment(attachment)
       })
     )
+
+    this.defaultAttachment = ko.pureComputed(() => this.attachments()[0])
 
     this.__ = {
       $module: params.$module,
@@ -40,10 +44,13 @@ export default class AttachmentInputModule {
   }
 
   addAttachment(attachment, event) {
+    let dataUrl = event.target.result
+    if (this.attachments().some(attachment => attachment.dataUrl == dataUrl)) return
+
     this.attachments.push(
       new Attachment({
-        name: attachment.name, 
-        dataUrl: event.target.result 
+        rawFile: attachment,
+        dataUrl: dataUrl
       })
     )
   }
@@ -56,6 +63,7 @@ export default class AttachmentInputModule {
   }
 
   removeAllAttachments() {
+    this.__.$inputClickHandler.val("")
     this.attachments([])
   }
 

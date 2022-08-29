@@ -43,7 +43,7 @@ export default class PersonalizationField {
     }
   }
 
-  serialize() {
+  get serialize() {
     return {
       required: this.required(),
       label: this.label(),
@@ -51,6 +51,13 @@ export default class PersonalizationField {
       placeholder: this.placeholder(),
       field_type: this.fieldType()
     }
+  }
+
+  get valid() {
+    return !!this.label() &&
+      !!this.helpText() &&
+      !!this.placeholder() &&
+      !!this.fieldType()
   }
 
   init() {

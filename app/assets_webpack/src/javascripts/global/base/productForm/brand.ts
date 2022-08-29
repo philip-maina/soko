@@ -15,15 +15,15 @@ export default class Brand {
     return this.id == undefined
   }
 
+  get serialize() {
+    return this.isNewRecord ? { brand: { name: this.name() } } : { brand_id: this.id }
+  }
+
   _setDefaults() {
     return {
       id: undefined,
       name: ""
     }
-  }
-
-  serialize() {
-    return { }
   }
 
   init() {

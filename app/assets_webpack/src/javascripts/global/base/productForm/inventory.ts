@@ -34,9 +34,15 @@ export default class Inventory {
       quantity_on_hand: this.quantityOnHand(),
       low_inventory_threshold: this.lowInventoryThreshold(),
       location_id: this.locationId,
-      unit: this.unit(),
+      unit: this.unit().name(),
       expires_on: null
     }
+  }
+
+  get valid() {
+    return !!this.quantityOnHand() &&
+           !!this.lowInventoryThreshold() &&
+           !!this.unit()
   }
 
   init() {

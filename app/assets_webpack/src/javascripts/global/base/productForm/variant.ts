@@ -204,7 +204,7 @@ export default class Variant {
     return this.imageInputModule.attachments[0]
   }
 
-  serialize() {
+  get serialize() {
     return {
       master: this.master,
       variant_type: this.variantType(),
@@ -214,23 +214,34 @@ export default class Variant {
       description: this.description(),
       track_inventory: this.trackInventory(),
       backorderable: this.backorderable(),
-      weight: this.weight(),
-      weight_unit: this.weightUnit().serialize,
+      weight: this.trackWeight() ? this.weight() : null,
+      weight_unit: this.trackWeight() ? this.weightUnit().serialize : null,
       care_tags: this.careTags(),
       search_tags: this.searchTags(),
       inventory_multiplier: this.inventoryMultiplier(),
       inventory_multiplier_unit: this.inventoryMultiplierUnit().serialize,
       images: [],
+      downloads: [],
       seo_listing: this.seoListing.serialize,
       customer_prices: [ this.customerPrice.serialize ],
-      product_variant_inventories: this.inventories.map(inventory => { product_inventory_id: inventory.temporaryId }),
+      product_variant_inventories: this.inventories.map(inventory => ({ product_inventory_id: inventory.temporaryId })),
       product_variant_personalization_fields: this.personalizationFields().map(field => field.serialize),
       product_option_value_variants: []
     }
   }
 
-  valid(){
+  get valid(){
+    return this._validAttrs() &&
+           this.seoListing.valid &&
+           this.customerPrice.valid &&
+           this.inventories.every(inventory => inventory.valid) &&
+           this.personalizationFields().every(field => field.valid)
+  }
 
+  _validAttrs() {
+    return !!this.title() &&
+           !!this.sku() &&
+           !!this.variantType()
   }
 
 

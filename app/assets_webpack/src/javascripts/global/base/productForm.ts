@@ -80,27 +80,28 @@ export default class ProductForm {
     return {
       merchants_portal_products_create_form: {
         product: {
-          product_type: "standard",
-          collection_items: [],
-          product_options: [],
-          product_variants: [ this.masterVariant.serialize ],
-          product_inventories: [ this.masterVariant.inventories.map(inventory => inventory.serialize) ]
+          ...{
+            product_type: "standard",
+            collection_items: [],
+            product_options: [],
+            product_variants: [ this.masterVariant.serialize ],
+            product_inventories: this.masterVariant.inventories.map(inventory => inventory.serialize)
+          },
+          ...(this.brand == undefined ? {} : this.brand.serialize)
         }
       }
     }
   }
 
-  valid() {
-  }
-
-  preview() {
+  get valid() {
+    return this.masterVariant.valid
   }
 
   save() {
     this.errors([])
     this.isSaving(true)
-    const formData = serialize(this.serialize)
-    Api.Utilities.postRequest(this.__.urls.create, formData, true).then((response: any) => {
+    // let formData = serialize(this.serialize, { allowEmptyArrays: true, nullsAsUndefineds: true })
+    Api.Utilities.postRequest(this.__.urls.create, this.serialize).then((response: any) => {
       this.isSaving(false)
       if (response.success) { Turbolinks.visit(response.url) } 
       else { this.errors(response.errors) }

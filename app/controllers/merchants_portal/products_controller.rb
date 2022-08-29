@@ -9,6 +9,12 @@ class MerchantsPortal::ProductsController < MerchantsPortal::BaseController
     @products_create_form = MerchantsPortal::Products::CreateForm.new
     @products_create_form.prepopulate
     add_breadcrumb "New Product", :new_merchants_portal_product_path
+    
+    js(
+      brands: Brand.select(:id, :name).as_json,
+      locations: Location.select(:id, :name).as_json,
+      urls: { create: merchants_portal_products_url }
+    )
   end
 
   def create

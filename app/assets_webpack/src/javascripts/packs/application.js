@@ -41,7 +41,7 @@ import "../../stylesheets/application"
 
 
 // Images
-require.context('../../images', true, /\.(gif|png|jpe?g|svg)$/i)
+requireAll(require.context('../../images', true, /\.(gif|png|jpe?g|svg)$/i));
 
 
 

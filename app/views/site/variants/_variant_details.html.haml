@@ -26,15 +26,21 @@
             %span.font-size-16{ "data-bind": "text: subtitle" }
             %br/
 
+        -# Options & Option Values
+        -# ------------------------
+        -# .mb-4.width-300
+        -#   %select.select2
+
+
+        -# Personalization Fields
+        -# -----------------------
+        -# .mb-4.width-300
+
         .mb-4.width-300
-          %select.select2
-            %optgroup{:label => "Group 1"}
-              %option{:selected => "selected"} Red
-              %option Blue
-            %optgroup{:label => "Group 2"}
-              %option Black
-              %option Green
-              %option White
+          .form-group.col-md-12
+            %label.form-label Quantity
+            %input.form-control{ type: "number", step: 1, "data-bind": "attr: { min:  customerPrice.minimumOrderQuantity }" }/
+          
         %a.width-200.btn.btn-success.btn-with-addon.mr-auto.mb-3.text-nowrap.d-none.d-md-block{ href: "" }
           %span.btn-addon
             %i.btn-addon-icon.fa.fa-plus-circle
@@ -47,37 +53,11 @@
               %li.nav-item
                 %a#tab-description.nav-link.py-3{"data-toggle" => "tab", :href => "#tab__deliveryInfo__content"} Delivery Info
         .tab-content
-          #tab-information-content.tab-pane.active{"aria-labelledby" => "tab-information-content", :role => "tabpanel"}
+          #tab__productInfo__content.tab-pane.active{"aria-labelledby" => "tab__productInfo__content", :role => "tabpanel"}
+            %p{ "data-bind": "html: description"}
             %p
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the 1500s, when an unknown
-              printer took a galley of type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into electronic typesetting,
-              remaining essentially unchanged.
-            %p
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-              has been the industry's standard dummy text ever since the 1500s, when an unknown
-              printer took a galley of type.
-
--# :javascript
--#   /////////////////////////////////////////////////////////////////////////////////////////
--#   // "ECOMMERCE" module scripts
-
--#   ; (function ($) {
--#     'use strict'
--#     $(function () {
--#       /////////////////////////////////////////////////////////////////////////////////////////
--#       $('.select2').select2()
--#       $('.vb__ecommerce__productThumb').on('click', function () {
--#         $('.vb__ecommerce__productMainImage img').attr(
--#           'src',
--#           $(this)
--#             .find('img')
--#             .attr('src'),
--#         )
--#         $('.vb__ecommerce__productThumb').removeClass('border-primary')
--#         $(this).addClass('border-primary')
--#       })
--#       /////////////////////////////////////////////////////////////////////////////////////////
--#     })
--#   })(jQuery)
+              Care Instructions:
+              %ul{ "data-bind": "foreach: careTags"}
+                %li{ "data-bind": "text: $data" }
+        .tab-content
+          #tab__deliveryInfo__content.tab-pane{"aria-labelledby" => "tab__deliveryInfo__content", :role => "tabpanel"}

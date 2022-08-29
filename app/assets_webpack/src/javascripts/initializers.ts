@@ -2,6 +2,7 @@ import ScrollBarModule from "./global/components/scrollBarModule"
 import ToolTipModule from "./global/components/toolTipModule"
 import Select2Module from "./global/components/select2Module"
 import MenuLeftModule from "./global/layout/menuLeftModule"
+import ImageSwapperModule from "./global/components/imageSwapperModule"
 
 export default class Initializers {
   static initScrollBarModule() {
@@ -17,6 +18,10 @@ export default class Initializers {
 
   static initSelect2() {
     new Select2Module().init()
+  }
+
+  static initImageSwapperModule() {
+    new ImageSwapperModule().init()
   }
 
   static initGlobals() {

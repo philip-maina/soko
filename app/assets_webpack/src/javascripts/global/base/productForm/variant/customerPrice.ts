@@ -35,6 +35,12 @@ export default class CustomerPrice {
     }
   }
 
+  get valid() {
+    return !!this.price() &&
+      !!this.compareAtPrice() &&
+      !!this.minimumOrderQuantity()
+  }
+
   init() {
     return this
   }

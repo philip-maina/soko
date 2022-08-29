@@ -7,7 +7,7 @@ export default class Attachment {
   __: {}
 
   constructor(options: {
-    rawFile: File,
+    rawFile?: File,
     dataUrl: string
   }) {
     this.name    = options.rawFile.name

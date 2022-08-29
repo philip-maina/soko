@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Dir[Rails.root.join('db/seeds/*.rb')].sort.each { |seed_file| require(seed_file) }
+
+if Rails.env.development?
+  Seeder.seed_locations
+  Seeder.seed_brands
+end

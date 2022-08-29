@@ -8,10 +8,9 @@ Paloma.controller("MerchantsPortal/Products", {
   },
   new: function () {
     const form = new ProductForm({
-      locations: [
-        { id: 1, name: "Muhoho Ave." },
-        { id: 2, name: "Langata Otiende"}
-      ],
+      brands: this.params.brands,
+      locations: this.params.locations,
+      urls: this.params.urls,
       units: [
         { name: "pcs", measurementType: "quantity" },
 
@@ -29,12 +28,6 @@ Paloma.controller("MerchantsPortal/Products", {
         { name: "cm2", measurementType: "area" },
         { name: "m2", measurementType: "area" }
       ],
-      brands: [
-        { id: 0, name: "Barnes & Nobles" },
-        { id: 1, name: "Macmillan Publishers" },
-        { id: 2, name: "Hachette Livre" }
-      ],
-      urls: { create: "" },
       options: [],
       variants: [],
       collectionItems: [],
@@ -44,6 +37,7 @@ Paloma.controller("MerchantsPortal/Products", {
 
     ko.applyBindings(form, $("[data-product-form]")[0])
     window.productForm = form
+    Initializers.initImageSwapperModule()
   },
   create: function () {
   },

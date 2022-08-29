@@ -60,8 +60,8 @@ class MerchantsPortal::Products::CreateParams
         :backorderable,
         :visible_on_storefront,
         :giftable,
-        :images,
-        :downloads,
+        images: [],
+        downloads: [],
         care_tags: [],
         search_tags: [],
         seo_listing: seo_listing_attrs,
@@ -78,7 +78,7 @@ class MerchantsPortal::Products::CreateParams
         :location_id,
         :unit,
         :quantity_on_hand, 
-        :low_stock_threshold,
+        :low_inventory_threshold,
         :expires_on
       ]
     end

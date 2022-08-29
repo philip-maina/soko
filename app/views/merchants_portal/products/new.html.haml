@@ -5,9 +5,9 @@
       .text-nowrap.d-inline-block.text-dark
         %a.font-size-18.text-gray-6{:href => "#"} 
           %strong Product  PROD-000001
-        %span.badge.badge-pill.badge-success.ms-2
-          %i.fa.fa-check
-          PUBLISHED
+        %span.badge.badge-pill.badge-secondary.ms-2
+          %i.fa.fa-pencil-alt
+          DRAFT
         
     .d-flex.flex-wrap.font-size-18
       .me-3.my-2.text-nowrap
@@ -16,7 +16,7 @@
             %i.btn-addon-icon.far.fa-eye
           Preview
       .me-3.my-2.text-nowrap
-        %button.btn.btn-success.btn-with-addon
+        %button.btn.btn-success.btn-with-addon{ "data-bind": "click: save" }
           %span.btn-addon
             %i.btn-addon-icon.far.fa-plus-square
           Save

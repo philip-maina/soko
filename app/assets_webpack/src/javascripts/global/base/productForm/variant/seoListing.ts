@@ -4,6 +4,7 @@ export default class SeoListing {
   metaDescription: KnockoutObservable<string>
 
   constructor(params: {
+    id?: number,
     metaTitle?: string,
     metaDescription?: string 
   }) {
@@ -21,11 +22,15 @@ export default class SeoListing {
     }
   }
 
-  serialize() {
+  get serialize() {
     return {
       meta_title: this.metaTitle(),
       meta_description: this.metaDescription()
     }
+  }
+
+  get valid() {
+    return !!this.metaTitle() && !!this.metaDescription()
   }
 
   init() {

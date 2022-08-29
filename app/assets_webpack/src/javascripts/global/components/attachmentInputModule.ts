@@ -1,8 +1,10 @@
 import Attachment from "./attachmentInputModule/attachment"
+import placeHolderImageUrl from "../../images/gallery/product-placeholder-3.png"
 
 export default class AttachmentInputModule {
   attachments: KnockoutObservableArray<Attachment>
   defaultAttachment: KnockoutComputed<Attachment>
+  placeholderAttachment: Attachment
   
   __: {
     $module: JQuery<HTMLElement>
@@ -14,7 +16,7 @@ export default class AttachmentInputModule {
     attachments: Array<{
       name: string,
       dataUrl: string,
-      rawFile: File
+      rawFile?: File
     }>
   }) {
     this.attachments = ko.observableArray(
@@ -23,7 +25,8 @@ export default class AttachmentInputModule {
       })
     )
 
-    this.defaultAttachment = ko.pureComputed(() => this.attachments()[0])
+    this.defaultAttachment     = ko.pureComputed(() => this.attachments()[0])
+    this.placeholderAttachment = new Attachment({ dataUrl: placeHolderImageUrl })
 
     this.__ = {
       $module: params.$module,
